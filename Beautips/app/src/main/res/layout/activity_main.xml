@@ -288,14 +288,14 @@
 
     <TextView
         android:id="@+id/textView17num_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_width="88dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="137dp"
         android:fontFamily="@font/montserrat"
         android:text="61 Reviews"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="271dp" />
+        tools:layout_editor_absoluteX="282dp" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -304,11 +304,11 @@
         android:progressTint="#FFEC40"
         android:rating="3"
 
-        android:scaleX="0.6"
-        android:scaleY="0.6"
+        android:scaleX="0.65"
+        android:scaleY="0.65"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="116dp" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="124dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
