@@ -5,11 +5,28 @@ import java.util.Objects;
 public class Post {
 
     String ownerId;
+    String imageName;
     String postId;
     int numOfLikes;
     String imageUrl;
     String timeStamp;
     String pofileImageUrl;
+
+//    public Post(String imageUrl){
+//        this.imageUrl = imageUrl;
+//    }
+
+    public Post(String imageName){
+        this.imageName = imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
 
     public void setPofileImageUrl(String pofileImageUrl) {
         this.pofileImageUrl = pofileImageUrl;

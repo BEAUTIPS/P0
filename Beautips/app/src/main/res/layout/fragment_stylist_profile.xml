@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-
-
-    <!-- Frame 455 -->
-
-    <!-- Frame 431 -->
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment">
 
 
     <TextView
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="74dp"
         android:fontFamily="@font/montserrat"
         android:text="#22 years"
         android:textColor="#0B0606"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toEndOf="@+id/size"
-        tools:layout_editor_absoluteY="166dp"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar"
         tools:ignore="MissingConstraints" />
+
 
     <ImageView
         android:id="@+id/stylist_image"
@@ -32,10 +33,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="95dp"
         android:src="@drawable/myimage"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/stylist_name"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219"
         tools:ignore="MissingConstraints" />
 
     <View
@@ -45,23 +52,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="83dp"
         android:background="@drawable/frame_431"
         android:elevation="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/body_shape"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/stylist_name"
         tools:ignore="MissingConstraints" />
 
-
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="41dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="83dp"
         android:elevation="3dp"
-        android:src="@drawable/V"
+
+        android:src="@drawable/vvector"
         app:layout_constraintBottom_toBottomOf="@+id/frame_431"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="72dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/body_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/stylist_name"
+        tools:ignore="MissingConstraints" />
 
     <!-- Beautips advisor -->
 
@@ -78,21 +97,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="169dp"
-        android:layout_marginBottom="650dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="250dp"
         android:fontFamily="@font/montserrat"
         android:gravity="top"
         android:text="Abby shrinsk"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16"
+        android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -101,18 +116,21 @@
         android:layout_height="18dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="-1dp"
-        android:layout_marginEnd="169dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/montserrat"
         android:gravity="center_vertical"
         android:text="beautips_advisor"
         android:textAppearance="@style/beautips_ad"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/stylist_name"
-        app:layout_constraintTop_toBottomOf="@+id/stylist_name"
+        app:layout_constraintTop_toTopOf="@+id/stylist_name"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -121,30 +139,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="259dp"
-        android:layout_marginBottom="512dp"
+        android:layout_marginBottom="37dp"
         android:fontFamily="@font/montserrat"
         android:text="Followers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/body_shape"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.437" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="171dp"
-        android:layout_marginBottom="496dp"
+        android:layout_marginBottom="37dp"
         android:fontFamily="@font/montserrat"
         android:text="Likes"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.654"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/body_shape" />
 
@@ -155,15 +169,16 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="53dp"
-        android:layout_marginBottom="515dp"
+        android:layout_marginBottom="37dp"
         android:fontFamily="@font/montserrat"
         android:text="Customers"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/body_shape"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/body_shape" />
 
     <View
         android:id="@+id/line_"
@@ -171,10 +186,14 @@
         android:layout_height="50px"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="37dp"
         android:background="@drawable/line"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="247dp"
-        tools:layout_editor_absoluteY="214dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/num_customers"
+        app:layout_constraintStart_toEndOf="@+id/num_likes"
+        app:layout_constraintTop_toBottomOf="@+id/body_shape"
+        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/line_6"
@@ -182,23 +201,29 @@
         android:layout_height="50px"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/line"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="215dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/body_shape"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="219dp"
         android:layout_height="25dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="20dp"
         android:paddingBottom="2dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:tabIndicatorColor="#FA7575"
         app:tabTextAppearance="@style/tab_text"
         app:tabTextColor="@color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp">
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -215,100 +240,145 @@
         android:id="@+id/nums_follows"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="61dp"
         android:text="110"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="241dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toStartOf="@+id/num_likes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/num_likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="61dp"
         android:text="110"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="241dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toStartOf="@+id/num_customers"
+        app:layout_constraintStart_toEndOf="@+id/nums_follows"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/num_customers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="61dp"
         android:text="110"
-        tools:layout_editor_absoluteX="291dp"
-        tools:layout_editor_absoluteY="241dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/num_likes"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:ignore="MissingConstraints" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="420dp"
         android:layout_height="442dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="290dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/body_shape"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="74dp"
         android:fontFamily="@font/montserrat"
         android:text="#Round Shape"
         android:textColor="#050303"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="166dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/size"
+        app:layout_constraintStart_toEndOf="@+id/stylist_image"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="74dp"
         android:fontFamily="@font/montserrat"
         android:text="#M"
         android:textColor="#0C0606"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar"
         app:layout_constraintStart_toEndOf="@+id/body_shape"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="166dp" />
+        app:layout_constraintTop_toTopOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.454"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_follow"
         android:layout_width="69dp"
         android:layout_height="30dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
+
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
         android:background="@android:color/white"
         android:backgroundTint="#FA7575"
         android:fontFamily="@font/montserrat"
         android:text="Follow"
-
         android:textColor="@color/white"
         android:textSize="9sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="313dp"
-        tools:layout_editor_absoluteY="81dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView17num_review"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stylist_name"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView17num_review"
         android:layout_width="88dp"
         android:layout_height="33dp"
-        android:layout_marginTop="137dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="100dp"
         android:fontFamily="@font/montserrat"
         android:text="61 Reviews"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="282dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ratingBar"
+        app:layout_constraintTop_toBottomOf="@+id/stylist_title"
+        tools:ignore="MissingConstraints" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="248dp"
         android:layout_height="50dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="95dp"
         android:progressTint="#FFEC40"
         android:rating="3"
-
         android:scaleX="0.65"
         android:scaleY="0.65"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="124dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stylist_name"
+        app:layout_constraintVertical_bias="0.181"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

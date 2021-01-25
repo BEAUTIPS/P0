@@ -1,4 +1,4 @@
-package com.laioffer.beautips.Fragments.StylistPage;
+package com.laioffer.beautips.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,13 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.laioffer.beautips.databinding.StylistPostBinding;
+import com.laioffer.beautips.databinding.FragmentTestfrag2Binding;
+import com.laioffer.beautips.databinding.FragmentTestfragBinding;
 
-public class StylistPostFragment extends Fragment{
+public class testFrag2 extends Fragment {
+
+    FragmentTestfrag2Binding binding;
 
 
-    // bind the stylist_post xml;
-    private StylistPostBinding binding;
 
 
 
@@ -23,7 +24,5 @@ public class StylistPostFragment extends Fragment{
 
         binding = binding.inflate(inflater, container, false);
         return binding.getRoot();
-        // Inflate the layout for this fragment
     }
-
 }

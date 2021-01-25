@@ -1,4 +1,4 @@
-package com.laioffer.beautips.Fragments.StylistPage;
+package com.laioffer.beautips.Fragments.StylistPage.StylistPost;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.laioffer.beautips.Models.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.laioffer.beautips.R;
@@ -25,6 +26,13 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
 
     private Context context;
     private List<Post> posts;
+
+
+    public StylistPostAdapter(Context context, ArrayList<Post> postList) {
+
+        this.context = context;
+        this.posts = postList;
+    }
 
 
     @NonNull
@@ -44,7 +52,7 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
         Post postImage = posts.get(position);
         //Load Post Image
         Glide.with(holder.itemView)
-                .load(postImage.getImageUrl())
+                .load(getImage(postImage.getImageName()))
                 .fitCenter()
                 .into(holder.post);
         // modify all the text view
@@ -53,9 +61,14 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
 
         // get Profile Image url
         Glide.with(holder.itemView)
-                .load(postImage.getPofileImageUrl())
+                .load(getImage(postImage.getPofileImageUrl()))
                 .fitCenter()
                 .into(holder.stylistPic);
+    }
+
+    private int getImage(String imageName) {
+        int drawableResourceId = context.getResources().getIdentifier(imageName, "drawable-v24", context.getPackageName());
+        return drawableResourceId;
     }
 
 
@@ -64,8 +77,9 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
         return posts.size();
     }
 
-    /*
 
+
+    /*
     This is the holder class for an individual post item;
      */
     public static class StylistPostViewHolder extends RecyclerView.ViewHolder {
