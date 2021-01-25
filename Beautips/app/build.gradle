@@ -6,7 +6,12 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
-    defaultConfig {
+    viewBinding {
+        enabled = true
+    }
+
+
+        defaultConfig {
         applicationId "com.laioffer.beautips"
         minSdkVersion 21
         targetSdkVersion 30
@@ -29,6 +34,9 @@ android {
 }
 
 dependencies {
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'

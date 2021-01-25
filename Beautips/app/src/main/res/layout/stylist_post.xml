@@ -20,7 +20,7 @@
 
 
             <ImageView
-                android:id="@+id/image_view"
+                android:id="@+id/post_pic"
                 android:layout_width="171dp"
                 android:layout_height="273dp"
                 android:scaleType="centerCrop"
@@ -28,7 +28,7 @@
 
 
             <ImageView
-                android:id="@+id/stylist_id"
+                android:id="@+id/stylist_profile_image"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="-10px"
