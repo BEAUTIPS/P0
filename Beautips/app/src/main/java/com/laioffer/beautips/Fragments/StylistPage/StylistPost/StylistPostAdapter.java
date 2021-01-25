@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.laioffer.beautips.Models.Post;
 
 import java.util.ArrayList;
@@ -53,6 +55,7 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
         //Load Post Image
         Glide.with(holder.itemView)
                 .load(getImage(postImage.getImageName()))
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                 .fitCenter()
                 .into(holder.post);
         // modify all the text view

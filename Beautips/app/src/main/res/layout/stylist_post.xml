@@ -1,87 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_width="171dp"
-    android:layout_height="273dp"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="10dp">
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/postPic"
+        android:layout_width="178dp"
+        android:layout_height="230dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <ImageView
+        android:id="@+id/stylist_profile_image"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="185dp"
+        android:layout_marginEnd="139dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:src="@drawable/myimage"
+        app:layout_constraintBottom_toBottomOf="@+id/postPic"
+        app:layout_constraintEnd_toEndOf="@+id/postPic"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/postPic"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/stylist_name_post"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="206dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Abby"
+        android:textColor="#FFFFFF"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/postPic"
+        app:layout_constraintEnd_toEndOf="@+id/postPic"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="@+id/postPic"
+        app:layout_constraintTop_toTopOf="@+id/postPic"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/thumb"
+        android:layout_width="34dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="205dp"
+        android:layout_marginEnd="39dp"
+        android:elevation="3px"
+        android:src="@drawable/thumbs"
+        app:layout_constraintBottom_toBottomOf="@+id/postPic"
+        app:layout_constraintEnd_toEndOf="@+id/postPic"
+        app:layout_constraintStart_toStartOf="@+id/postPic"
+        app:layout_constraintTop_toTopOf="@+id/postPic"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/num_thums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="210dp"
+        android:fontFamily="@font/montserrat"
+        android:text="2k"
+        android:textColor="#FFFFFF"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/postPic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/postPic"
+        app:layout_constraintVertical_bias="0.2"
+        tools:ignore="MissingConstraints" />
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-
-            <ImageView
-                android:id="@+id/post_pic"
-                android:layout_width="171dp"
-                android:layout_height="273dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/test" />
-
-
-            <ImageView
-                android:id="@+id/stylist_profile_image"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="-10px"
-                android:layout_marginTop="530px"
-                android:cropToPadding="true"
-                android:scaleX="0.6"
-                android:scaleY="0.6"
-                android:src="@drawable/myimage" />
-
-
-            <TextView
-                android:id="@+id/stylist_name_post"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dip"
-                android:layout_marginTop="219dip"
-                android:layout_marginBottom="5dip"
-                android:fontFamily="@font/montserrat"
-                android:text="Abby"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp" />
-
-            <ImageView
-                android:id="@+id/thumb"
-                android:layout_width="34dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="103dip"
-                android:layout_marginTop="220dip"
-                android:layout_marginBottom="5dip"
-                android:elevation="3px"
-                android:src="@drawable/thumbs" />
-
-            <TextView
-                android:id="@+id/num_thums"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="128dip"
-                android:layout_marginTop="219dip"
-                android:layout_marginBottom="5dip"
-                android:fontFamily="@font/montserrat"
-                android:text="2k"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp" />
-
-        </FrameLayout>
-
-
-
-
-
-
-    </LinearLayout>
-
-
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
