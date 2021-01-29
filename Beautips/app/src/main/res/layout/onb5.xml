@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:src="@drawable/group_428"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="192dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/your_style_tips_are_ready"
+        android:layout_width="193dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_horizontal"
+        android:text="Your style tips are ready"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+
+    <TextView
+        android:id="@+id/shape"
+        android:layout_width="96dp"
+        android:layout_height="17dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16dp"
+
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="340dp" />
+
+    <ImageButton
+        android:id="@+id/sign_up"
+        android:layout_width="153dp"
+        android:layout_height="40dp"
+        android:background="@drawable/frame_419_2"
+        android:gravity="center_horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="600dp" />
+
+
+    <TextView
+        android:id="@+id/see_style_tips"
+        android:layout_width="153dp"
+        android:layout_height="40dp"
+
+        android:gravity="center_horizontal|top"
+        android:text="See"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="657dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
