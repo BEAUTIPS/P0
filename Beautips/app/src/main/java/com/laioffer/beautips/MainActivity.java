@@ -6,8 +6,16 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.laioffer.beautips.Models.Stylist;
+import com.laioffer.beautips.Network.RetrofitClient;
+import com.laioffer.beautips.Network.StylistProfileApi;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +35,34 @@ public class MainActivity extends AppCompatActivity {
         //controller --> fragment, navigation view
         NavigationUI.setupWithNavController(navView, navController);
         NavigationUI.setupActionBarWithNavController(this, navController);
+
+
+
+        //Get StylistInfo
+        //Test
+        StylistProfileApi StylistProfileApi = RetrofitClient.newInstance(this).create(StylistProfileApi.class);
+
+        Stylist stylistName = new Stylist("Abby");
+        Log.i("test", stylistName.toString());
+        Call<Stylist> callResult = StylistProfileApi.getStylistInfo(stylistName);
+
+        callResult.enqueue(new Callback<Stylist>() {
+            @Override
+            public void onResponse(Call<Stylist> call, Response<Stylist> response) {
+                if (response.isSuccessful()) {
+                    Log.i("Successful", response.body().toString());
+
+                } else {
+                    Log.i("Failure status code:", String.valueOf(response.code()));
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Stylist> call, Throwable t) {
+                Log.i("Sth is wrong",t.toString());
+
+            }
+        });
     }
 }

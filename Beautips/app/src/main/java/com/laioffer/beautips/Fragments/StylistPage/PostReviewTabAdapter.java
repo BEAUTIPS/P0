@@ -25,7 +25,6 @@ public class PostReviewTabAdapter extends FragmentStatePagerAdapter {
 
     }
 
-
     /*
     This method defines how to switch between different tabs
      */
