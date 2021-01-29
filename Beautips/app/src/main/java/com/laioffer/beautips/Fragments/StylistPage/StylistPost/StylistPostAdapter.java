@@ -1,6 +1,7 @@
 package com.laioffer.beautips.Fragments.StylistPage.StylistPost;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.Utils.GlideApp;
 import com.laioffer.beautips.databinding.StylistPostBinding;
 
 /*
@@ -40,7 +42,7 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
     @NonNull
     @Override
     public StylistPostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.scroll_stylist_posts, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.stylist_post, parent, false);
         return new StylistPostViewHolder(view);
     }
 
@@ -53,24 +55,25 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
 
         Post postImage = posts.get(position);
         //Load Post Image
-        Glide.with(holder.itemView)
+        GlideApp.with(holder.itemView)
                 .load(getImage(postImage.getImageName()))
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                 .fitCenter()
                 .into(holder.post);
         // modify all the text view
-        holder.likeCount.setText(postImage.getNumOfLikes());
+        holder.likeCount.setText(String.valueOf(postImage.getNumOfLikes()));
         holder.stylistName.setText(postImage.getOwnerId());
 
-        // get Profile Image url
-        Glide.with(holder.itemView)
-                .load(getImage(postImage.getPofileImageUrl()))
-                .fitCenter()
-                .into(holder.stylistPic);
+//        // get Profile Image url
+//        GlideApp.with(holder.itemView)
+//                .load(getImage(postImage.getPofileImageUrl()))
+//                .fitCenter()
+//                .into(holder.stylistPic);
     }
 
     private int getImage(String imageName) {
-        int drawableResourceId = context.getResources().getIdentifier(imageName, "drawable-v24", context.getPackageName());
+        int drawableResourceId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+
         return drawableResourceId;
     }
 

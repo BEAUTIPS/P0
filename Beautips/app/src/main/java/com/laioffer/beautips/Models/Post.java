@@ -22,6 +22,10 @@ public class Post {
 
     public void setImageName(String imageName) {
         this.imageName = imageName;
+        this.numOfLikes = 0 ;
+        this.ownerId = "1234";
+        this.imageUrl = "@drawable/myimage";
+
     }
 
     public String getImageName() {
@@ -33,11 +37,11 @@ public class Post {
     }
 
     public String getPofileImageUrl() {
-        return pofileImageUrl;
+        return this.pofileImageUrl;
     }
 
     public String getOwnerId() {
-        return ownerId;
+        return this.ownerId;
     }
 
     public String getPostId() {
@@ -45,7 +49,7 @@ public class Post {
     }
 
     public int getNumOfLikes() {
-        return numOfLikes;
+        return this.numOfLikes;
     }
 
     public String getImageUrl() {

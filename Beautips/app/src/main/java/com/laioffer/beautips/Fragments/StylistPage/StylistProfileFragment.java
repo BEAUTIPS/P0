@@ -48,7 +48,6 @@ public class StylistProfileFragment extends Fragment {
         // find all the other states
         // Not implement
 
-
         viewPager = binding.viewPager;
         viewPager.setOffscreenPageLimit(2);
         tabLayout = binding.tab;
