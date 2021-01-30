@@ -71,10 +71,9 @@ public class StylistProfileFragment extends Fragment {
                                 binding.stylistName.setText(response.getName());
                                 binding.stylistTitle.setText(response.getTitle());
                                 binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
+                                binding.textView17numReview.setText(String.valueOf(response.getNumOfReviews()) + " reviews");
                             }
                         });
-
-
 
 
         viewPager = binding.viewPager;
