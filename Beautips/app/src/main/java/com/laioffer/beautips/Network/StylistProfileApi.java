@@ -24,6 +24,9 @@ public interface StylistProfileApi {
     @POST("stylistsinfos")
     Call<Stylist> getStylistInfo(@Body Stylist stylist);
 
+    //POST
+    //Call<Boolean> string Login(@Body email, password);
+
 
 //    @Headers("Content-Type: application/json")
 //    @POST("users")

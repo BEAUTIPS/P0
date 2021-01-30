@@ -1,5 +1,6 @@
 package com.laioffer.beautips.Fragments.StylistPage.StylistPost;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,20 +11,25 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.laioffer.beautips.Fragments.StylistPage.PostReviewTabAdapter;
 import com.laioffer.beautips.Models.Post;
+import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
 
+import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
+import com.laioffer.beautips.Repository.StylistPostRepository;
+import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
 import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
 import com.laioffer.beautips.databinding.StylistPostBinding;
 
 import java.util.ArrayList;
 
 public class StylistPostFragment extends Fragment {
-
 
 
     Context context;
@@ -42,14 +48,19 @@ public class StylistPostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.scroll_stylist_posts, container, false);
+          return inflater.inflate(R.layout.scroll_stylist_posts, container, false);
+//        binding = binding.inflate(inflater, container, false);
+//        return binding.getRoot();
     }
 
 
 
+    @SuppressLint("LongLogTag")
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.context = getContext();
+
+        //recycler view image show
         recyclerView = view.findViewById(R.id.swipe_post_recycler_view);
         testlocalData();
         Log.i("size of list",String.valueOf(postList.size()));

@@ -1,6 +1,8 @@
 package com.laioffer.beautips.Fragments.StylistPage;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +10,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
+import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
 
 
@@ -22,6 +28,8 @@ public class StylistProfileFragment extends Fragment {
     private FragmentStylistProfileBinding binding;
     public static TabLayout tabLayout;
     private PostReviewTabAdapter adapter;
+    StylistPostViewModel stylistViewModel;
+    Context context;
 
 
 
@@ -43,10 +51,31 @@ public class StylistProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        StylistPostRepository repository = new StylistPostRepository(getContext());
+        stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
+                .get(StylistPostViewModel.class);
+
+        stylistViewModel
+                .getStylistInfo("Abby")
+                .observe(
+                        getViewLifecycleOwner(),
+                        response -> {
+                            if (response != null) {
+                                Log.d("TestResult", response.toString());
+                                //Binding set text
+                                binding.age.setText("#" + String.valueOf(response.getAge()) + " years");
+                                binding.numCustomers.setText(String.valueOf(response.getNumOfCustomers()));
+                                binding.bodyShape.setText("#" + response.getBodyShape() + " Shape");
+                                binding.size.setText("#" + response.getSize());
+                                binding.numLikes.setText(String.valueOf(response.getNumOfLikes()));
+                                binding.stylistName.setText(response.getName());
+                                binding.stylistTitle.setText(response.getTitle());
+                                binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
+                            }
+                        });
 
 
-        // find all the other states
-        // Not implement
+
 
         viewPager = binding.viewPager;
         viewPager.setOffscreenPageLimit(2);

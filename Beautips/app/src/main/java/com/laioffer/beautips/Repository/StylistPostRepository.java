@@ -25,6 +25,31 @@ public class StylistPostRepository {
 
     }
 
+    public MutableLiveData<Stylist> getStylistProfile(String name) {
+        final MutableLiveData<Stylist> result = new MutableLiveData<>();
+        Stylist stylistName = new Stylist(name);
+        Log.i("test", stylistName.toString());
+        Call<Stylist> callResult = StylistProfileApi.getStylistInfo(stylistName);
+
+        callResult.enqueue(new Callback<Stylist>() {
+            @Override
+            public void onResponse(Call<Stylist> call, Response<Stylist> response) {
+                if (response.isSuccessful()) {
+                    result.setValue(response.body());
+                    Log.i("Successful", response.body().toString());
+                } else {
+                    Log.i("Failure status code:", String.valueOf(response.code()));
+                    result.setValue(null);
+                }
+            }
+            @Override
+            public void onFailure(Call<Stylist> call, Throwable t) {
+                Log.i("Sth is wrong", t.toString());
+            }
+        });
+        return result;
+    }
+
 
 
 }

@@ -1,6 +1,10 @@
 package com.laioffer.beautips.Fragments.StylistPage.StylistPost;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 import com.laioffer.beautips.Models.Stylist;
@@ -15,6 +19,15 @@ public class StylistPostViewModel extends ViewModel {
     public StylistPostViewModel(StylistPostRepository stylistRepo) {
         this.repo = stylistRepo;
     }
+
+    public MutableLiveData<Stylist> getStylistInfo(String name){
+        Log.d("test_node", "here in the info func");
+
+        MutableLiveData<Stylist> result = this.repo.getStylistProfile(name);
+        return result;
+    }
+
+
 
 
 }

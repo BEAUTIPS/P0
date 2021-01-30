@@ -10,6 +10,31 @@ public class User {
     String size;
     int numOfLikes = 0 ;
     String email = "";
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setNumOfLikes(int numOfLikes) {
+        this.numOfLikes = numOfLikes;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getNumOfLikes() {
+        return numOfLikes;
+    }
+
     String password = "";
 
 
