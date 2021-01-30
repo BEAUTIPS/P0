@@ -12,6 +12,17 @@ public class Stylist extends User {
     int numOfCustomers;
     int numOfReviews;
     String title;
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
+    }
+
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    String profileImageUrl;
+
     List<String> Availability = new ArrayList<>();
     final boolean isValidate = true;
 

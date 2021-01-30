@@ -58,6 +58,27 @@ class Firebase_auth:
             # for doc in docs:
             #     print(f'{doc.id} => {doc.to_dict()}')
 
+    def retrieve_image(self, stylistName):
+        '''
+        This method retreive data from firbase
+        now it returns nothing
+        '''
+        if self.initialize_firestore_sucess and self.sign_in_success:
+            db = firestore.client()
+            users_ref = db.collection(u'Images').where(u'ownerId', '==', stylistName).get()
+
+            images  = []
+            for doc in users_ref:
+                images.append(doc.to_dict())
+            print(images)
+            return images
+            # get all the nodes in the Styist node
+            # docs = users_ref.stream()
+            # #get all stylists
+            # for doc in docs:
+            #     print(f'{doc.id} => {doc.to_dict()}')
+
+
        
 
     def sign_in_with_email_and_password(self, email, password, return_secure_token = True):
@@ -95,6 +116,6 @@ if __name__ == "__main__":
     Firebase_instance = Firebase_auth()
     Firebase_instance.sign_in_with_email_and_password(email, password)
     # Firebase_instance.get_storage_bucket()
-    Firebase_instance.initialize_firestore_retrieve_data("Abby")
+    Firebase_instance.retrieve_image("Abby")
 
 

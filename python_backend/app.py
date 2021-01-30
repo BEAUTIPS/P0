@@ -2,6 +2,8 @@
 import flask
 from flask import jsonify, request
 from firebase_config_file import Firebase_auth
+from firebase_admin import storage
+
 
 app = flask.Flask(__name__)
 
@@ -18,11 +20,16 @@ Firebase_instance.sign_in_with_email_and_password(email, password)
 #Testing POST REQUEST
 @app.route('/stylistsinfos', methods=['GET', 'POST'])
 def handle_post_request():
-    #content = request.json
-    print(request.json)
+    content = request.json
     response = Firebase_instance.initialize_firestore_retrieve_data(request.json['name'])
     response['Availability'] = []
-    print(response)
+    return jsonify(response)
+
+@app.route('/stylistsposts', methods=['GET', 'POST'])
+def handle_stylist_post_request():
+    content = request.json
+    print("this is", content)
+    response = Firebase_instance.retrieve_image(content)
 
     return jsonify(response)
 

@@ -10,7 +10,7 @@ public class Post {
     int numOfLikes;
     String imageUrl;
     String timeStamp;
-    String pofileImageUrl;
+    String profileImageUrl;
 
 //    public Post(String imageUrl){
 //        this.imageUrl = imageUrl;
@@ -32,12 +32,12 @@ public class Post {
         return imageName;
     }
 
-    public void setPofileImageUrl(String pofileImageUrl) {
-        this.pofileImageUrl = pofileImageUrl;
+    public void setPofileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 
-    public String getPofileImageUrl() {
-        return this.pofileImageUrl;
+    public String getProfileImageUrl() {
+        return this.profileImageUrl;
     }
 
     public String getOwnerId() {

@@ -22,6 +22,7 @@ import java.util.List;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Utils.GlideApp;
 import com.laioffer.beautips.databinding.StylistPostBinding;
+import com.squareup.picasso.Picasso;
 
 /*
 
@@ -32,11 +33,20 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
     private List<Post> posts;
 
 
+
     public StylistPostAdapter(Context context, ArrayList<Post> postList) {
 
         this.context = context;
         this.posts = postList;
     }
+
+    
+    public void setPosts(List<Post> newsList) {
+        posts.clear();
+        posts.addAll(newsList);
+        notifyDataSetChanged();
+    }
+
 
 
     @NonNull
@@ -56,7 +66,7 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
         Post postImage = posts.get(position);
         //Load Post Image
         GlideApp.with(holder.itemView)
-                .load(getImage(postImage.getImageName()))
+                .load(postImage.getImageUrl())
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                 .fitCenter()
                 .into(holder.post);
@@ -64,11 +74,6 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
         holder.likeCount.setText(String.valueOf(postImage.getNumOfLikes()));
         holder.stylistName.setText(postImage.getOwnerId());
 
-//        // get Profile Image url
-//        GlideApp.with(holder.itemView)
-//                .load(getImage(postImage.getPofileImageUrl()))
-//                .fitCenter()
-//                .into(holder.stylistPic);
     }
 
     private int getImage(String imageName) {
@@ -104,7 +109,7 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
             stylistName = binding.stylistNamePost;
             likeCount = binding.numThums;
             thumbsUp = binding.thumb;
-            stylistPic = binding.stylistProfileImage;
+            stylistPic = binding.stylistProfileImage2;
         }
     }
 

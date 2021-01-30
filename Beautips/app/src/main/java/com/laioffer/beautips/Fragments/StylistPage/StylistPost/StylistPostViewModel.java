@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
+import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 
@@ -24,6 +25,13 @@ public class StylistPostViewModel extends ViewModel {
         Log.d("test_node", "here in the info func");
 
         MutableLiveData<Stylist> result = this.repo.getStylistProfile(name);
+        return result;
+    }
+
+    public LiveData<List<Post>> getStylistPosts(String name){
+        Log.d("test_node", "here in the info func");
+
+        LiveData<List<Post>> result = this.repo.getStylistPost(name);
         return result;
     }
 

@@ -1,11 +1,14 @@
 package com.laioffer.beautips.Fragments.StylistPage;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +22,10 @@ import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
+import com.squareup.picasso.Picasso;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class StylistProfileFragment extends Fragment {
@@ -72,6 +79,14 @@ public class StylistProfileFragment extends Fragment {
                                 binding.stylistTitle.setText(response.getTitle());
                                 binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
                                 binding.textView17numReview.setText(String.valueOf(response.getNumOfReviews()) + " reviews");
+
+                                Picasso.get()
+                                        .load(response.getProfileImageUrl())
+                                        .noFade().into(binding.stylistImage);
+
+                                Picasso.get()
+                                        .load(response.getProfileImageUrl())
+                                        .noFade().into((ImageView) getView().findViewById(R.id.stylist_profile_image2));
                             }
                         });
 

@@ -28,6 +28,7 @@ import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
 import com.laioffer.beautips.databinding.StylistPostBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StylistPostFragment extends Fragment {
 
@@ -35,6 +36,9 @@ public class StylistPostFragment extends Fragment {
     Context context;
     RecyclerView recyclerView;
     StylistPostAdapter StylistPostAdapter;
+    StylistPostViewModel stylistViewModel;
+    ScrollStylistPostsBinding binding;
+    private List<Post> Posts;
 
 
 
@@ -48,9 +52,9 @@ public class StylistPostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-          return inflater.inflate(R.layout.scroll_stylist_posts, container, false);
-//        binding = binding.inflate(inflater, container, false);
-//        return binding.getRoot();
+          //return inflater.inflate(R.layout.scroll_stylist_posts, container, false);
+        binding = binding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
 
@@ -62,25 +66,32 @@ public class StylistPostFragment extends Fragment {
 
         //recycler view image show
         recyclerView = view.findViewById(R.id.swipe_post_recycler_view);
-        testlocalData();
         Log.i("size of list",String.valueOf(postList.size()));
         //use grid layout
         int numberOfColumns = 2;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+
         StylistPostAdapter = new StylistPostAdapter(context, postList);
         recyclerView.setAdapter(StylistPostAdapter);
 
+        StylistPostRepository repository = new StylistPostRepository(getContext());
+        stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
+                .get(StylistPostViewModel.class);
+
+        stylistViewModel
+                .getStylistPosts("Abby")
+                .observe(
+                        getViewLifecycleOwner(),
+                        response -> {
+                            if (response != null) {
+                                Log.d("TestResult for images for post frag", response.toString());
+                                //Binding set text
+                                Posts = response;
+                                StylistPostAdapter.setPosts(Posts);
+                            }
+                        });
 
     }
 
-    public void testlocalData(){
-        for (char i = '1' ; i < '8' ; i++){
-            String name = "" +'p' + i;
-            Log.i("file",name);
-            postList.add(new Post(name));
-        }
-
-
-    }
 
 }

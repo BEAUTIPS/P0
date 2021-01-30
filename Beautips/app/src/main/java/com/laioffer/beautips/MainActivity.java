@@ -37,19 +37,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController);
 
 
-//
-//        //Get StylistInfo
-//        //Test
-//        StylistProfileApi StylistProfileApi = RetrofitClient.newInstance(this).create(StylistProfileApi.class);
-//
-//        Stylist stylistName = new Stylist("Abby");
-//        Log.i("test", stylistName.toString());
-//        Call<Stylist> callResult = StylistProfileApi.getStylistInfo(stylistName);
-//
-//        callResult.enqueue(new Callback<Stylist>() {
-//            @Override
-//            public void onResponse(Call<Stylist> call, Response<Stylist> response) {
-//                if (response.isSuccessful()) {
 
     }
 }
