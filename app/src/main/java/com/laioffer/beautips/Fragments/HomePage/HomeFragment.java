@@ -1,0 +1,113 @@
+package com.laioffer.beautips.Fragments.HomePage;
+
+import android.content.Context;
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.laioffer.beautips.Models.Post;
+import com.laioffer.beautips.R;
+import com.laioffer.beautips.databinding.FragmentHomeBinding;
+
+import java.util.ArrayList;
+
+public class HomeFragment extends Fragment {
+
+    private static final String TAG = "homeFragment";
+    private DatabaseReference myRef;
+    private FragmentHomeBinding binding;
+    Context context;
+    RecyclerView recyclerView;
+    com.laioffer.beautips.Fragments.HomePage.HomeImageAdapter HomeImageAdapter;
+    private ArrayList<Post> postList = new ArrayList<>();
+
+    public HomeFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Log.i("size of list",String.valueOf(postList.size()));
+        super.onViewCreated(view, savedInstanceState);
+        this.context = getContext();
+        recyclerView = view.findViewById(R.id.news_results_recycler_view);
+        int numberOfColumns = 2;
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+        HomeImageAdapter = new HomeImageAdapter(context, postList);
+        recyclerView.setAdapter(HomeImageAdapter);
+        recyclerView.setHasFixedSize(true);
+
+        myRef = FirebaseDatabase.getInstance().getReference();
+        postList = new ArrayList<>();
+        ClearAll();
+        GetDataBaseFromFireBase();
+    }
+
+    private void GetDataBaseFromFireBase() {
+        Query query = myRef.child("Images");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()) {
+                    Post post = new Post();
+
+                    post.setImageName(snapshot.child("imageName").getValue().toString());
+                    post.setImageUrl(snapshot.child("imageUrl").getValue().toString());
+                    post.setNumOfLikes(Integer.parseInt(snapshot.child("numOfLikes").getValue().toString()));
+                    post.setOwnerId(snapshot.child("ownerId").getValue().toString());
+                    post.setProfileImageUrl(snapshot.child("profileImageUrl").getValue().toString());
+                    post.setPostId(snapshot.child("postId").getValue().toString());
+                    post.setTimeStamp(snapshot.child("timeStamp").getValue().toString());
+
+                    postList.add(post);
+                }
+
+                HomeImageAdapter = new HomeImageAdapter(context, postList);
+                recyclerView.setAdapter(HomeImageAdapter);
+                HomeImageAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    private void ClearAll () {
+        if (postList!= null) {
+            postList.clear();
+
+            if(HomeImageAdapter != null) {
+                HomeImageAdapter.notifyDataSetChanged();
+            }
+        }
+        postList = new ArrayList<>();
+    }
+
+}
