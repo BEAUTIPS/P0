@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_testfrag2.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/fragment_testfrag2.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/stylist_post.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/stylist_post.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/scroll_stylist_posts.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/scroll_stylist_posts.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_testfrag.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/fragment_testfrag.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_stylist_profile.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/fragment_stylist_profile.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_stylist_list.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/fragment_stylist_list.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/main_activity_placeholder.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/main_activity_placeholder.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_testfrag3.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/fragment_testfrag3.xml"
+    },
+    {
+        "merged": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/single_stylist_list.xml",
+        "source": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/src/main/res/layout/single_stylist_list.xml"
+    }
+]

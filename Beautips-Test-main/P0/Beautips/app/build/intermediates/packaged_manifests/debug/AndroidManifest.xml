@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.laioffer.beautips"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.laioffer.beautips.MainApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/Theme.Beautips"
+        android:usesCleartextTraffic="true" >
+        <activity android:name="com.laioffer.beautips.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.laioffer.beautips.com.squareup.picasso"
+            android:exported="false" />
+
+        <service
+            android:name="com.ashokvarma.gander.internal.support.ClearTransactionsService"
+            android:exported="false" />
+        <service
+            android:name="com.ashokvarma.gander.internal.support.DismissNotificationService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.ashokvarma.gander.internal.ui.list.TransactionListActivity"
+            android:label="@string/gander_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.ashokvarma.gander.task"
+            android:theme="@style/Gander.Theme" />
+        <activity
+            android:name="com.ashokvarma.gander.internal.ui.details.TransactionDetailsActivity"
+            android:parentActivityName="com.ashokvarma.gander.internal.ui.list.TransactionListActivity"
+            android:theme="@style/Gander.Theme" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.laioffer.beautips.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>
