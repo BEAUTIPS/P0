@@ -34,11 +34,11 @@ public class Post {
         return imageName;
     }
 
-    public void setProfileImageUrl(String pofileImageUrl) {
-        this.profileImageUrl = pofileImageUrl;
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 
-    public String getPofileImageUrl() {
+    public String getProfileImageUrl() {
         return this.profileImageUrl;
     }
 

@@ -34,5 +34,8 @@
             @font/montserrat
         </item>
     </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@color/light_blue</item>
+    </style>
 
 </resources>

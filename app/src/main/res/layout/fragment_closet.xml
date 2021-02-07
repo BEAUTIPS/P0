@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.ClosetPage.ClosetFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_margin="24dp"
+        android:layout_marginTop="45dp"
+        android:fontFamily="Montserrat"
+        android:text="Matched for You"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:textSize="14dp"
+            android:fontFamily="Montserrat"
+            android:text="Body shape"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="2"
+            android:fontFamily="Montserrat"
+            android:text="Round"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:textSize="14dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:textSize="14dp"
+            android:fontFamily="Montserrat"
+            android:text="Occasion"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/occasion"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="2"
+            android:fontFamily="Montserrat"
+            android:text="+"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:textSize="14dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/hidelist"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:visibility="invisible"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:textSize="14dp"
+            android:fontFamily="Montserrat"
+            android:text="Party"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="2"
+            android:fontFamily="Montserrat"
+            android:text="Beach"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="3"
+            android:fontFamily="Montserrat"
+            android:text="Daily Life"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:textSize="14dp"
+            android:fontFamily="Montserrat"
+            android:text="Dress Code"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="2"
+            android:fontFamily="Montserrat"
+            android:text="Casul"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:textSize="14dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:textSize="14dp"
+            android:fontFamily="Montserrat"
+            android:text="Size"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="2"
+            android:fontFamily="Montserrat"
+            android:text="Top M"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:textSize="14dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_weight="2"
+            android:fontFamily="Montserrat"
+            android:text="Bottom M"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:textSize="14dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_height="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:textSize="14dp"
+            android:fontFamily="Montserrat"
+            android:text="Clear All"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:background="#FF629C"
+            android:textColor="@color/white"
+            android:layout_weight="2"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/news_results_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</LinearLayout>
