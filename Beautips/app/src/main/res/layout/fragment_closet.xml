@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.laioffer.beautips.Fragments.UserCloset.UserClosetFragment">
+
+    <TextView
+        android:id="@+id/claim"
+        android:layout_width="153dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="21.94dp"
+        android:text="Matched for You"
+        android:textColor="#000000"
+        android:textFontWeight="600"
+        android:textStyle="normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/body_shape"
+        android:layout_width="72dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Body Shape"
+        android:textColor="#000000"
+        android:textFontWeight="500"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/claim"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/body_shape_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Round"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/body_shape"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:layout_width="374dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="24dp"
+        android:background="#F1F1F1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/body_shape" />
+
+    <TextView
+        android:id="@+id/occasion"
+        android:layout_width="63dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Occasion"
+        android:textColor="#000000"
+        android:textFontWeight="500"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/body_shape"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/occasion_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="+"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/occasion"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:layout_width="374dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="24dp"
+        android:background="#F1F1F1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/occasion" />
+
+    <TextView
+        android:id="@+id/dress_code"
+        android:layout_width="69dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Dress Code"
+        android:textColor="#000000"
+        android:textFontWeight="500"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/occasion"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/dress_code_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Casual"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dress_code"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:layout_width="374dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="24dp"
+        android:background="#F1F1F1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dress_code" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Size"
+        android:textColor="#000000"
+        android:textFontWeight="500"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dress_code"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/bottom_size_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Bottom M"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/size"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/top_size_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="Top M"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintEnd_toStartOf="@id/bottom_size_selected"
+        app:layout_constraintTop_toTopOf="@+id/size"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:layout_width="374dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="24dp"
+        android:background="#F1F1F1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/size" />
+
+    <TextView
+        android:id="@+id/clear_all"
+        android:layout_width="49dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="clear all"
+        android:textColor="#AAAAAA"
+        android:textFontWeight="500"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/size"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/number_matched"
+        android:layout_width="110dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:text="0 suit matched"
+        android:textColor="#666666"
+        android:textFontWeight="400"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clear_all"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

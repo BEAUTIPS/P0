@@ -35,5 +35,11 @@ def handle_user_info():
     response = "The user sending request is: " + User['name'] + ".His age is: " + str(User['age'])
     return jsonify(response)
 
+# Closet
+app.route('/closet', methods=['POST'])
+def handle_closet_info():
+    post = request.json
+    print(post)
+
 
 app.run(host="0.0.0.0", port=5000, debug=True)

@@ -13,6 +13,13 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_closet"
+        android:name="com.laioffer.beautips.Fragments.UserCloset.UserClosetFragment"
+        tools:layout="@layout/fragment_closet" >
+
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_profile_page"
         android:name="com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment"
         tools:layout="@layout/fragment_stylist_profile" >

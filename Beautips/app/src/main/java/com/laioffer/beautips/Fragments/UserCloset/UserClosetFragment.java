@@ -1,4 +1,4 @@
-package com.laioffer.beautips.Fragments.StylistPage;
+package com.laioffer.beautips.Fragments.UserCloset;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,31 +11,18 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.laioffer.beautips.R;
+import com.laioffer.beautips.Fragments.StylistPage.PostReviewTabAdapter;
 import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
 
-
-public class StylistProfileFragment extends Fragment {
-
-
+public class UserClosetFragment extends Fragment {
     public static ViewPager viewPager;
     private FragmentStylistProfileBinding binding;
     public static TabLayout tabLayout;
     private PostReviewTabAdapter adapter;
 
-
-
-    public StylistProfileFragment() {
-        // Required empty public constructor
-    }
-
-    /*
-    When create, bind with xml file
-     */
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = binding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -53,7 +40,6 @@ public class StylistProfileFragment extends Fragment {
         viewPager.setOffscreenPageLimit(2);
         tabLayout = binding.tab;
         createTabFragment();
-
     }
 
     private void createTabFragment(){
@@ -61,7 +47,4 @@ public class StylistProfileFragment extends Fragment {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }
-
-
-
-    }
+}
