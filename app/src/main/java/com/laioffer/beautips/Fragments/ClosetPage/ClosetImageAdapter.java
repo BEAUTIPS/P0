@@ -1,6 +1,7 @@
 package com.laioffer.beautips.Fragments.ClosetPage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.laioffer.beautips.Fragments.HomePage.HomeImageAdapter;
+import com.laioffer.beautips.MainActivity2;
 import com.laioffer.beautips.Models.Closet;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Utils.GlideApp;
@@ -58,6 +60,11 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
                 .load(getImage(postImage.getProfileImageUrl()))
                 .fitCenter()
                 .into(holder.stylistPic);*/
+        holder.itemView.setOnClickListener((view) ->{
+                Intent intent = new Intent(context, MainActivity2.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("image_url", ClosetImage.getImageUrl());
+        });
     }
 
     private int getImage(String imageName) {
