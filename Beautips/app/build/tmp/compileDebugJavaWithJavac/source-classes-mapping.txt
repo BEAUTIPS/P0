@@ -1,0 +1,57 @@
+com/laioffer/beautips/Models/Post.java
+ com.laioffer.beautips.Models.Post
+com/laioffer/beautips/Fragments/testFrag3.java
+ com.laioffer.beautips.Fragments.testFrag3
+com/laioffer/beautips/databinding/ScrollStylistPostsBinding.java
+ com.laioffer.beautips.databinding.ScrollStylistPostsBinding
+com/laioffer/beautips/Network/RetrofitClient.java
+ com.laioffer.beautips.Network.RetrofitClient
+com/laioffer/beautips/Fragments/StylistPage/StylistReview/StylistReviewFragment.java
+ com.laioffer.beautips.Fragments.StylistPage.StylistReview.StylistReviewFragment
+com/laioffer/beautips/BuildConfig.java
+ com.laioffer.beautips.BuildConfig
+com/laioffer/beautips/Network/StylistProfileApi.java
+ com.laioffer.beautips.Network.StylistProfileApi
+com/laioffer/beautips/Fragments/StylistPage/PostReviewTabAdapter.java
+ com.laioffer.beautips.Fragments.StylistPage.PostReviewTabAdapter
+com/laioffer/beautips/Fragments/StylistPage/StylistPost/StylistPostAdapter.java
+ com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostAdapter
+ com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostAdapter$StylistPostViewHolder
+com/laioffer/beautips/Fragments/testFrag2.java
+ com.laioffer.beautips.Fragments.testFrag2
+com/laioffer/beautips/MainApplication.java
+ com.laioffer.beautips.MainApplication
+com/laioffer/beautips/Fragments/testFrag1.java
+ com.laioffer.beautips.Fragments.testFrag1
+com/laioffer/beautips/databinding/FragmentTestfrag3Binding.java
+ com.laioffer.beautips.databinding.FragmentTestfrag3Binding
+com/laioffer/beautips/Repository/StylistPostRepository.java
+ com.laioffer.beautips.Repository.StylistPostRepository
+ com.laioffer.beautips.Repository.StylistPostRepository$1
+ com.laioffer.beautips.Repository.StylistPostRepository$2
+com/laioffer/beautips/Repository/BeautipsViewModelFactory.java
+ com.laioffer.beautips.Repository.BeautipsViewModelFactory
+com/laioffer/beautips/databinding/FragmentTestfrag2Binding.java
+ com.laioffer.beautips.databinding.FragmentTestfrag2Binding
+com/laioffer/beautips/Models/Stylist.java
+ com.laioffer.beautips.Models.Stylist
+com/laioffer/beautips/databinding/FragmentStylistProfileBinding.java
+ com.laioffer.beautips.databinding.FragmentStylistProfileBinding
+com/laioffer/beautips/databinding/MainActivityPlaceholderBinding.java
+ com.laioffer.beautips.databinding.MainActivityPlaceholderBinding
+com/laioffer/beautips/databinding/StylistPostBinding.java
+ com.laioffer.beautips.databinding.StylistPostBinding
+com/laioffer/beautips/Models/User.java
+ com.laioffer.beautips.Models.User
+com/laioffer/beautips/MainActivity.java
+ com.laioffer.beautips.MainActivity
+com/laioffer/beautips/Fragments/StylistPage/StylistProfileFragment.java
+ com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment
+com/laioffer/beautips/Fragments/StylistPage/StylistPost/StylistPostViewModel.java
+ com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel
+com/laioffer/beautips/Utils/MyAppGlideModule.java
+ com.laioffer.beautips.Utils.MyAppGlideModule
+com/laioffer/beautips/Fragments/StylistPage/StylistPost/StylistPostFragment.java
+ com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostFragment
+com/laioffer/beautips/databinding/FragmentTestfragBinding.java
+ com.laioffer.beautips.databinding.FragmentTestfragBinding
