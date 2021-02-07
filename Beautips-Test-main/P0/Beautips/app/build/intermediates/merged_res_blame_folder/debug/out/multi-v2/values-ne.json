@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lin/Downloads/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ne/values-ne.xml",
+            "outputFile": "/Users/lin/Desktop/Beautips/P0/Beautips-Test-main/P0/Beautips/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ne/values-ne.xml",
             "map": [
                 {
                     "source": "/Users/lin/.gradle/caches/transforms-2/files-2.1/6fcc636d3ce9936f67977b2809de7d1b/navigation-ui-2.3.2/res/values-ne/values-ne.xml",
