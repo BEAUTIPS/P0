@@ -35,7 +35,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-
     </androidx.cardview.widget.CardView>
 
     <ImageView
@@ -121,11 +120,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="250dp"
         android:elevation="8dp"
-        android:scaleX="1.27"
+        android:scaleX="2.77"
         android:src="@drawable/black"
         app:layout_constraintBottom_toBottomOf="@+id/card_view_post"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/card_view_post"
+        app:layout_constraintStart_toStartOf="@+id/card_view_post" />
 
 
 
