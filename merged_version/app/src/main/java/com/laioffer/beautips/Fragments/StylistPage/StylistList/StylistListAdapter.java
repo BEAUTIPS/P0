@@ -1,6 +1,7 @@
 package com.laioffer.beautips.Fragments.StylistPage.StylistList;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +102,11 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
                 public void onClick(View v) {
                     Toast.makeText(itemView.getContext(), stylistName.getText(), Toast.LENGTH_LONG).show();
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    // Storing data into SharedPreferences
+
+
+
+
                     Fragment myFragment = new StylistProfileFragment(stylistName.getText().toString());
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.topview, myFragment).addToBackStack(null).commit();
                 }

@@ -18,10 +18,12 @@ import java.util.ArrayList;
 public class PostReviewTabAdapter extends FragmentStatePagerAdapter {
 
     TabLayout tabLayout;
+    String name;
 
-    public PostReviewTabAdapter(@NonNull FragmentManager fm, TabLayout _tabLayout) {
+    public PostReviewTabAdapter(@NonNull FragmentManager fm, TabLayout _tabLayout, String name) {
         super(fm);
         this.tabLayout = _tabLayout;
+        this.name= name;
 
     }
 
@@ -35,7 +37,7 @@ public class PostReviewTabAdapter extends FragmentStatePagerAdapter {
         //initially the fragment display is null;
         Fragment fragment = null;
         if (position == 0 ){
-            fragment = new StylistPostFragment();
+            fragment = new StylistPostFragment(name);
         }else if (position == 1){
             fragment = new StylistReviewFragment();
         }

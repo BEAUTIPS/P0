@@ -128,7 +128,7 @@ public class StylistProfileFragment extends Fragment {
     }
 
     private void createTabFragment(){
-        adapter = new PostReviewTabAdapter(getActivity().getSupportFragmentManager(), tabLayout);
+        adapter = new PostReviewTabAdapter(getActivity().getSupportFragmentManager(), tabLayout, stylistName);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

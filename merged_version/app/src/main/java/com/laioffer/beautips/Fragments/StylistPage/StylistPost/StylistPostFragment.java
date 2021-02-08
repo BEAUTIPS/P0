@@ -51,6 +51,11 @@ public class StylistPostFragment extends Fragment {
 //        this.stylistName = Name;
     }
 
+    public StylistPostFragment(String name) {
+        // Required empty public constructor
+        this.stylistName = name;
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -81,7 +86,7 @@ public class StylistPostFragment extends Fragment {
                 .get(StylistPostViewModel.class);
 
         stylistViewModel
-                .getStylistPosts("Abby")
+                .getStylistPosts(stylistName)
                 .observe(
                         getViewLifecycleOwner(),
                         response -> {
