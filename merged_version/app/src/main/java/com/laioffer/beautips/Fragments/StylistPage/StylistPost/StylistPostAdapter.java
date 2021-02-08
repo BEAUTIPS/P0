@@ -73,6 +73,10 @@ public class StylistPostAdapter extends RecyclerView.Adapter<StylistPostAdapter.
         // modify all the text view
         holder.likeCount.setText(String.valueOf(postImage.getNumOfLikes()));
         holder.stylistName.setText(postImage.getOwnerId());
+        GlideApp.with(holder.itemView)
+                .load(postImage.getProfileImageUrl())
+                .fitCenter()
+                .into(holder.stylistPic);
 
     }
 
