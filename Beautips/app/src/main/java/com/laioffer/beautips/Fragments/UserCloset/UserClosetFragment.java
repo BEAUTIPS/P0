@@ -12,13 +12,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.laioffer.beautips.Fragments.StylistPage.PostReviewTabAdapter;
+import com.laioffer.beautips.Fragments.UserCloset.MatchPost.MatchPostAdapter;
+import com.laioffer.beautips.databinding.FragmentClosetBinding;
 import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
 
 public class UserClosetFragment extends Fragment {
     public static ViewPager viewPager;
-    private FragmentStylistProfileBinding binding;
+    private FragmentClosetBinding binding;
     public static TabLayout tabLayout;
-    private PostReviewTabAdapter adapter;
+    private MatchPostAdapter adapter;
 
     @Nullable
     @Override
@@ -36,15 +38,15 @@ public class UserClosetFragment extends Fragment {
         // Not implement
 
 
-        viewPager = binding.viewPager;
-        viewPager.setOffscreenPageLimit(2);
-        tabLayout = binding.tab;
-        createTabFragment();
+//        viewPager = binding.viewPager;
+//        viewPager.setOffscreenPageLimit(2);
+//        tabLayout = binding.tab;
+//        createTabFragment();
     }
 
-    private void createTabFragment(){
-        adapter = new PostReviewTabAdapter(getActivity().getSupportFragmentManager(), tabLayout);
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-    }
+//    private void createTabFragment(){
+//        adapter = new MatchPostAdapter(getActivity().getSupportFragmentManager(), tabLayout);
+//        viewPager.setAdapter(adapter);
+//        tabLayout.setupWithViewPager(viewPager);
+//    }
 }

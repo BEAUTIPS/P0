@@ -27,13 +27,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_group_test2"
-        android:name="com.laioffer.beautips.Fragments.testFrag2"
-        tools:layout="@layout/fragment_testfrag2" >
-    </fragment>
-
-
-    <fragment
         android:id="@+id/navigation_group_test3"
         android:name="com.laioffer.beautips.Fragments.testFrag3"
         tools:layout="@layout/fragment_testfrag3" >

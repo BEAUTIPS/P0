@@ -7,7 +7,7 @@
         android:title="home" />
 
     <item
-        android:id="@+id/navigation_group_test2"
+        android:id="@+id/navigation_closet"
         android:icon="@drawable/closet"
         android:title="closet" />
 
