@@ -1,4 +1,4 @@
 # RESTFULENDPOINT_BACKEND_FRONTEND
-This is the branch for group 3
+This is the merged branch for Group 1 editing
 
 
