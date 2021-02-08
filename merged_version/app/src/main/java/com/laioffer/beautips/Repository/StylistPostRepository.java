@@ -65,6 +65,7 @@ public class StylistPostRepository {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if (response.isSuccessful()) {
+
                     result.setValue(response.body());
                     Log.i("Successful", response.body().toString());
                 } else {

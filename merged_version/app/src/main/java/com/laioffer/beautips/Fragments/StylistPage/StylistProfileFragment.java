@@ -89,42 +89,31 @@ public class StylistProfileFragment extends Fragment {
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 
-        Log.d("name is", stylistName);
-
-        stylistViewModel
-                .getStylistInfo(stylistName)
-                .observe(
-                        getViewLifecycleOwner(),
-                        response -> {
-                            if (response != null) {
-                                Log.d("TestResult", response.toString());
-                                //Binding set text
-                                binding.age.setText("#" + String.valueOf(response.getAge()) + " years");
-                                binding.numCustomers.setText(String.valueOf(response.getNumOfCustomers()));
-                                binding.bodyShape.setText("#" + response.getBodyShape() + " Shape");
-                                binding.size.setText("#" + response.getSize());
-                                binding.numLikes.setText(String.valueOf(response.getNumOfLikes()));
-                                binding.stylistName.setText(response.getName());
-                                binding.stylistTitle.setText(response.getTitle());
-                                binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
-                                binding.textView17numReview.setText(String.valueOf(response.getNumOfReviews()) + " reviews");
-
-                                Picasso.get()
-                                        .load(response.getProfileImageUrl())
-                                        .noFade().into(binding.stylistImage);
-
-                                Picasso.get()
-                                        .load(response.getProfileImageUrl())
-                                        .noFade().into((ImageView) getView().findViewById(R.id.stylist_profile_image));
-                            }
-                        });
-
 
         viewPager = binding.viewPager;
         viewPager.setOffscreenPageLimit(2);
         tabLayout = binding.tab;
         createTabFragment();
 
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tabLayout.getSelectedTabPosition() == 0) {
+                    Log.d("this is",String.valueOf(tabLayout.getSelectedTabPosition()));
+                } else if (tabLayout.getSelectedTabPosition() == 1) {
+                    Log.d("this is another",String.valueOf(tabLayout.getSelectedTabPosition()));
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+        });
     }
 
     private void createTabFragment(){

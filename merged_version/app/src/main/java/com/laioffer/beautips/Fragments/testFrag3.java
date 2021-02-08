@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.laioffer.beautips.databinding.FragmentTestfrag3Binding;
+import com.laioffer.beautips.databinding.StylistInfoRecyclerComponentBinding;
 
 public class testFrag3 extends Fragment {
 
-    FragmentTestfrag3Binding binding;
+    StylistInfoRecyclerComponentBinding binding;
 
 
 

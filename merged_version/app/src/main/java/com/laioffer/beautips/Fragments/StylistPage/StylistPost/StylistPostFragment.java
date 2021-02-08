@@ -40,10 +40,11 @@ public class StylistPostFragment extends Fragment {
     ScrollStylistPostsBinding binding;
     private List<Post> Posts;
     String  stylistName;
+    Stylist stylistInfo;
 
 
 
-    private ArrayList<com.laioffer.beautips.Models.Post> postList = new ArrayList<>();
+    private ArrayList<Object> postList = new ArrayList<>();
 
 
     public StylistPostFragment() {
@@ -76,14 +77,46 @@ public class StylistPostFragment extends Fragment {
         Log.i("size of list",String.valueOf(postList.size()));
         //use grid layout
         int numberOfColumns = 2;
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
-
         StylistPostAdapter = new StylistPostAdapter(context, postList);
         recyclerView.setAdapter(StylistPostAdapter);
+
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                Log.d("test position:", String.valueOf(StylistPostAdapter.getItemViewType(position)));
+                switch (StylistPostAdapter.getItemViewType(position)) {
+                    case 0:
+                        return 2;
+                    default:
+                        return 1;
+                }
+            }
+        });
+
+        recyclerView.setLayoutManager(mLayoutManager);
+
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+
+
 
         StylistPostRepository repository = new StylistPostRepository(getContext());
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
+
+        stylistViewModel
+                .getStylistInfo(stylistName)
+                .observe(
+                        getViewLifecycleOwner(),
+                        response -> {
+                            if (response != null) {
+                                Log.d("TestResult for getting stylist first", response.toString());
+                                //Binding set text
+                                stylistInfo = response;
+                                StylistPostAdapter.setFirst(stylistInfo);
+                            }
+                        });
 
         stylistViewModel
                 .getStylistPosts(stylistName)
@@ -97,6 +130,8 @@ public class StylistPostFragment extends Fragment {
                                 StylistPostAdapter.setPosts(Posts);
                             }
                         });
+
+
 
     }
 
