@@ -54,6 +54,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="5dp"
@@ -64,6 +65,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/shades"
+        android:layout_width="match_parent"
+        android:scaleX="2.5"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shade"
         tools:ignore="MissingConstraints" />
 
 

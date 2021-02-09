@@ -71,10 +71,15 @@ public class StylistProfileFragment extends Fragment {
 
                 ConstraintLayout mainView = binding.layoutProfile;
 
+
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
-                mainView.setBackgroundColor(Color.parseColor("#E5E5E5"));
-                ViewCompat.setElevation(mainView, 12);
+                //mainView.setBackgroundColor(Color.parseColor("#1B1B1B"));
+                ImageView shade = binding.shades;
+                ImageButton button = binding.scheduleButton;
+                shade.setVisibility(View.VISIBLE);
+                button.setVisibility(View.INVISIBLE);
+//                mainView.getBackground().setAlpha(127);
 
                 Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
 
@@ -152,7 +157,9 @@ public class StylistProfileFragment extends Fragment {
                     //Close the window when clicked
                     popupWindow.dismiss();
                     ConstraintLayout mainView = binding.layoutProfile;
-                    mainView.setBackgroundColor(Color.parseColor("white"));
+                    ImageView shade = binding.shades;
+                    shade.setVisibility(View.INVISIBLE);
+
 
                 }
             });
