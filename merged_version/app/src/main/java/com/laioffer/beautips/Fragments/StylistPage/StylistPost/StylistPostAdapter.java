@@ -39,15 +39,12 @@ public class StylistPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
 
     public StylistPostAdapter(Context context, ArrayList<Object> items) {
-
-
         this.context = context;
         this.items = items;
     }
 
     
     public void setPosts(List<Post> newsList ) {
-
         Stylist obj = (Stylist) items.get(0);
         items.clear();
         items.add(obj);
@@ -59,8 +56,6 @@ public class StylistPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void setFirst(Stylist stylist) {
         items.add(0,stylist);
         Log.d("test here for setting first index","I am here");
-
-
 
     }
 

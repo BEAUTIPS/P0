@@ -13,6 +13,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab"
             android:layout_width="219dp"
+            android:visibility="invisible"
             android:layout_height="25dp"
             android:layout_marginBottom="350dp"
             android:paddingBottom="2dp"

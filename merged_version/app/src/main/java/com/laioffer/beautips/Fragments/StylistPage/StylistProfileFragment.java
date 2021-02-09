@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
@@ -73,8 +74,9 @@ public class StylistProfileFragment extends Fragment {
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
                 mainView.setBackgroundColor(Color.parseColor("#E5E5E5"));
+                ViewCompat.setElevation(mainView, 12);
 
-                Toast.makeText(arg0.getContext(), "Wow", Toast.LENGTH_SHORT).show();
+                Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
 
 
             }
