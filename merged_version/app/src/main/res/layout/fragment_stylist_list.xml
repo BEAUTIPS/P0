@@ -29,12 +29,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="0dp"
         android:fontFamily="@font/montserrat"
 
         android:text="Body Shape"
         android:textColor="#000000"
         android:textSize="12dp"
+        android:background="@drawable/frame_418"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/title"
         tools:ignore="MissingConstraints"
@@ -59,26 +60,27 @@
         android:gravity="center"/>
 
 
-    <TextView
-        android:id="@+id/availability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="14dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Availability"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@id/rating"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        tools:ignore="MissingConstraints"
-        android:background="@drawable/frame_418"
-        android:gravity="center"/>
+<!--    <TextView-->
+<!--        android:id="@+id/availability"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginStart="14dp"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="Availability"-->
+<!--        android:textColor="#000000"-->
+<!--        app:layout_constraintStart_toEndOf="@id/rating"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/title"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        android:background="@drawable/frame_418"-->
+<!--        android:gravity="center"/>-->
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stylist_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/rating"
         app:layout_constraintLeft_toLeftOf="parent" />
