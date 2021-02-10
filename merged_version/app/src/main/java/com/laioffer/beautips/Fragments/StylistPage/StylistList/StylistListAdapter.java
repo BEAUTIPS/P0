@@ -63,8 +63,9 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
     public void onBindViewHolder(@NonNull StylistListViewHolder holder, int position) {
         Stylist list = stylistList.get(position);
         holder.stylistName.setText(list.getName());
-//        holder.numsReview.setText(list.getNumOfReviews());
-//        holder.stylistTitle.setText(list.getTitle());
+        holder.numsReview.setText(list.getNumOfReviews());
+        holder.stylistTitle.setText(list.getTitle());
+
         //holder.itemView.setOnClickListener(v -> ItemCallback.onOpenDetails(list));
 
 
