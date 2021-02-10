@@ -20,6 +20,7 @@ import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
 import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.Utils.GlideApp;
 import com.laioffer.beautips.databinding.SingleStylistListBinding;
 
 import java.util.ArrayList;
@@ -65,6 +66,11 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
         holder.stylistName.setText(list.getName());
         holder.numsReview.setText(String.valueOf(list.getNumOfReviews()) + " Reviews");
         holder.stylistTitle.setText(list.getTitle());
+//        holder.stylistImage.setImageResource(Integer.parseInt(list.getProfileImageUrl()));
+        GlideApp.with(holder.stylistImage)
+                .load(list.getProfileImageUrl())
+                .fitCenter()
+                .into(holder.stylistImage);
 
         //holder.itemView.setOnClickListener(v -> ItemCallback.onOpenDetails(list));
 
