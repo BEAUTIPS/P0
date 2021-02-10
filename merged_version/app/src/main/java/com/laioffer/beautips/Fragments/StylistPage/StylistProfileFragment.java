@@ -94,7 +94,6 @@ public class StylistProfileFragment extends Fragment {
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 
-
         viewPager = binding.viewPager;
         viewPager.setOffscreenPageLimit(2);
         tabLayout = binding.tab;

@@ -105,6 +105,8 @@ public class StylistPostFragment extends Fragment {
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 
+
+
         stylistViewModel
                 .getStylistInfo(stylistName)
                 .observe(
