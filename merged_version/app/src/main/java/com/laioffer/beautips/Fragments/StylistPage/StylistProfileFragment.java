@@ -74,12 +74,10 @@ public class StylistProfileFragment extends Fragment {
 
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
-                //mainView.setBackgroundColor(Color.parseColor("#1B1B1B"));
                 ImageView shade = binding.shades;
                 ImageButton button = binding.scheduleButton;
                 shade.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
-//                mainView.getBackground().setAlpha(127);
 
                 Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
 

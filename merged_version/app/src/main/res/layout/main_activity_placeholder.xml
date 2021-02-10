@@ -34,9 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F3F3F3"
-        app:itemIconTint="@color/black"
+        app:itemIconTint="@drawable/navigation_view_colored"
+        app:labelVisibilityMode="unlabeled"
         app:itemTextColor="@android:color/white"
         app:menu="@menu/navigation"
+        app:itemHorizontalTranslationEnabled="false"
         tools:ignore="MissingConstraints" />
 
 
