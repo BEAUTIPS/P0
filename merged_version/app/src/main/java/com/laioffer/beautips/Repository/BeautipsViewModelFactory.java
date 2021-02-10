@@ -1,11 +1,13 @@
 package com.laioffer.beautips.Repository;
 
+import android.app.Application;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.laioffer.beautips.Fragments.StylistPage.StylistList.StylistListViewModel;
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
+import com.laioffer.beautips.Fragments.startup.setUpViewModel;
 
 public class BeautipsViewModelFactory implements ViewModelProvider.Factory {
 
@@ -35,7 +37,8 @@ public class BeautipsViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(StylistPostViewModel.class)) {
             return (T) new StylistPostViewModel(repository);
-        } else {
+        }
+        else {
             throw new IllegalStateException("Unknown ViewModel");
         }
     }

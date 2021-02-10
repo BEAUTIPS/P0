@@ -8,7 +8,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -102,7 +101,8 @@ public class StylistProfileFragment extends Fragment {
                                 binding.age.setText("#" + String.valueOf(response.getAge()) + " years");
                                 binding.numCustomers.setText(String.valueOf(response.getNumOfCustomers()));
                                 binding.bodyShape.setText("#" + response.getBodyShape() + " Shape");
-                                binding.size.setText("#" + response.getSize());
+                                binding.size.setText("#" + response.getTopSize());
+                                binding.size.setText("#" + response.getBottomSize());
                                 binding.numLikes.setText(String.valueOf(response.getNumOfLikes()));
                                 binding.stylistName.setText(response.getName());
                                 binding.stylistTitle.setText(response.getTitle());

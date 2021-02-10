@@ -11,14 +11,17 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.Beautips">
-        <activity android:name=".MainActivity2" android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.Beautips">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laioffer.beautips.MainActivity" />
 
+        <activity android:name=".setUpActivity" android:theme="@style/Theme.Beautips">>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+
+
+        <activity android:name=".MainActivity"  android:parentActivityName=".setUpActivity"
             android:theme="@style/Theme.Beautips">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +29,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity2" android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Beautips">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.laioffer.beautips.MainActivity" />
+        </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

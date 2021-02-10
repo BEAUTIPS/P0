@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/what_is_your_age_group"
+        android:layout_width="300dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="107dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_horizontal"
+        android:text="What's your age group?"
+        android:textColor="@color/black"
+
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/under_18"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="45dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/montserrat"
+        android:text="Under 18"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="196dp" />
+
+    <Button
+        android:id="@+id/age_22"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="18 - 22"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <Button
+        android:id="@+id/age_29"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="22 - 29"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="136dp"
+
+        tools:layout_editor_absoluteY="304dp" />
+
+    <Button
+        android:id="@+id/age_39"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="30 - 39"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="136dp"
+
+        tools:layout_editor_absoluteY="358dp" />
+
+    <Button
+        android:id="@+id/age_40"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:text="40+"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="136dp"
+
+        tools:layout_editor_absoluteY="412dp" />
+
+    <ImageButton
+        android:id="@+id/next"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/frame_434"
+        android:gravity="center_horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="657dp" />
+
+</LinearLayout>

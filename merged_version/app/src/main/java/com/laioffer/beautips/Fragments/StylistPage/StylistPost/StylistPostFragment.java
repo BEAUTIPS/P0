@@ -11,21 +11,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.laioffer.beautips.Fragments.StylistPage.PostReviewTabAdapter;
 import com.laioffer.beautips.Models.Post;
-import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
 
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
-import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
+import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
-import com.laioffer.beautips.databinding.StylistPostBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +78,8 @@ public class StylistPostFragment extends Fragment {
         recyclerView.setAdapter(StylistPostAdapter);
 
         StylistPostRepository repository = new StylistPostRepository(getContext());
+
+
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 
