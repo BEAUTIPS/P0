@@ -13,6 +13,8 @@ public class Stylist extends User {
     int numOfReviews;
     String title;
 
+
+
     public void setProfileImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
     }

@@ -54,7 +54,15 @@ public class StylistListFragment extends Fragment {
         this.context = getContext();
 
         Log.d("a",binding.stylistListRecyclerView.toString());
-        stylistList.add(new Stylist("Abby"));
+        Stylist abby = new Stylist("Abby");
+        abby.setNumOfCustomers(123);
+        abby.setNumOfReviews(123);
+        abby.setTitle("Specialist");
+
+        stylistList.add(abby);
+        stylistList.add(new Stylist("Emily"));
+        stylistList.add(new Stylist("Joe"));
+
 
         StylistListAdapter stylistListAdapter = new StylistListAdapter(context, stylistList);
         binding.stylistListRecyclerView.setAdapter(stylistListAdapter);
