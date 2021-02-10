@@ -74,7 +74,7 @@ public class StylistProfileFragment extends Fragment {
 
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
-                ImageView shade = binding.shades;
+                ImageView shade = binding.shade;
                 ImageButton button = binding.scheduleButton;
                 shade.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
@@ -154,7 +154,7 @@ public class StylistProfileFragment extends Fragment {
                     //Close the window when clicked
                     popupWindow.dismiss();
                     ConstraintLayout mainView = binding.layoutProfile;
-                    ImageView shade = binding.shades;
+                    ImageView shade = binding.shade;
                     shade.setVisibility(View.INVISIBLE);
 
 

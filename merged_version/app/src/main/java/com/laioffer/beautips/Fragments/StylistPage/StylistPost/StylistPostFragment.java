@@ -11,24 +11,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.laioffer.beautips.Fragments.StylistPage.PostReviewTabAdapter;
 import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
 
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
-import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
 import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
-import com.laioffer.beautips.databinding.StylistPostBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class StylistPostFragment extends Fragment {
 
@@ -41,6 +38,7 @@ public class StylistPostFragment extends Fragment {
     private List<Post> Posts;
     String  stylistName;
     Stylist stylistInfo;
+    int test = 0;
 
 
 
@@ -107,6 +105,8 @@ public class StylistPostFragment extends Fragment {
 
 
 
+
+
         stylistViewModel
                 .getStylistInfo(stylistName)
                 .observe(
@@ -117,22 +117,21 @@ public class StylistPostFragment extends Fragment {
                                 //Binding set text
                                 stylistInfo = response;
                                 StylistPostAdapter.setFirst(stylistInfo);
+                                stylistViewModel
+                                        .getStylistPosts(stylistName)
+                                        .observe(
+                                                getViewLifecycleOwner(),
+                                                response2 -> {
+                                                    if (response2 != null) {
+                                                        Log.d("TestResult for images for post frag", response.toString());
+                                                        //Binding set text
+                                                        Posts = response2;
+                                                        StylistPostAdapter.setPosts(Posts);
+                                                    }
+                                                });
+
                             }
                         });
-
-        stylistViewModel
-                .getStylistPosts(stylistName)
-                .observe(
-                        getViewLifecycleOwner(),
-                        response -> {
-                            if (response != null) {
-                                Log.d("TestResult for images for post frag", response.toString());
-                                //Binding set text
-                                Posts = response;
-                                StylistPostAdapter.setPosts(Posts);
-                            }
-                        });
-
 
 
     }

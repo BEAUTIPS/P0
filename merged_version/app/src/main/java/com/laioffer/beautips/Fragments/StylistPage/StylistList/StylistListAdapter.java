@@ -110,15 +110,14 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
             card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(), stylistName.getText(), Toast.LENGTH_LONG).show();
+                    String name = stylistName.getText().toString();
+                    Toast.makeText(itemView.getContext(), name, Toast.LENGTH_LONG).show();
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     // Storing data into SharedPreferences
+                    Log.d("this is name:", stylistName.getText().toString());
 
-
-
-
-                    Fragment myFragment = new StylistProfileFragment(stylistName.getText().toString());
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.topview, myFragment).addToBackStack(null).commit();
+                    Fragment myFragment = new StylistProfileFragment(name);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.topview, myFragment).addToBackStack("back_to_list").commit();
                 }
             });
         }
