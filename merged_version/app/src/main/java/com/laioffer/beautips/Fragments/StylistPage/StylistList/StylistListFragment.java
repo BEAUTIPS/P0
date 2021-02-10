@@ -59,9 +59,19 @@ public class StylistListFragment extends Fragment {
         abby.setNumOfReviews(123);
         abby.setTitle("Specialist");
 
+        Stylist emily = new Stylist("Emily");
+        emily.setNumOfCustomers(312);
+        emily.setNumOfReviews(233);
+        emily.setTitle("Nordstrom Style Advisor");
+
+        Stylist joe = new Stylist("Joe");
+        joe.setNumOfCustomers(6543);
+        joe.setNumOfReviews(876);
+        joe.setTitle("Freelancer");
+
         stylistList.add(abby);
-        stylistList.add(new Stylist("Emily"));
-        stylistList.add(new Stylist("Joe"));
+        stylistList.add(emily);
+        stylistList.add(joe);
 
 
         StylistListAdapter stylistListAdapter = new StylistListAdapter(context, stylistList);
