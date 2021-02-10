@@ -12,7 +12,7 @@ public class Stylist extends User {
     int numOfCustomers;
     int numOfReviews;
     String title;
-
+    String profileImageUrl;
 
 
     public void setProfileImageUrl(String profileImageUrl) {
@@ -23,7 +23,7 @@ public class Stylist extends User {
         return profileImageUrl;
     }
 
-    String profileImageUrl;
+
 
     List<String> Availability = new ArrayList<>();
     final boolean isValidate = true;

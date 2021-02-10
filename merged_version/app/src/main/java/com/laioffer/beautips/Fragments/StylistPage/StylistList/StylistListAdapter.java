@@ -2,6 +2,7 @@ package com.laioffer.beautips.Fragments.StylistPage.StylistList;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
 import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.Utils.GlideApp;
 import com.laioffer.beautips.databinding.SingleStylistListBinding;
 
 import java.util.ArrayList;
@@ -64,7 +66,14 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
         Stylist list = stylistList.get(position);
         holder.stylistName.setText(list.getName());
         holder.numsReview.setText(String.valueOf(list.getNumOfReviews()));
+        holder.numsReview.setText(String.valueOf(list.getNumOfReviews()) + " Reviews");
         holder.stylistTitle.setText(list.getTitle());
+//        holder.stylistImage.setImageResource(Integer.parseInt(list.getProfileImageUrl()));
+        Log.d("checking url",list.getProfileImageUrl());
+        GlideApp.with(holder.itemView)
+                .load(list.getProfileImageUrl())
+                .fitCenter()
+                .into(holder.stylistImage);
 
         //holder.itemView.setOnClickListener(v -> ItemCallback.onOpenDetails(list));
 

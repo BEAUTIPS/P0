@@ -58,10 +58,24 @@ public class StylistListFragment extends Fragment {
         abby.setNumOfCustomers(123);
         abby.setNumOfReviews(123);
         abby.setTitle("Specialist");
+        abby.setProfileImageUrl("https://firebasestorage.googleapis.com/v0/b/beautips-54eb3.appspot.com/o/Abby%2FMask%20Group-6.png?alt=media&token=a9372e0f-6edb-4c77-bf39-4a0baf1ce979");
+
+
+        Stylist emily = new Stylist("Emily");
+        emily.setNumOfCustomers(312);
+        emily.setNumOfReviews(233);
+        emily.setTitle("Nordstrom Style Advisor");
+        emily.setProfileImageUrl("https://firebasestorage.googleapis.com/v0/b/beautips-54eb3.appspot.com/o/Emily%2FRectangle%20135.png?alt=media&token=0406c870-fe0d-4264-bdf0-66b912274284");
+
+        Stylist joe = new Stylist("Joe");
+        joe.setNumOfCustomers(6543);
+        joe.setNumOfReviews(876);
+        joe.setTitle("Freelancer");
+        joe.setProfileImageUrl("https://firebasestorage.googleapis.com/v0/b/beautips-54eb3.appspot.com/o/Joe%2FRectangle%20137.png?alt=media&token=2ace6a46-0b01-4111-a366-a6e714a89a5f");
 
         stylistList.add(abby);
-        stylistList.add(new Stylist("Emily"));
-        stylistList.add(new Stylist("Joe"));
+        stylistList.add(emily);
+        stylistList.add(joe);
 
 
         StylistListAdapter stylistListAdapter = new StylistListAdapter(context, stylistList);
