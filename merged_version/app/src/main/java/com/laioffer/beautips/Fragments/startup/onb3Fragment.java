@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.fragment.app.Fragment;
+import android.app.Fragment;
 
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.databinding.FragmentOnb2Binding;
 
 public class onb3Fragment extends Fragment implements View.OnClickListener{
     private SharedPreferences preferences;
@@ -22,8 +23,13 @@ public class onb3Fragment extends Fragment implements View.OnClickListener{
     private Button between22_29;
     private Button between30_39;
     private Button moreThan_40;
+    Context context;
+    setUpViewModel viewModel;
+    FragmentOnb2Binding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+        binding = binding.inflate(inflater, container, false);
         View view = inflater.inflate(R.layout.fragment_onb3, null);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
@@ -67,7 +73,8 @@ public class onb3Fragment extends Fragment implements View.OnClickListener{
                 myEdit.putString("age", "40+").apply();
                 break;
             case R.id.next:
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb4Fragment()).commit();
+                Fragment fragment = new onb4Fragment();
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, fragment).commit();
             default:
                 break;
         }

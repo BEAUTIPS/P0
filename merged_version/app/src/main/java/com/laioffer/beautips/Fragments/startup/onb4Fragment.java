@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-
-import androidx.fragment.app.Fragment;
+import android.app.Fragment;
 
 import com.laioffer.beautips.R;
 
@@ -111,7 +110,8 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
                 myEdit.putString("topSize","3XL+").apply();
                 break;
             case R.id.next:
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
+                Fragment fragment = new onb5Fragment();
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, fragment).commit();
                 break;
             case R.id.b_XS:
                 myEdit.putString("bottomSize","XS").apply();

@@ -8,10 +8,11 @@
     >
 
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:name="com.laioffer.beautips.Fragments.startup.onb1Fragment"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

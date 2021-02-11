@@ -9,8 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import androidx.fragment.app.Fragment;
+import android.app.Fragment;
 
 import com.laioffer.beautips.R;
 
@@ -53,10 +52,12 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
     public void onClick(View arg0) {
         switch (arg0.getId()) {
             case R.id.sign_up:
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
+                Fragment fragment = new signUpFragment();
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, fragment).commit();
                 break;
             case R.id.see_style_tips:
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb3Fragment()).commit();
+                 fragment = new signUpFragment();
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, fragment).commit();
                 break;
             default:
                 break;

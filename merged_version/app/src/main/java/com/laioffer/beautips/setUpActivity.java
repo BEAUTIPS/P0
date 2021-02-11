@@ -1,32 +1,32 @@
 package com.laioffer.beautips;
 
+import android.app.FragmentManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
-
+import android.app.Fragment;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+//import androidx.fragment.app.Fragment;
 
 import com.laioffer.beautips.Fragments.startup.onb1Fragment;
 
 public class setUpActivity extends AppCompatActivity {
-    private onb1Fragment oneFragment = new onb1Fragment();
-    FragmentManager fm = fm = getSupportFragmentManager();
+    FragmentManager fragmentManager;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_up);
-
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fl_main,new onb1Fragment()).setReorderingAllowed(true)
-                .addToBackStack("")
+        Fragment fragment = new onb1Fragment();
+        fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fl_main, fragment)
+                .setReorderingAllowed(true)
                 .commit();
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
 }
