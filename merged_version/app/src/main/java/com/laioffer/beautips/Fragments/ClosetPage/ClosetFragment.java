@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -85,19 +86,40 @@ public class ClosetFragment extends Fragment {
                 })
         );*/
         LinearLayout occasionOnclick = view.findViewById(R.id.occasionOnclick);
+        Button search = view.findViewById(R.id.search);
+        TextView occasionPlus = view.findViewById(R.id.occasion);
+        TextView bodyShapePlus = view.findViewById(R.id.bodyShapePlus);
+        TextView clearAll = view.findViewById(R.id.cancel_button);
+        TextView dressCodePlus = view.findViewById(R.id.dressCodePlus);
+        clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.findViewById(R.id.hideOccasion).setVisibility(View.GONE);
+                occasionPlus.setText("+");
+                view.findViewById(R.id.hideBodyShape).setVisibility(View.GONE);
+                bodyShapePlus.setText("+");
+                view.findViewById(R.id.hideSize).setVisibility(View.GONE);
+                view.findViewById(R.id.hideDressCode).setVisibility(View.GONE);
+                dressCodePlus.setText("+");
+                search.setBackgroundResource(R.drawable.search_btn);
+
+            }
+        });
+
 
         occasionOnclick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LinearLayout hideList = view.findViewById(R.id.hideOccasion);
-                TextView plus = view.findViewById(R.id.occasion);
+
                 if (hideList.getVisibility() == View.GONE) {
                     hideList.setVisibility(View.VISIBLE);
-
-                    plus.setText("-");
+                    search.setBackgroundResource(R.drawable.save);
+                    occasionPlus.setText("-");
                 } else {
                     hideList.setVisibility(View.GONE);
-                    plus.setText("+");
+                    occasionPlus.setText("+");
+                    search.setBackgroundResource(R.drawable.search_btn);
                 }
 
 
@@ -109,14 +131,15 @@ public class ClosetFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 LinearLayout hideList = view.findViewById(R.id.hideBodyShape);
-                TextView plus = view.findViewById(R.id.bodyShapePlus);
+
                 if (hideList.getVisibility() == View.GONE) {
                     hideList.setVisibility(View.VISIBLE);
-
-                    plus.setText("-");
+                    search.setBackgroundResource(R.drawable.save);
+                    bodyShapePlus.setText("-");
                 } else {
                     hideList.setVisibility(View.GONE);
-                    plus.setText("+");
+                    bodyShapePlus.setText("+");
+                    search.setBackgroundResource(R.drawable.search_btn);
                 }
 
 
@@ -128,14 +151,15 @@ public class ClosetFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 LinearLayout hideList = view.findViewById(R.id.hideDressCode);
-                TextView plus = view.findViewById(R.id.dressCodePlus);
+
                 if (hideList.getVisibility() == View.GONE) {
                     hideList.setVisibility(View.VISIBLE);
-
-                    plus.setText("-");
+                    search.setBackgroundResource(R.drawable.save);
+                    dressCodePlus.setText("-");
                 } else {
                     hideList.setVisibility(View.GONE);
-                    plus.setText("+");
+                    dressCodePlus.setText("+");
+                    search.setBackgroundResource(R.drawable.search_btn);
                 }
 
 
@@ -149,9 +173,11 @@ public class ClosetFragment extends Fragment {
                 LinearLayout hideList = view.findViewById(R.id.hideSize);
                 if (hideList.getVisibility() == View.GONE) {
                     hideList.setVisibility(View.VISIBLE);
+                    search.setBackgroundResource(R.drawable.save);
 
                 } else {
                     hideList.setVisibility(View.GONE);
+                    search.setBackgroundResource(R.drawable.search_btn);
                 }
 
 
