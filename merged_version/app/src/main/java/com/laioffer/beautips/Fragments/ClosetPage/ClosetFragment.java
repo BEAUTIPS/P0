@@ -17,20 +17,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.laioffer.beautips.Fragments.HomePage.HomeImageAdapter;
-import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.MainActivity2;
 import com.laioffer.beautips.Models.Closet;
-import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.databinding.FragmentClosetBinding;
 
@@ -38,22 +37,21 @@ import java.util.ArrayList;
 public class ClosetFragment extends Fragment {
 
     FragmentClosetBinding binding;
-
     ClosetImageAdapter ClosetImageAdapter;
+    private static final String TAG = "ClosetFragment";
+    private DatabaseReference myRef;
+    Context context;
+    RecyclerView recyclerView;
+    private ArrayList<Closet> ClosetList = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = binding.inflate(inflater, container, false);
+        binding = FragmentClosetBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
-    private static final String TAG = "homeFragment";
-    private DatabaseReference myRef;
-    Context context;
-    RecyclerView recyclerView;
 
-
-    private ArrayList<Closet> ClosetList = new ArrayList<>();
 
     public ClosetFragment() {
         // Required empty public constructor
@@ -61,16 +59,16 @@ public class ClosetFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Log.i("size of list",String.valueOf(ClosetList.size()));
+        Log.i("size of list", String.valueOf(ClosetList.size()));
         super.onViewCreated(view, savedInstanceState);
         this.context = getContext();
-        recyclerView = view.findViewById(R.id.news_results_recycler_view);
+        recyclerView = view.findViewById(R.id.Closet_results_recycler_view);
         int numberOfColumns = 2;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
         ClosetImageAdapter = new ClosetImageAdapter(context, ClosetList);
         recyclerView.setAdapter(ClosetImageAdapter);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addOnItemTouchListener(
+        /*recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         Log.d(TAG, "onItemClick: ");
@@ -85,22 +83,40 @@ public class ClosetFragment extends Fragment {
                         // do whatever
                     }
                 })
-        );
+        );*/
         TextView hide = view.findViewById(R.id.occasion);
 
         hide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LinearLayout hideList = view.findViewById(R.id.hidelist);
-                hideList.setVisibility(View.VISIBLE);
+                TextView plus = view.findViewById(R.id.occasion);
+                if (hideList.getVisibility() == View.GONE) {
+                    hideList.setVisibility(View.VISIBLE);
+
+                    plus.setText("-");
+                } else {
+                    hideList.setVisibility(View.GONE);
+                    plus.setText("+");
+                }
+
+
             }
         });
         myRef = FirebaseDatabase.getInstance().getReference();
         ClosetList = new ArrayList<>();
         ClearAll();
         GetDataBaseFromFireBase();
-    }
+        FloatingActionButton backToTop = view.findViewById(R.id.toTop);
+        backToTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ScrollView scrollView = view.findViewById(R.id.scroll);
+                scrollView.fullScroll(ScrollView.FOCUS_UP);
+            }
+        });
 
+    }
     private void openActivity2() {
         Intent intent = new Intent(getActivity(), MainActivity2.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -139,7 +155,7 @@ public class ClosetFragment extends Fragment {
                     closet.setTopUrl(snapshot.child("topUrl").getValue().toString());
                     closet.setTopName(snapshot.child("topName").getValue().toString());
                     closet.setBottomUrl(snapshot.child("bottomUrl").getValue().toString());
-                    closet.setBottomName(snapshot.child("bottomUrl").getValue().toString());
+                    closet.setBottomName(snapshot.child("bottomName").getValue().toString());
 
                     ClosetList.add(closet);
                 }

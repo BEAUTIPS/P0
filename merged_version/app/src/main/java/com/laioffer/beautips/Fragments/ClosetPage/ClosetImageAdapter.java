@@ -2,6 +2,8 @@ package com.laioffer.beautips.Fragments.ClosetPage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.laioffer.beautips.Fragments.HomePage.HomeImageAdapter;
+import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.MainActivity2;
 import com.laioffer.beautips.Models.Closet;
 import com.laioffer.beautips.R;
@@ -26,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.ClosetImageViewHolder> {
+    private static final String TAG = "ClosetAdapter";
     private Context context;
     private List<Closet> ClosetList;
     public ClosetImageAdapter(Context context, ArrayList<Closet> ClosetList) {
@@ -36,9 +40,9 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
 
     @NonNull
     @Override
-    public ClosetImageAdapter.ClosetImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ClosetImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_image_item, parent, false);
-        return new ClosetImageAdapter.ClosetImageViewHolder(view);
+        return new ClosetImageViewHolder(view);
     }
 
     @Override
@@ -53,17 +57,37 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
         // modify all the text view
         holder.likeCount.setText(String.valueOf(ClosetImage.getScore()));
         holder.stylistName.setText(ClosetImage.getTopName());
+        //holder.post.setImageURI(Uri.parse(ClosetImage.getImageUrl()));
+        //holder.stylistPic.setImageURI(Uri.parse(ClosetImage.getImageUrl()));
+        /*Picasso.get().load(ClosetImage.getImageUrl()).into(holder.stylistPic);
+        Picasso.get().load(ClosetImage.getImageUrl()).into(holder.post);*/
 
-        Picasso.get().load(ClosetImage.getImageUrl()).into(holder.stylistPic);
-        Picasso.get().load(ClosetImage.getImageUrl()).into(holder.post);
-        /*GlideApp.with(holder.itemView)
-                .load(getImage(postImage.getProfileImageUrl()))
-                .fitCenter()
+        Log.d(TAG, "onBindViewHolder: ");
+        /*Picasso.get()
+                .load(Uri.parse("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/76/760261cecb162a3d81dc8b767078bc53342c7e4e_full.jpg"))
+                .into(holder.post);
+        Picasso.get()
+                .load(ClosetImage.getImageUrl())
                 .into(holder.stylistPic);*/
+        GlideApp.with(holder.itemView)
+                .load(Uri.parse(ClosetImage.getImageUrl()))
+                .into(holder.stylistPic);
+        GlideApp.with(holder.itemView)
+                .load(Uri.parse(ClosetImage.getImageUrl()))
+                .into(holder.post);
         holder.itemView.setOnClickListener((view) ->{
-                Intent intent = new Intent(context, MainActivity2.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("image_url", ClosetImage.getImageUrl());
+            Intent intent = new Intent(context, MainActivity2.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("imageUrl", ClosetImage.getImageUrl());
+            intent.putExtra("topName", ClosetImage.getTopName());
+            intent.putExtra("topPrice", ClosetImage.getTopPrice());
+            intent.putExtra("topSize", ClosetImage.getTopSize());
+            intent.putExtra("topUrl", ClosetImage.getTopUrl());
+            intent.putExtra("bottomName", ClosetImage.getBottomName());
+            intent.putExtra("bottomPrice", ClosetImage.getBottomPrice());
+            intent.putExtra("bottomSize", ClosetImage.getBottomSize());
+            intent.putExtra("bottomUrl", ClosetImage.getBottomUrl());
+            context.startActivities(new Intent[]{intent});
         });
     }
 
