@@ -102,7 +102,19 @@ public class ClosetFragment extends Fragment {
             public void onClick(View v) {
 
                 if(params.width == 206) {
-                    new CountDownTimer(1000,1000) {
+                    new CountDownTimer(1500,1500) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            loading.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            loading.setVisibility(View.GONE);
+                        }
+                    }.start();
+                } else {
+                    new CountDownTimer(500,500) {
                         @Override
                         public void onTick(long millisUntilFinished) {
                             loading.setVisibility(View.VISIBLE);
@@ -148,7 +160,11 @@ public class ClosetFragment extends Fragment {
                     hideList.setVisibility(View.GONE);
                     occasionPlus.setText("+");
 
-                    params.width = 206;
+                    if (view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideSize).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        params.width = 206;
+                    }
                 }
 
 
@@ -170,7 +186,12 @@ public class ClosetFragment extends Fragment {
                     hideList.setVisibility(View.GONE);
                     bodyShapePlus.setText("+");
                     search.setBackgroundResource(R.drawable.search_btn);
-                    params.width = 206;
+                    if (view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideSize).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE) {
+                        params.width = 206;
+                    }
+
                 }
 
 
@@ -192,7 +213,11 @@ public class ClosetFragment extends Fragment {
                     hideList.setVisibility(View.GONE);
                     dressCodePlus.setText("+");
                     search.setBackgroundResource(R.drawable.search_btn);
-                    params.width = 206;
+                    if (view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideSize).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        params.width = 206;
+                    }
                 }
 
 
@@ -213,7 +238,11 @@ public class ClosetFragment extends Fragment {
                 } else {
                     hideList.setVisibility(View.GONE);
                     search.setBackgroundResource(R.drawable.search_btn);
-                    params.width = 206;
+                    if (view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        params.width = 206;
+                    }
                 }
 
             }
