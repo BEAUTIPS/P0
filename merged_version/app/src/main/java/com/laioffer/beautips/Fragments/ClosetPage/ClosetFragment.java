@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.CountDownTimer;
+import android.text.PrecomputedText;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -17,11 +19,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -91,6 +95,28 @@ public class ClosetFragment extends Fragment {
         TextView bodyShapePlus = view.findViewById(R.id.bodyShapePlus);
         TextView clearAll = view.findViewById(R.id.cancel_button);
         TextView dressCodePlus = view.findViewById(R.id.dressCodePlus);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) search.getLayoutParams();
+        ImageView loading = view.findViewById(R.id.loading);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(params.width == 206) {
+                    new CountDownTimer(1000,1000) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            loading.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            loading.setVisibility(View.GONE);
+                        }
+                    }.start();
+                }
+            }
+        });
+
         clearAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +128,7 @@ public class ClosetFragment extends Fragment {
                 view.findViewById(R.id.hideDressCode).setVisibility(View.GONE);
                 dressCodePlus.setText("+");
                 search.setBackgroundResource(R.drawable.search_btn);
+                params.width = 206;
 
             }
         });
@@ -116,10 +143,12 @@ public class ClosetFragment extends Fragment {
                     hideList.setVisibility(View.VISIBLE);
                     search.setBackgroundResource(R.drawable.save);
                     occasionPlus.setText("-");
+                    params.width = 205; //change the size of search button as a flag
                 } else {
                     hideList.setVisibility(View.GONE);
                     occasionPlus.setText("+");
-                    search.setBackgroundResource(R.drawable.search_btn);
+
+                    params.width = 206;
                 }
 
 
@@ -136,10 +165,12 @@ public class ClosetFragment extends Fragment {
                     hideList.setVisibility(View.VISIBLE);
                     search.setBackgroundResource(R.drawable.save);
                     bodyShapePlus.setText("-");
+                    params.width = 205;
                 } else {
                     hideList.setVisibility(View.GONE);
                     bodyShapePlus.setText("+");
                     search.setBackgroundResource(R.drawable.search_btn);
+                    params.width = 206;
                 }
 
 
@@ -156,10 +187,12 @@ public class ClosetFragment extends Fragment {
                     hideList.setVisibility(View.VISIBLE);
                     search.setBackgroundResource(R.drawable.save);
                     dressCodePlus.setText("-");
+                    params.width = 205;
                 } else {
                     hideList.setVisibility(View.GONE);
                     dressCodePlus.setText("+");
                     search.setBackgroundResource(R.drawable.search_btn);
+                    params.width = 206;
                 }
 
 
@@ -174,12 +207,14 @@ public class ClosetFragment extends Fragment {
                 if (hideList.getVisibility() == View.GONE) {
                     hideList.setVisibility(View.VISIBLE);
                     search.setBackgroundResource(R.drawable.save);
+                    params.width = 205;
+
 
                 } else {
                     hideList.setVisibility(View.GONE);
                     search.setBackgroundResource(R.drawable.search_btn);
+                    params.width = 206;
                 }
-
 
             }
         });

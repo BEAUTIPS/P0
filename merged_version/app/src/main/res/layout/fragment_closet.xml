@@ -21,6 +21,17 @@
         android:gravity="top"
         android:layout_alignParentTop = "true"
         android:textSize="18dp" />
+    <ImageView
+        android:id="@+id/loading"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="150dp"
+        android:src="@drawable/loading"
+        android:visibility="gone"
+        android:elevation="10dp">
+
+    </ImageView>
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
