@@ -163,10 +163,10 @@ public class ClosetFragment extends Fragment {
                     if (view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideSize).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        search.setBackgroundResource(R.drawable.search_btn);
                         params.width = 206;
                     }
                 }
-
 
             }
         });
@@ -185,10 +185,11 @@ public class ClosetFragment extends Fragment {
                 } else {
                     hideList.setVisibility(View.GONE);
                     bodyShapePlus.setText("+");
-                    search.setBackgroundResource(R.drawable.search_btn);
+
                     if (view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideSize).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE) {
+                        search.setBackgroundResource(R.drawable.search_btn);
                         params.width = 206;
                     }
 
@@ -212,10 +213,11 @@ public class ClosetFragment extends Fragment {
                 } else {
                     hideList.setVisibility(View.GONE);
                     dressCodePlus.setText("+");
-                    search.setBackgroundResource(R.drawable.search_btn);
+
                     if (view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideSize).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        search.setBackgroundResource(R.drawable.search_btn);
                         params.width = 206;
                     }
                 }
@@ -237,10 +239,11 @@ public class ClosetFragment extends Fragment {
 
                 } else {
                     hideList.setVisibility(View.GONE);
-                    search.setBackgroundResource(R.drawable.search_btn);
+
                     if (view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
                             view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        search.setBackgroundResource(R.drawable.search_btn);
                         params.width = 206;
                     }
                 }
