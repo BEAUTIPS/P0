@@ -84,12 +84,12 @@ public class ClosetFragment extends Fragment {
                     }
                 })
         );*/
-        TextView hide = view.findViewById(R.id.occasion);
+        LinearLayout occasionOnclick = view.findViewById(R.id.occasionOnclick);
 
-        hide.setOnClickListener(new View.OnClickListener() {
+        occasionOnclick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinearLayout hideList = view.findViewById(R.id.hidelist);
+                LinearLayout hideList = view.findViewById(R.id.hideOccasion);
                 TextView plus = view.findViewById(R.id.occasion);
                 if (hideList.getVisibility() == View.GONE) {
                     hideList.setVisibility(View.VISIBLE);
@@ -103,11 +103,70 @@ public class ClosetFragment extends Fragment {
 
             }
         });
-        myRef = FirebaseDatabase.getInstance().getReference();
+        LinearLayout bodyShapeOnclick = view.findViewById(R.id.bodyShapeOnclick);
+
+        bodyShapeOnclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout hideList = view.findViewById(R.id.hideBodyShape);
+                TextView plus = view.findViewById(R.id.bodyShapePlus);
+                if (hideList.getVisibility() == View.GONE) {
+                    hideList.setVisibility(View.VISIBLE);
+
+                    plus.setText("-");
+                } else {
+                    hideList.setVisibility(View.GONE);
+                    plus.setText("+");
+                }
+
+
+            }
+        });
+        LinearLayout dressCodeOnclick = view.findViewById(R.id.dressCodeOnclick);
+
+        dressCodeOnclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout hideList = view.findViewById(R.id.hideDressCode);
+                TextView plus = view.findViewById(R.id.dressCodePlus);
+                if (hideList.getVisibility() == View.GONE) {
+                    hideList.setVisibility(View.VISIBLE);
+
+                    plus.setText("-");
+                } else {
+                    hideList.setVisibility(View.GONE);
+                    plus.setText("+");
+                }
+
+
+            }
+        });
+        LinearLayout sizeOnclick = view.findViewById(R.id.sizeOnclick);
+
+        sizeOnclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout hideList = view.findViewById(R.id.hideSize);
+                if (hideList.getVisibility() == View.GONE) {
+                    hideList.setVisibility(View.VISIBLE);
+
+                } else {
+                    hideList.setVisibility(View.GONE);
+                }
+
+
+            }
+        });
+
+
+
+
+
+        myRef = FirebaseDatabase.getInstance().getReference(); // java based backend
         ClosetList = new ArrayList<>();
         ClearAll();
         GetDataBaseFromFireBase();
-        FloatingActionButton backToTop = view.findViewById(R.id.toTop);
+        FloatingActionButton backToTop = view.findViewById(R.id.toTop); // back to top
         backToTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
