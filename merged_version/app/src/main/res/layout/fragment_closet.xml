@@ -73,7 +73,7 @@
                     android:textColor="@color/black"
                     android:textSize="14dp" />
             </LinearLayout>
-            <LinearLayout
+            <TableLayout
                 android:orientation="horizontal"
                 android:id="@+id/hideBodyShape"
                 android:layout_width="match_parent"
@@ -83,32 +83,83 @@
                 android:visibility="gone"
                 android:background="@color/white"
                 android:layout_height="wrap_content">
+                <TableRow>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
+                    android:id="@+id/pearIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="24dp"
+                    android:paddingRight="12dp"
+                    android:background="@drawable/blackborder"
+                    android:paddingLeft="17dp"
                     android:textSize="14dp"
                     android:fontFamily="Montserrat"
-                    android:text="Round"
-                    android:textColor="@color/black"
-                    android:layout_weight="1" />
+                    android:text="Pear"
+                    android:layout_weight="1"
+                    android:paddingTop="1dp"
+                    android:textColor="@color/black" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_weight="2"
+                    android:id="@+id/roundIcon"
+                    android:layout_width="90dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/blackborder"
+                    android:paddingLeft="12dp"
+                    android:textSize="14dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingRight="10dp"
                     android:fontFamily="Montserrat"
-                    android:text="Triangle"
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    android:text="Round"
+                    android:layout_weight="1"
+                    android:paddingTop="1dp"
+                    android:textColor="@color/black" />
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_weight="3"
+                    android:id="@+id/triangleIcon"
+                    android:layout_width="100dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/blackborder"
+                    android:paddingLeft="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingRight="12dp"
+                    android:textSize="14dp"
                     android:fontFamily="Montserrat"
-                    android:text="Pear"
-                    android:textColor="@color/white"
-                    android:textSize="14dp" />
-            </LinearLayout>
+                    android:paddingTop="1dp"
+                    android:text="Triangle"
+                    android:layout_weight="1"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/rectangleIcon"
+                    android:layout_width="115dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/blackborder"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14dp"
+                    android:fontFamily="Montserrat"
+                    android:text="Rectangle"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:paddingTop="1dp"
+                    android:textColor="@color/black" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/hourglassIcon"
+                        android:layout_width="90dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/blackborder"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="3dp"
+                        android:textSize="14dp"
+                        android:fontFamily="Montserrat"
+                        android:layout_marginTop="10dp"
+                        android:text="Hourglass"
+                        android:paddingTop="1dp"
+                        android:textColor="@color/black" />
+                </TableRow>
+            </TableLayout>
+
             <LinearLayout
                 android:id="@+id/occasionOnclick"
                 android:orientation="horizontal"

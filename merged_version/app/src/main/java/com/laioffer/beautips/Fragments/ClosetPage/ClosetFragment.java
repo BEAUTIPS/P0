@@ -252,6 +252,81 @@ public class ClosetFragment extends Fragment {
         });
 
 
+        TextView pearIcon = view.findViewById(R.id.pearIcon); // first hiding list icon
+
+        pearIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                pearIcon.setBackgroundResource(R.drawable.rainbowborder);
+                pearIcon.setPadding(50,2,0,0); // still don't understand why pear will go to the left
+            }
+        });
+
+        TextView roundIcon = view.findViewById(R.id.roundIcon); // first hiding list icon
+
+        roundIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                roundIcon.setBackgroundResource(R.drawable.rainbowborder);
+                roundIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
+            }
+        });
+
+        TextView triangleIcon = view.findViewById(R.id.triangleIcon); // first hiding list icon
+        triangleIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                triangleIcon.setBackgroundResource(R.drawable.rainbowborder);
+                triangleIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
+            }
+        });
+
+        TextView rectangleIcon = view.findViewById(R.id.rectangleIcon); // first hiding list icon
+        rectangleIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                rectangleIcon.setBackgroundResource(R.drawable.rainbowborder);
+                rectangleIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
+            }
+        });
+
+        TextView hourglassIcon = view.findViewById(R.id.hourglassIcon); // first hiding list icon
+        hourglassIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                hourglassIcon.setBackgroundResource(R.drawable.rainbowborder);
+                hourglassIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
+            }
+        });
+
+        sizeOnclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout hideList = view.findViewById(R.id.hideSize);
+                if (hideList.getVisibility() == View.GONE) {
+                    hideList.setVisibility(View.VISIBLE);
+                    search.setBackgroundResource(R.drawable.save);
+                    params.width = 205;
+
+
+                } else {
+                    hideList.setVisibility(View.GONE);
+
+                    if (view.findViewById(R.id.hideOccasion).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideDressCode).getVisibility() == View.GONE &&
+                            view.findViewById(R.id.hideBodyShape).getVisibility() == View.GONE) {
+                        search.setBackgroundResource(R.drawable.search_btn);
+                        params.width = 206;
+                    }
+                }
+
+            }
+        });
 
 
 
@@ -269,6 +344,15 @@ public class ClosetFragment extends Fragment {
         });
 
     }
+
+    private void clearBackGroundAllForBodyShape(View view) {
+        view.findViewById(R.id.pearIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.roundIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.hourglassIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.rectangleIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.triangleIcon).setBackgroundResource(R.drawable.blackborder);
+    }
+
     private void openActivity2() {
         Intent intent = new Intent(getActivity(), MainActivity2.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
