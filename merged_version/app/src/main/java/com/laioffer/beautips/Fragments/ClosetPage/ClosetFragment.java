@@ -140,6 +140,9 @@ public class ClosetFragment extends Fragment {
                 view.findViewById(R.id.hideDressCode).setVisibility(View.GONE);
                 dressCodePlus.setText("+");
                 search.setBackgroundResource(R.drawable.search_btn);
+                clearBackGroundAllForDressCode(view);
+                clearBackGroundAllForOccasion(view);
+                clearBackGroundAllForBodyShape(view);
                 params.width = 206;
 
             }
@@ -250,60 +253,6 @@ public class ClosetFragment extends Fragment {
 
             }
         });
-
-
-        TextView pearIcon = view.findViewById(R.id.pearIcon); // first hiding list icon
-
-        pearIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearBackGroundAllForBodyShape(view);
-                pearIcon.setBackgroundResource(R.drawable.rainbowborder);
-                pearIcon.setPadding(50,2,0,0); // still don't understand why pear will go to the left
-            }
-        });
-
-        TextView roundIcon = view.findViewById(R.id.roundIcon); // first hiding list icon
-
-        roundIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearBackGroundAllForBodyShape(view);
-                roundIcon.setBackgroundResource(R.drawable.rainbowborder);
-                roundIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
-            }
-        });
-
-        TextView triangleIcon = view.findViewById(R.id.triangleIcon); // first hiding list icon
-        triangleIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearBackGroundAllForBodyShape(view);
-                triangleIcon.setBackgroundResource(R.drawable.rainbowborder);
-                triangleIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
-            }
-        });
-
-        TextView rectangleIcon = view.findViewById(R.id.rectangleIcon); // first hiding list icon
-        rectangleIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearBackGroundAllForBodyShape(view);
-                rectangleIcon.setBackgroundResource(R.drawable.rainbowborder);
-                rectangleIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
-            }
-        });
-
-        TextView hourglassIcon = view.findViewById(R.id.hourglassIcon); // first hiding list icon
-        hourglassIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearBackGroundAllForBodyShape(view);
-                hourglassIcon.setBackgroundResource(R.drawable.rainbowborder);
-                hourglassIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
-            }
-        });
-
         sizeOnclick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -328,6 +277,181 @@ public class ClosetFragment extends Fragment {
             }
         });
 
+        TextView pearIcon = view.findViewById(R.id.pearIcon); // first-hiding-list icon
+
+        pearIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                pearIcon.setBackgroundResource(R.drawable.rainbowborder);
+                pearIcon.setPadding(30,2,0,0); // still don't understand why pear will go to the left
+            }
+        });
+
+        TextView roundIcon = view.findViewById(R.id.roundIcon);
+
+        roundIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                roundIcon.setBackgroundResource(R.drawable.rainbowborder);
+                roundIcon.setPadding(30,2,0,0);
+            }
+        });
+
+        TextView triangleIcon = view.findViewById(R.id.triangleIcon);
+        triangleIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                triangleIcon.setBackgroundResource(R.drawable.rainbowborder);
+                triangleIcon.setPadding(30,2,0,0);
+            }
+        });
+
+        TextView rectangleIcon = view.findViewById(R.id.rectangleIcon);
+        rectangleIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+                rectangleIcon.setBackgroundResource(R.drawable.rainbowborder);
+                rectangleIcon.setPadding(30,2,0,0);
+            }
+        });
+
+        TextView hourglassIcon = view.findViewById(R.id.hourglassIcon);
+        hourglassIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForBodyShape(view);
+
+                hourglassIcon.setBackgroundResource(R.drawable.rainbowborder);
+                hourglassIcon.setPadding(30,2,0,0);
+            }
+        }); // end of first-hide-lists
+
+
+        /*LinearLayout hideOccasion = view.findViewById(R.id.hideOccasion);
+        int total = hideOccasion.getChildCount();
+        for (int i = 0;i < total; i++) {
+            onclickForOccasionButtons(hideOccasion.getChildAt(i)); // set the children programmatically, not finished
+        }*/
+        TextView weddingIcon = view.findViewById(R.id.weddingIcon);
+        weddingIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.weddingIcon));
+            }
+        });
+
+        TextView partyIcon = view.findViewById(R.id.partyIcon);
+        partyIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.partyIcon));
+            }
+        });
+
+        TextView beachIcon = view.findViewById(R.id.beachIcon);
+        beachIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.beachIcon));
+            }
+        });
+
+        TextView dinnerIcon = view.findViewById(R.id.dinnerIcon);
+        dinnerIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.dinnerIcon));
+            }
+        });
+
+        TextView dailyLifeIcon = view.findViewById(R.id.dailyLifeIcon);
+        dailyLifeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.dailyLifeIcon));
+            }
+        });
+
+        TextView datingIcon = view.findViewById(R.id.datingIcon);
+        datingIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.datingIcon));
+            }
+        });
+
+        TextView meetingIcon = view.findViewById(R.id.meetingIcon);
+        meetingIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclickForOccasionButtons(view.findViewById(R.id.meetingIcon));
+            }
+        });
+
+        TextView formalIcon = view.findViewById(R.id.formalIcon);
+        formalIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForDressCode(view);
+                setRainbowBorder(view.findViewById(R.id.formalIcon));
+            }
+        });
+
+        TextView semiIcon = view.findViewById(R.id.semiIcon);
+        semiIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForDressCode(view);
+                setRainbowBorder(view.findViewById(R.id.semiIcon));
+            }
+        });
+
+        TextView informalIcon = view.findViewById(R.id.informalIcon);
+        informalIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForDressCode(view);
+                setRainbowBorder(view.findViewById(R.id.informalIcon));
+            }
+        });
+
+        TextView casualIcon = view.findViewById(R.id.casualIcon);
+        casualIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBackGroundAllForDressCode(view);
+                setRainbowBorder(view.findViewById(R.id.casualIcon));
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         myRef = FirebaseDatabase.getInstance().getReference(); // java based backend
@@ -345,6 +469,26 @@ public class ClosetFragment extends Fragment {
 
     }
 
+
+
+    /*private void onclickForOccasionButtons(View t) {
+        Log.d(TAG, t.toString());
+    }*/
+
+    private void onclickForOccasionButtons(TextView t) {
+        if(t.getPaintFlags() == 0) {
+            t.setPaintFlags(1);
+            t.setBackgroundResource(R.drawable.darkblackborder);
+        } else {
+            t.setPaintFlags(0);
+            t.setBackgroundResource(R.drawable.blackborder);
+        }
+    }
+    private void setRainbowBorder(TextView t) {
+        t.setBackgroundResource(R.drawable.rainbowborder);
+        t.setPadding(30,2,0,0);
+    }
+
     private void clearBackGroundAllForBodyShape(View view) {
         view.findViewById(R.id.pearIcon).setBackgroundResource(R.drawable.blackborder);
         view.findViewById(R.id.roundIcon).setBackgroundResource(R.drawable.blackborder);
@@ -353,11 +497,29 @@ public class ClosetFragment extends Fragment {
         view.findViewById(R.id.triangleIcon).setBackgroundResource(R.drawable.blackborder);
     }
 
-    private void openActivity2() {
+    private void clearBackGroundAllForOccasion(View view) {
+        view.findViewById(R.id.weddingIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.partyIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.beachIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.dinnerIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.dailyLifeIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.datingIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.meetingIcon).setBackgroundResource(R.drawable.blackborder);
+
+    }
+
+    private void clearBackGroundAllForDressCode(View view) {
+        view.findViewById(R.id.formalIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.semiIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.informalIcon).setBackgroundResource(R.drawable.blackborder);
+        view.findViewById(R.id.casualIcon).setBackgroundResource(R.drawable.blackborder);
+    }
+
+    /*private void openActivity2() {
         Intent intent = new Intent(getActivity(), MainActivity2.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-    }
+    }*/
 
     private void GetDataBaseFromFireBase() {
         Query query = myRef.child("Closet");
