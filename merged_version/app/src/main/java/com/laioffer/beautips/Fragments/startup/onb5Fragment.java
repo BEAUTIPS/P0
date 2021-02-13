@@ -36,7 +36,6 @@ import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.Repository.UserRepository;
-import com.laioffer.beautips.databinding.FragmentOnb2Binding;
 import com.laioffer.beautips.databinding.FragmentOnb5Binding;
 import com.laioffer.beautips.setUpActivity;
 
