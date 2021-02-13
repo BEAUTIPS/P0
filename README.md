@@ -1,4 +1,5 @@
 # RESTFULENDPOINT_BACKEND_FRONTEND
-This is the branch for group 3
+This is a copy branch of merged_group3
+
 
 
