@@ -67,6 +67,7 @@ public class StylistListFragment extends Fragment {
         emily.setTitle("Nordstrom Style Advisor");
         emily.setProfileImageUrl("https://firebasestorage.googleapis.com/v0/b/beautips-54eb3.appspot.com/o/Emily%2FRectangle%20135.png?alt=media&token=0406c870-fe0d-4264-bdf0-66b912274284");
 
+
         Stylist joe = new Stylist("Joe");
         joe.setNumOfCustomers(6543);
         joe.setNumOfReviews(876);
