@@ -16,11 +16,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.laioffer.beautips.Models.Post;
-import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
 
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
+
+import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
 
 import java.util.ArrayList;
@@ -100,6 +101,8 @@ public class StylistPostFragment extends Fragment {
 
 
         StylistPostRepository repository = new StylistPostRepository(getContext());
+
+
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 

@@ -84,8 +84,5 @@ public class StylistListFragment extends Fragment {
         binding.stylistListRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
 
-
-
-
     }
 }

@@ -6,17 +6,22 @@ public class User {
 
     String bodyShape;
     String name = "";
-    int age;
-    String size;
+    String age;
+    String topSize;
+    String bottomSize;
     int numOfLikes = 0 ;
     String email = "";
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setTopSize(String topSize) {
+        this.topSize = topSize;
+    }
+
+    public void setBottomSize(String bottomSize) {
+        this.bottomSize = bottomSize;
     }
 
     public void setNumOfLikes(int numOfLikes) {
@@ -40,25 +45,27 @@ public class User {
 
     public User() {}
 
-    public User(int age, String size, String name) {
-        this.age = age;
-        this.size = size;
+    public User(String age, String topSize, String bottomSize, String name) {
+        this.age =  age;
+        this.topSize = topSize;
+        this.bottomSize = bottomSize;
         this.name = name;
 
     }
+
     public User(String name) {
         this.name = name;
     }
-
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
 
     public void setEmail(String email){
         this.email = email;
 
     }
-    public void setPassord(String password){
-        this.password = password;
 
-    }
 
     public void setBodyShape(String bodyShape) {
         this.bodyShape = bodyShape;
@@ -80,11 +87,13 @@ public class User {
         return email;
     }
 
-    public String getSize() {
-        return size;
+    public String getTopSize() {
+        return topSize;
     }
 
-    public int getAge() {
+    public String getBottomSize(){ return  bottomSize; }
+
+    public String getAge() {
         return age;
     }
 
@@ -95,7 +104,8 @@ public class User {
                 ", bodyShape='" + bodyShape + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", size=" + size +
+                ", topSize=" + topSize +
+                ", bottomSize=" + bottomSize +
                 ", numOfLikes=" + numOfLikes +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
@@ -108,7 +118,8 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return age == user.age &&
-                size == user.size &&
+                topSize == user.topSize &&
+                bottomSize == bottomSize &&
                 numOfLikes == user.numOfLikes &&
 
                 Objects.equals(bodyShape, user.bodyShape) &&
@@ -119,7 +130,8 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(bodyShape, name, age, size, numOfLikes, email, password);
+        return Objects.hash(bodyShape, name, age, topSize, bottomSize, numOfLikes, email, password);
     }
 }
+
 
