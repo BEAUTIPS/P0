@@ -20,11 +20,13 @@ import com.laioffer.beautips.R;
 
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
+
 import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class StylistPostFragment extends Fragment {
 
@@ -36,10 +38,12 @@ public class StylistPostFragment extends Fragment {
     ScrollStylistPostsBinding binding;
     private List<Post> Posts;
     String  stylistName;
+    Stylist stylistInfo;
+    int test = 0;
 
 
 
-    private ArrayList<com.laioffer.beautips.Models.Post> postList = new ArrayList<>();
+    private ArrayList<Object> postList = new ArrayList<>();
 
 
     public StylistPostFragment() {
@@ -72,10 +76,29 @@ public class StylistPostFragment extends Fragment {
         Log.i("size of list",String.valueOf(postList.size()));
         //use grid layout
         int numberOfColumns = 2;
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
-
         StylistPostAdapter = new StylistPostAdapter(context, postList);
         recyclerView.setAdapter(StylistPostAdapter);
+
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                Log.d("test position:", String.valueOf(StylistPostAdapter.getItemViewType(position)));
+                switch (StylistPostAdapter.getItemViewType(position)) {
+                    case 0:
+                        return 2;
+                    default:
+                        return 1;
+                }
+            }
+        });
+
+        recyclerView.setLayoutManager(mLayoutManager);
+
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+
+
 
         StylistPostRepository repository = new StylistPostRepository(getContext());
 
@@ -83,18 +106,36 @@ public class StylistPostFragment extends Fragment {
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 
+
+
+
+
         stylistViewModel
-                .getStylistPosts(stylistName)
+                .getStylistInfo(stylistName)
                 .observe(
                         getViewLifecycleOwner(),
                         response -> {
                             if (response != null) {
-                                Log.d("TestResult for images for post frag", response.toString());
+                                Log.d("TestResult for getting stylist first", response.toString());
                                 //Binding set text
-                                Posts = response;
-                                StylistPostAdapter.setPosts(Posts);
+                                stylistInfo = response;
+                                StylistPostAdapter.setFirst(stylistInfo);
+                                stylistViewModel
+                                        .getStylistPosts(stylistName)
+                                        .observe(
+                                                getViewLifecycleOwner(),
+                                                response2 -> {
+                                                    if (response2 != null) {
+                                                        Log.d("TestResult for images for post frag", response.toString());
+                                                        //Binding set text
+                                                        Posts = response2;
+                                                        StylistPostAdapter.setPosts(Posts);
+                                                    }
+                                                });
+
                             }
                         });
+
 
     }
 

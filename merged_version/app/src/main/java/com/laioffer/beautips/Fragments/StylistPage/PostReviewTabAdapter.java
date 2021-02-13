@@ -39,7 +39,7 @@ public class PostReviewTabAdapter extends FragmentStatePagerAdapter {
         if (position == 0 ){
             fragment = new StylistPostFragment(name);
         }else if (position == 1){
-            fragment = new StylistReviewFragment();
+            fragment = new StylistPostFragment(name);
         }
 
         return fragment;

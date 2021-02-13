@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
@@ -69,12 +71,15 @@ public class StylistProfileFragment extends Fragment {
 
                 ConstraintLayout mainView = binding.layoutProfile;
 
+
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
-                mainView.setBackgroundColor(Color.parseColor("#E5E5E5"));
+                ImageView shade = binding.shade;
+                ImageButton button = binding.scheduleButton;
+                shade.setVisibility(View.VISIBLE);
+                button.setVisibility(View.INVISIBLE);
+                Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(arg0.getContext(), "Wow", Toast.LENGTH_SHORT).show();
-               //添加sign in
 
             }
         });
@@ -120,17 +125,49 @@ public class StylistProfileFragment extends Fragment {
                         });
 
 
+
         viewPager = binding.viewPager;
         viewPager.setOffscreenPageLimit(2);
         tabLayout = binding.tab;
         createTabFragment();
 
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tabLayout.getSelectedTabPosition() == 0) {
+                    Log.d("this is",String.valueOf(tabLayout.getSelectedTabPosition()));
+                } else if (tabLayout.getSelectedTabPosition() == 1) {
+                    Log.d("this is another",String.valueOf(tabLayout.getSelectedTabPosition()));
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+        });
     }
 
     private void createTabFragment(){
         adapter = new PostReviewTabAdapter(getActivity().getSupportFragmentManager(), tabLayout, stylistName);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -161,7 +198,9 @@ public class StylistProfileFragment extends Fragment {
                     //Close the window when clicked
                     popupWindow.dismiss();
                     ConstraintLayout mainView = binding.layoutProfile;
-                    mainView.setBackgroundColor(Color.parseColor("white"));
+                    ImageView shade = binding.shade;
+                    shade.setVisibility(View.INVISIBLE);
+
 
                 }
             });

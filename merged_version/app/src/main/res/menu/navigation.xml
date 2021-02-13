@@ -21,8 +21,6 @@
         android:icon="@drawable/target"
         android:title="target" />
 
-
-
     <item
         android:id="@+id/navigation_group_test3"
         android:icon="@drawable/people"
