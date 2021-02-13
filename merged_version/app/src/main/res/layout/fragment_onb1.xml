@@ -49,10 +49,10 @@
         android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/log_in"
+        android:id="@+id/login_1"
         android:layout_width="153dp"
         android:layout_height="40dp"
-
+        android:clickable="true"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="100dp"

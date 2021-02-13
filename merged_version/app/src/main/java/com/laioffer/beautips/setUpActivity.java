@@ -1,13 +1,14 @@
 package com.laioffer.beautips;
 
-import android.app.FragmentManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
-import android.app.Fragment;
+//import android.app.Fragment;
+import android.view.View;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-//import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.laioffer.beautips.Fragments.startup.onb1Fragment;
 
@@ -19,10 +20,9 @@ public class setUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_up);
-        Fragment fragment = new onb1Fragment();
-        fragmentManager = getFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.fl_main, fragment)
+                .replace(R.id.fl_main, new onb1Fragment())
                 .setReorderingAllowed(true)
                 .commit();
 

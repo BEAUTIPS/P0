@@ -74,7 +74,7 @@ public class StylistProfileFragment extends Fragment {
                 mainView.setBackgroundColor(Color.parseColor("#E5E5E5"));
 
                 Toast.makeText(arg0.getContext(), "Wow", Toast.LENGTH_SHORT).show();
-
+               //添加sign in
 
             }
         });

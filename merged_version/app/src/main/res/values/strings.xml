@@ -5,10 +5,8 @@
     <string name="underline"><u>Create an account to save style tips, get personalized advice from stylists, and more.</u></string>
 
 
-
-
     <declare-styleable name="UnderlineTextView">
-        <attr name="underline_color" format="color"/>
-        <attr name="underline_height" format="dimension"/>
+        <attr name="underline_color" format="color" />
+        <attr name="underline_height" format="dimension" />
     </declare-styleable>
 </resources>

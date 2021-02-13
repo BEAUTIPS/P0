@@ -4,13 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/onb5">
 
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <ImageButton
+            android:id="@+id/vector4"
+            android:layout_width="10.74dp"
+            android:layout_height="18.76dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/vector"
+            />
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:layout_width="63dp"
         android:layout_height="63dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="80dp"
 
         android:layout_marginBottom="21dp"
         android:src="@drawable/group_428"
@@ -21,7 +36,7 @@
         android:id="@+id/your_style_tips_are_ready"
         android:layout_width="193dp"
         android:layout_height="20dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="11dp"
         android:layout_marginBottom="58dp"
         android:fontFamily="@font/montserrat"
         android:gravity="center_horizontal"
@@ -82,23 +97,22 @@
 
 
     <ImageButton
-        android:id="@+id/sign_up"
+        android:id="@+id/signup_1"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="105dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/frame_419_2"
         android:gravity="center_horizontal"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="600dp" />
+         />
 
 
     <TextView
         android:id="@+id/see_style_tips"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-
+        android:clickable="true"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="94dp"
         android:gravity="center_horizontal|top"

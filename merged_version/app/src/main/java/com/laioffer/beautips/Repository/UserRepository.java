@@ -20,10 +20,7 @@ import retrofit2.Response;
 public class UserRepository {
 
     private final UserLoginApi userLoginApi;
-    private setUpViewModel viewModel;
-    private Application application;
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor myEdit;
+
     public UserRepository(Context context) {
         this.userLoginApi =  RetrofitClient.newInstance(context).create(UserLoginApi.class);
     }
@@ -31,10 +28,8 @@ public class UserRepository {
 
     public MutableLiveData<Boolean> getUserInfo(User user){
         final MutableLiveData<Boolean> result = new MutableLiveData<>();
-        viewModel = new setUpViewModel(application, this);
         Log.i("test", user.toString());
         Call<Boolean> callResult = userLoginApi.getUserLoginInfo(user);
-
         callResult.enqueue(new Callback<Boolean>() {
             @SuppressLint("LongLogTag")
             @Override
@@ -52,6 +47,7 @@ public class UserRepository {
                 Log.i("Login is wrong", t.toString());
             }
         });
+        result.setValue(false);
         return result;
     }
 

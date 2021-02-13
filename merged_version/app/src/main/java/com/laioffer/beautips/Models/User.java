@@ -6,13 +6,13 @@ public class User {
 
     String bodyShape;
     String name = "";
-    int age;
+    String age;
     String topSize;
     String bottomSize;
     int numOfLikes = 0 ;
     String email = "";
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -45,8 +45,8 @@ public class User {
 
     public User() {}
 
-    public User(int age, String topSize, String bottomSize, String name) {
-        this.age = age;
+    public User(String age, String topSize, String bottomSize, String name) {
+        this.age =  age;
         this.topSize = topSize;
         this.bottomSize = bottomSize;
         this.name = name;
@@ -93,7 +93,7 @@ public class User {
 
     public String getBottomSize(){ return  bottomSize; }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 

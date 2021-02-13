@@ -10,7 +10,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.app.Fragment;
+//import android.app.Fragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,8 @@ import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.Repository.UserRepository;
+import com.laioffer.beautips.databinding.FragmentOnb2Binding;
+import com.laioffer.beautips.databinding.FragmentSignUpBinding;
 import com.laioffer.beautips.setUpActivity;
 
 public class signUpFragment extends Fragment implements View.OnClickListener{
@@ -42,49 +47,50 @@ public class signUpFragment extends Fragment implements View.OnClickListener{
     private String emailText ;
     private String passwordText ;
     Context context;
+    FragmentSignUpBinding binding;
     private setUpViewModel viewModel;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_sign_up, null);
+        //View view = inflater.inflate(R.layout.fragment_sign_up, null);
+        binding = binding.inflate(inflater, container, false);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
-        initview(view);
-        return view;
+        //initview(view);
+        return binding.getRoot();
     }
 
 
-
-
-    private void initview(View view) {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         email=view.findViewById(R.id.email);
         passowrd = view.findViewById(R.id.pwd);
-        sign_up=view.findViewById(R.id.sign_up1);
-        login = view.findViewById(R.id.log_in1);
+        sign_up=view.findViewById(R.id.signup_2);
+        login = view.findViewById(R.id.login_2);
         sign_up.setOnClickListener(this);
         login.setOnClickListener(this);
         emailText = email.getText().toString();
         passwordText = passowrd.getText().toString();
 
+
     }
+
+
 
     @Override
     public void onClick(View arg0) {
-
-        Intent intent=new Intent(getActivity(), MainActivity.class); // 跳转到group2的ACTIVITY
         switch (arg0.getId()) {
-            case R.id.log_in1:
-                myEdit.putString("email", emailText);
-                myEdit.putString("name", emailText);
-                myEdit.putString("password", passwordText);
-                startActivity(intent);
+            case R.id.login_2:
+                myEdit.putString("location", "signUp").apply();
+
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, new logInFragment()).commit();
                 break;
-            case R.id.sign_up1:
+            case R.id.signup_2:
                 myEdit.putString("email", emailText);
                 myEdit.putString("name", emailText);
                 myEdit.putString("password", passwordText);
-                startActivity(intent);
+                //返回上一个fragment
                 break;
             default:
                 break;

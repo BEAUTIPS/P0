@@ -8,13 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.app.Fragment;
+//import android.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 
 import com.laioffer.beautips.R;
 
 public class onb4Fragment extends Fragment implements View.OnClickListener{
     private SharedPreferences preferences;
     private SharedPreferences.Editor myEdit;
+    private ImageButton vector;
     private Button top_XS;
     private Button top_S;
     private Button top_M;
@@ -42,6 +45,7 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
     }
 
     private void initview(View view) {
+        vector = view.findViewById(R.id.vector3);
         top_XS = view.findViewById(R.id.XS);
         top_S = view.findViewById(R.id.S);
         top_M = view.findViewById(R.id.M);
@@ -51,12 +55,14 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
         top_3XL = view.findViewById(R.id.XL3);
         top_3XLL = view.findViewById(R.id.XLL3);
 
+        vector.setOnClickListener(this);
         top_XS.setOnClickListener(this);
         top_S.setOnClickListener(this);
         top_M.setOnClickListener(this);
         top_L.setOnClickListener(this);
         top_XL.setOnClickListener(this);
         top_2XL.setOnClickListener(this);
+        top_3XL.setOnClickListener(this);
         top_3XLL.setOnClickListener(this);
 
 
@@ -76,6 +82,7 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
         bottom_L.setOnClickListener(this);
         bottom_XL.setOnClickListener(this);
         bottom_2XL.setOnClickListener(this);
+        bottom_3XL.setOnClickListener(this);
         bottom_3XLL.setOnClickListener(this);
 
         next = (ImageButton) view.findViewById(R.id.next);//重置按钮
@@ -85,6 +92,9 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View arg0) {
         switch (arg0.getId()) {
+            case R.id.vector3:
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb3Fragment()).commit();
+                break;
             case R.id.XS:
                 myEdit.putString("topSize","XS").apply();
                 break;
@@ -110,8 +120,8 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
                 myEdit.putString("topSize","3XL+").apply();
                 break;
             case R.id.next:
-                Fragment fragment = new onb5Fragment();
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, fragment).commit();
+
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
                 break;
             case R.id.b_XS:
                 myEdit.putString("bottomSize","XS").apply();
