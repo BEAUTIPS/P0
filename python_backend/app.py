@@ -12,6 +12,7 @@ app = flask.Flask(__name__)
 email = "beautipstestuser@gmail.com"
 password = "123456"
 Firebase_instance = Firebase_auth()
+Firebase_instance.sign_in_with_email_and_password(email, password)
 
 # Firebase_instance.get_storage_bucket()
 # Firebase_instance.initialize_firestore_retrieve_data("Abby")
@@ -33,14 +34,16 @@ def handle_stylist_post_request():
 
     return jsonify(response)
 
+
 @app.route('/login', methods= ['GET', 'POST'])
 def handle_post_request_login():
     content = request.json
+    print("thisis",content)
     email = content['email']
     password = content['password']
     if_signed_in = Firebase_instance.sign_in_with_email_and_password(email, password)
     print("Test login is successful!")
-    return if_signed_in
+    return str(if_signed_in)
   
 
 @app.route('/signup', methods=['GET', 'POST'])
