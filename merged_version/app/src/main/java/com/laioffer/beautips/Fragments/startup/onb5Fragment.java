@@ -36,7 +36,6 @@ import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.Repository.UserRepository;
-import com.laioffer.beautips.databinding.FragmentOnb2Binding;
 import com.laioffer.beautips.databinding.FragmentOnb5Binding;
 import com.laioffer.beautips.setUpActivity;
 
@@ -136,12 +135,11 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
             case R.id.see_style_tips:
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 break;
             default:
                 break;
         }
     }
-
-
 
 }

@@ -36,7 +36,7 @@ import com.laioffer.beautips.databinding.FragmentOnb2Binding;
 import com.laioffer.beautips.databinding.FragmentSignUpBinding;
 import com.laioffer.beautips.setUpActivity;
 
-public class signUpFragment extends Fragment implements View.OnClickListener{
+public class signUpFragment extends Fragment implements View.OnClickListener {
 
     private SharedPreferences preferences;
     private SharedPreferences.Editor myEdit;
@@ -44,14 +44,15 @@ public class signUpFragment extends Fragment implements View.OnClickListener{
     private EditText passowrd;
     private TextView login;
     private ImageButton sign_up;
-    private String emailText ;
-    private String passwordText ;
+    private String emailText;
+    private String passwordText;
     Context context;
     FragmentSignUpBinding binding;
     private setUpViewModel viewModel;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container,savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         //View view = inflater.inflate(R.layout.fragment_sign_up, null);
         binding = binding.inflate(inflater, container, false);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
@@ -64,9 +65,9 @@ public class signUpFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        email=view.findViewById(R.id.email);
+        email = view.findViewById(R.id.email);
         passowrd = view.findViewById(R.id.pwd);
-        sign_up=view.findViewById(R.id.signup_2);
+        sign_up = view.findViewById(R.id.signup_2);
         login = view.findViewById(R.id.login_2);
         sign_up.setOnClickListener(this);
         login.setOnClickListener(this);
@@ -77,12 +78,11 @@ public class signUpFragment extends Fragment implements View.OnClickListener{
     }
 
 
-
     @Override
     public void onClick(View arg0) {
         switch (arg0.getId()) {
             case R.id.login_2:
-                myEdit.putString("location", "signUp").apply();
+              //  myEdit.putString("location", "signUp").apply();
 
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new logInFragment()).commit();
                 break;
@@ -98,7 +98,6 @@ public class signUpFragment extends Fragment implements View.OnClickListener{
 
 
     }
-
 
 
 }

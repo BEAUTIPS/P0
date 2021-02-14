@@ -1,42 +1,20 @@
 package com.laioffer.beautips.Fragments.startup;
 
-import android.annotation.SuppressLint;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostAdapter;
-import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
-import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
-import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.databinding.FragmentOnb2Binding;
-import com.laioffer.beautips.databinding.ScrollStylistPostsBinding;
-
-import java.util.List;
 
 
 public class onb2Fragment extends Fragment implements View.OnClickListener{
@@ -62,10 +40,8 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         super.onCreateView(inflater, container,savedInstanceState);
         binding = binding.inflate(inflater, container, false);
-        //View view = inflater.inflate(R.layout.fragment_onb2, null);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
-
         return binding.getRoot();
     }
 
@@ -89,6 +65,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape3.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
+                myEdit.putString("shape", "Hourglass");
             }
         });
 
@@ -104,6 +81,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape3.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
+                myEdit.putString("shape", "Round");
             }
         });
 
@@ -118,6 +96,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape2.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
+                myEdit.putString("shape", "Triangle");
             }
         });
 
@@ -132,6 +111,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape2.setVisibility(View.INVISIBLE);
                 shape3.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
+                myEdit.putString("shape", "Rectangle");
             }
         });
 
@@ -146,8 +126,11 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape2.setVisibility(View.INVISIBLE);
                 shape3.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
+                myEdit.putString("shape", "Pear");
             }
         });
+
+
         vector = view.findViewById(R.id.vector1);
         vector.setOnClickListener(this);
         next = view.findViewById(R.id.next);

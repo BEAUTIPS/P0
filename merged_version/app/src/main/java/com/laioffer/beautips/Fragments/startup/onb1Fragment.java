@@ -39,7 +39,7 @@ public class onb1Fragment extends Fragment implements View.OnClickListener {
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb2Fragment()).commit();
                 break;
             case R.id.login_1:
-                myEdit.putString("location", "onb1").apply();
+              //  myEdit.putString("location", "onb1").apply();
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new logInFragment()).commit();
                 break;
             default:
