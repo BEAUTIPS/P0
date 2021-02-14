@@ -61,6 +61,7 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
         android:id="@+id/stylist_name_post"
         android:layout_width="wrap_content"
@@ -76,10 +77,9 @@
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/card_view_post"
         app:layout_constraintEnd_toEndOf="@+id/card_view_post"
-        app:layout_constraintHorizontal_bias="0.256"
         app:layout_constraintStart_toStartOf="@+id/card_view_post"
         app:layout_constraintTop_toTopOf="@+id/card_view_post"
-        app:layout_constraintVertical_bias="1.0"
+
         tools:ignore="MissingConstraints" />
 
 
