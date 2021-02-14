@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/navigation_group_test3"
         android:name="com.laioffer.beautips.Fragments.testFrag3"
-        tools:layout="@layout/fragment_testfrag3" >
+        tools:layout="@layout/stylist_info_recycler_component" >
     </fragment>
 
 

@@ -2,7 +2,9 @@ package com.laioffer.beautips.Fragments.StylistPage.StylistList;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
 import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.Utils.GlideApp;
 import com.laioffer.beautips.databinding.SingleStylistListBinding;
 
 import java.util.ArrayList;
@@ -63,8 +66,16 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
     public void onBindViewHolder(@NonNull StylistListViewHolder holder, int position) {
         Stylist list = stylistList.get(position);
         holder.stylistName.setText(list.getName());
-//        holder.numsReview.setText(list.getNumOfReviews());
-//        holder.stylistTitle.setText(list.getTitle());
+        holder.numsReview.setText(String.valueOf(list.getNumOfReviews()));
+        holder.numsReview.setText(String.valueOf(list.getNumOfReviews()) + " Reviews");
+        holder.stylistTitle.setText(list.getTitle());
+//        holder.stylistImage.setImageResource(Integer.parseInt(list.getProfileImageUrl()));
+        Log.d("checking url",list.getProfileImageUrl());
+        GlideApp.with(holder.itemView)
+                .load(list.getProfileImageUrl())
+                .fitCenter()
+                .into(holder.stylistImage);
+
         //holder.itemView.setOnClickListener(v -> ItemCallback.onOpenDetails(list));
 
 
@@ -100,19 +111,22 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
             card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(), stylistName.getText(), Toast.LENGTH_LONG).show();
+                    String name = stylistName.getText().toString();
+                    Toast.makeText(itemView.getContext(), name, Toast.LENGTH_LONG).show();
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     // Storing data into SharedPreferences
+                    Log.d("this is name:", stylistName.getText().toString());
 
-
-
-
-                    Fragment myFragment = new StylistProfileFragment(stylistName.getText().toString());
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.topview, myFragment).addToBackStack(null).commit();
+                    Fragment myFragment = new StylistProfileFragment(name);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.topview, myFragment).addToBackStack("back_to_list").commit();
                 }
             });
         }
         }
+
+
+
+
 
 
 
