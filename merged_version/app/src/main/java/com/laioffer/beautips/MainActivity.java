@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
 
+        navView.setItemIconTintList(null);
+
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration
                 .Builder(R.id.topview)
                 .build();
