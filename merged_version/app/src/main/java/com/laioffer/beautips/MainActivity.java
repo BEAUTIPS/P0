@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         //controller --> fragment, navigation view
         NavigationUI.setupWithNavController(navView, navController);
 
-
-
     }
 
 

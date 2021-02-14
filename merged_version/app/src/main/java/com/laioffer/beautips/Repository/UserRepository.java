@@ -47,7 +47,7 @@ public class UserRepository {
                 Log.i("Login is wrong", t.toString());
             }
         });
-        result.setValue(false);
+        result.setValue(true);
         return result;
     }
 

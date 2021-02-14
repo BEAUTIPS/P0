@@ -93,13 +93,13 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
                 MutableLiveData<Boolean> result = viewModel.getUserInfo(user);
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 if(result != null){
-                    if(result.getValue() != false){
-                        //LinearLayout mainView = binding.onb5;
-                        Toast.makeText(v.getContext(), "Error, please set Information again", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+//                    if(result.getValue() != false){
+//                        //LinearLayout mainView = binding.onb5;
+//                        Toast.makeText(v.getContext(), "Error, please set Information again", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
 
-                   startActivity(intent);
+                    startActivity(intent);
                     getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 }
 
@@ -135,7 +135,7 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
             case R.id.see_style_tips:
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
+                //getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 break;
             default:
                 break;

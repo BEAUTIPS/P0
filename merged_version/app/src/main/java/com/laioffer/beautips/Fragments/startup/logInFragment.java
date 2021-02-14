@@ -68,7 +68,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                 break;
             case R.id.login_3:
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
+                //getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 break;
             default:
                 break;
