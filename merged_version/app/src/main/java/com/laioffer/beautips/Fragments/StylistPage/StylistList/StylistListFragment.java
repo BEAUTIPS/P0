@@ -95,5 +95,5 @@ public class StylistListFragment extends Fragment {
         super.onResume();
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
-   
+
 }
