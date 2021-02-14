@@ -73,11 +73,11 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
         age = (TextView)binding.age;
         top_size = (TextView)binding.topSize;
         bottom_size = (TextView)binding.bottomSize;
-
+        Log.d("test shape", preferences.getString("shape",""));
         shape.setText(preferences.getString("shape","") + " Shape");
         age.setText("Age " + preferences.getString("age", ""));
         top_size.setText("Top " + preferences.getString("topSize","") + " Size");
-        bottom_size.setText("Top " + preferences.getString("bottomSize",  "")+ " Size");
+        bottom_size.setText("Bottom " + preferences.getString("bottomSize",  "")+ " Size");
 
         vector = view.findViewById(R.id.vector4);
         vector.setOnClickListener(this);

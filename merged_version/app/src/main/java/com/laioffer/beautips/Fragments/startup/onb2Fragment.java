@@ -52,8 +52,6 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
         super.onViewCreated(view, savedInstanceState);
 
 
-
-
         Hourglass = (ImageButton)binding.HourglassPic;
         shape1 = (ImageView)binding.shape1;
         Hourglass.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +63,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape3.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
-                myEdit.putString("shape", "Hourglass");
+                myEdit.putString("shape", "Hourglass").apply();
             }
         });
 
@@ -81,7 +79,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape3.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
-                myEdit.putString("shape", "Round");
+                myEdit.putString("shape", "Round").apply();
             }
         });
 
@@ -96,7 +94,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape2.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
-                myEdit.putString("shape", "Triangle");
+                myEdit.putString("shape", "Triangle").apply();
             }
         });
 
@@ -111,7 +109,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape2.setVisibility(View.INVISIBLE);
                 shape3.setVisibility(View.INVISIBLE);
                 shape5.setVisibility(View.INVISIBLE);
-                myEdit.putString("shape", "Rectangle");
+                myEdit.putString("shape", "Rectangle").apply();
             }
         });
 
@@ -126,7 +124,7 @@ public class onb2Fragment extends Fragment implements View.OnClickListener{
                 shape2.setVisibility(View.INVISIBLE);
                 shape3.setVisibility(View.INVISIBLE);
                 shape4.setVisibility(View.INVISIBLE);
-                myEdit.putString("shape", "Pear");
+                myEdit.putString("shape", "Pear").apply();
             }
         });
 
