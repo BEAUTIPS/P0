@@ -31,6 +31,8 @@ class Firebase_auth:
         self.rest_api_url =f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword"
 
         self.initialize_firebase()
+        self.sign_up_sucess = False
+        self.uuid = None
 
 
 
@@ -40,6 +42,7 @@ class Firebase_auth:
             self.initialize_firestore_sucess = True
         except Exception as e:
             print(e)
+
 
 
     def initialize_firestore_retrieve_data(self, stylistName):
@@ -77,6 +80,45 @@ class Firebase_auth:
             # #get all stylists
             # for doc in docs:
             #     print(f'{doc.id} => {doc.to_dict()}')
+    #register
+    def store_user_info(self):
+        '''
+       This method add user sign up data to firebase
+       now it returns True to the frontend
+       '''
+        self.register()
+        if self.initialize_firestore_sucess and self.sign_up_sucess:
+
+            db = firestore.client()
+            data = {
+                'Username':'Tom', 'Email':'abcde@gmail.com',
+                'Password': '123456', 'Bodayshape':'Round', 'Age':'20',
+                'Topsize': 'M', 'Bottomsize': 'L', 'ImagesURL': '',
+                'NumOfLikes': '0', 'isValidate': 'True'
+            }
+            db.collection('User').add(data)
+            return True
+
+
+    #regsiter
+    def register(self):
+        #.... firebase register api
+        #if sign in sucess:
+            self.sign_in_success = True
+        #else:
+            #print(xxxx)
+
+    #grab user
+    def retrieve_user_login_info(self, uid):
+        '''
+       This method retreive user's data from firebase
+       '''
+        if self.initialize_firestore_sucess:
+            db = firestore.client()
+            result = db.collection('Users').document(uid).get().to.dict()
+            print(result)
+            return result
+
 
 
        
@@ -102,6 +144,7 @@ class Firebase_auth:
             #here can send request to front end  and used shared pref
             print("login sucess")
             self.sign_in_success = True
+            self.uuid = login_result['localId']
             print(login_result)
             
             return True
