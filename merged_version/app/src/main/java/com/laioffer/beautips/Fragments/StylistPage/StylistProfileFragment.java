@@ -95,35 +95,35 @@ public class StylistProfileFragment extends Fragment {
 
         Log.d("name is", stylistName);
 
-        stylistViewModel
-                .getStylistInfo(stylistName)
-                .observe(
-                        getViewLifecycleOwner(),
-                        response -> {
-                            if (response != null) {
-                                Log.d("TestResult", response.toString());
-                                //Binding set text
-                                binding.age.setText("#" + String.valueOf(response.getAge()) + " years");
-                                binding.numCustomers.setText(String.valueOf(response.getNumOfCustomers()));
-                                binding.bodyShape.setText("#" + response.getBodyShape() + " Shape");
-                                binding.size.setText("#" + response.getTopSize());
-                                binding.size.setText("#" + response.getBottomSize());
-                                binding.numLikes.setText(String.valueOf(response.getNumOfLikes()));
-                                binding.stylistName.setText(response.getName());
-                                binding.stylistTitle.setText(response.getTitle());
-                                binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
-                                binding.textView17numReview.setText(String.valueOf(response.getNumOfReviews()) + " reviews");
-
-                                Picasso.get()
-                                        .load(response.getProfileImageUrl())
-                                        .noFade().into(binding.stylistImage);
-
-                                Picasso.get()
-                                        .load(response.getProfileImageUrl())
-                                        .noFade().into((ImageView) getView().findViewById(R.id.stylist_profile_image));
-                            }
-                        });
-
+//        stylistViewModel
+//                .getStylistInfo(stylistName)
+//                .observe(
+//                        getViewLifecycleOwner(),
+//                        response -> {
+//                            if (response != null) {
+//                                Log.d("TestResult", response.toString());
+//                                //Binding set text
+//                                binding.age.setText("#" + String.valueOf(response.getAge()) + " years");
+//                                binding.numCustomers.setText(String.valueOf(response.getNumOfCustomers()));
+//                                binding.bodyShape.setText("#" + response.getBodyShape() + " Shape");
+//                                binding.size.setText("#" + response.getTopSize());
+//                                binding.size.setText("#" + response.getBottomSize());
+//                                binding.numLikes.setText(String.valueOf(response.getNumOfLikes()));
+//                                binding.stylistName.setText(response.getName());
+//                                binding.stylistTitle.setText(response.getTitle());
+//                                binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
+//                                binding.textView17numReview.setText(String.valueOf(response.getNumOfReviews()) + " reviews");
+//
+//                                Picasso.get()
+//                                        .load(response.getProfileImageUrl())
+//                                        .noFade().into(binding.stylistImage);
+//
+//                                Picasso.get()
+//                                        .load(response.getProfileImageUrl())
+//                                        .noFade().into((ImageView) getView().findViewById(R.id.stylist_profile_image));
+//                            }
+//                        });
+//
 
 
         viewPager = binding.viewPager;

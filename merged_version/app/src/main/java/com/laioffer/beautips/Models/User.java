@@ -11,6 +11,15 @@ public class User {
     String bottomSize;
     int numOfLikes = 0 ;
     String email = "";
+    String size;
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getSize() {
+        return size;
+    }
 
     public void setAge(String age) {
         this.age = age;
