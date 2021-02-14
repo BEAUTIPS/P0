@@ -1,6 +1,7 @@
 package com.laioffer.beautips.Fragments.StylistPage;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.laioffer.beautips.Fragments.StylistPage.StylistList.StylistListFragment;
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
@@ -78,6 +80,7 @@ public class StylistProfileFragment extends Fragment{
                 getFragmentManager().beginTransaction().replace(R.id.layoutProfile, new StylistListFragment()).commit();
                 ImageButton button = binding.scheduleButton;
                 button.setVisibility(View.INVISIBLE);
+
             }
         });
 
@@ -97,6 +100,8 @@ public class StylistProfileFragment extends Fragment{
                 shade.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
                 Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
+                BottomNavigationView navigation = (BottomNavigationView) getActivity().findViewById(R.id.nav_view);
+
 
 
             }

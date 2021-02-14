@@ -9,7 +9,6 @@
     <item
         android:id="@+id/navigation_group_test2"
         android:icon="@drawable/closet_nav"
-        android:iconTint="@color/black"
         android:title="closet" />
 
 <!--    <item-->
@@ -20,7 +19,6 @@
     <item
         android:id="@+id/navigation_list"
         android:icon="@drawable/target_nav"
-        android:background ="@color/black"
         android:title="target" />
 
     <item

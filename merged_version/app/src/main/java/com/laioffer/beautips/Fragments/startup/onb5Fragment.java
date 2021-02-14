@@ -99,19 +99,11 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
                 user.setAge(preferences.getString("age", ""));
                 user.setTopSize(preferences.getString("topSize", ""));
                 user.setBottomSize(preferences.getString("bottomSize", ""));
-                Log.d("yser",user.toString());
 
                 MutableLiveData<String> result = viewModel.getUserInfo(user);
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 if(result != null){
-//                    if(result.getValue() != "true"){
-//                        //LinearLayout mainView = binding.onb5;
-//                        Toast.makeText(v.getContext(), "Error, Login Failed", Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
-
                     startActivity(intent);
-                    //getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 }
 
             }
