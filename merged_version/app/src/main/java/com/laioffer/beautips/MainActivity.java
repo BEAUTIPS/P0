@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_left_24);
+        toolbar.setNavigationIcon(R.drawable.vector);
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);

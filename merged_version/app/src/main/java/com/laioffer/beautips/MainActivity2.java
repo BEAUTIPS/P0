@@ -27,7 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_left_24);
+        toolbar.setNavigationIcon(R.drawable.vector);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
