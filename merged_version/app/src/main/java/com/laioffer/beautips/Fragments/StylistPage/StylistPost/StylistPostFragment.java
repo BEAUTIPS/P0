@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.laioffer.beautips.Models.Post;
+import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
 
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;

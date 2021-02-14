@@ -135,12 +135,11 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
             case R.id.see_style_tips:
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 break;
             default:
                 break;
         }
     }
-
-
 
 }
