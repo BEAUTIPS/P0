@@ -10,9 +10,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 //import android.app.Fragment;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.databinding.FragmentOnb2Binding;
+import com.laioffer.beautips.databinding.FragmentOnb4Binding;
 
 public class onb4Fragment extends Fragment implements View.OnClickListener{
     private SharedPreferences preferences;
@@ -35,59 +39,292 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
     private Button bottom_3XL;
     private Button bottom_3XLL; // This is 3XL+
     private ImageButton next;
+    FragmentOnb4Binding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_onb4, null);
-        initview(view);
+        super.onCreateView(inflater, container,savedInstanceState);
+        binding = binding.inflate(inflater, container, false);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
-        return view;
+        return binding.getRoot();
     }
 
-    private void initview(View view) {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         vector = view.findViewById(R.id.vector3);
-        top_XS = view.findViewById(R.id.XS);
-        top_S = view.findViewById(R.id.S);
-        top_M = view.findViewById(R.id.M);
-        top_L = view.findViewById(R.id.L);
-        top_XL = view.findViewById(R.id.XL);
-        top_2XL = view.findViewById(R.id.XL2);
-        top_3XL = view.findViewById(R.id.XL3);
-        top_3XLL = view.findViewById(R.id.XLL3);
-
         vector.setOnClickListener(this);
-        top_XS.setOnClickListener(this);
-        top_S.setOnClickListener(this);
-        top_M.setOnClickListener(this);
-        top_L.setOnClickListener(this);
-        top_XL.setOnClickListener(this);
-        top_2XL.setOnClickListener(this);
-        top_3XL.setOnClickListener(this);
-        top_3XLL.setOnClickListener(this);
 
 
-        bottom_XS = view.findViewById(R.id.b_XS);
-        bottom_S = view.findViewById(R.id.b_S);
-        bottom_M = view.findViewById(R.id.b_M);
-        bottom_L = view.findViewById(R.id.b_L);
-        bottom_XL = view.findViewById(R.id.b_XL);
-        bottom_2XL = view.findViewById(R.id.b_XL2);
-        bottom_3XL = view.findViewById(R.id.b_XL3);
-        bottom_3XLL = view.findViewById(R.id.b_XLL3);
+
+        top_XS = (Button)binding.XS;
+        top_XS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(true);
+                top_S.setActivated(false);
+                top_M.setActivated(false);
+                top_L.setActivated(false);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","XS").apply();
+            }
+        });
+
+        top_S = (Button)binding.S;
+        top_S.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(true);
+                top_M.setActivated(false);
+                top_L.setActivated(false);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","S").apply();
+            }
+        });
+
+        top_M = (Button)binding.M;
+        top_M.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(false);
+                top_M.setActivated(true);
+                top_L.setActivated(false);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","M").apply();
+            }
+        });
 
 
-        bottom_XS.setOnClickListener(this);
-        bottom_S.setOnClickListener(this);
-        bottom_M.setOnClickListener(this);
-        bottom_L.setOnClickListener(this);
-        bottom_XL.setOnClickListener(this);
-        bottom_2XL.setOnClickListener(this);
-        bottom_3XL.setOnClickListener(this);
-        bottom_3XLL.setOnClickListener(this);
+        top_L = (Button)binding.L;
+        top_L.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(false);
+                top_M.setActivated(false);
+                top_L.setActivated(true);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","L").apply();
+            }
+        });
+
+        top_XL = (Button)binding.XL;
+        top_XL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(false);
+                top_M.setActivated(false);
+                top_L.setActivated(false);
+                top_XL.setActivated(true);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","XL").apply();
+            }
+        });
+
+        top_2XL = (Button)binding.XL2;
+        top_2XL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(false);
+                top_M.setActivated(false);
+                top_L.setActivated(false);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(true);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","2XL").apply();
+            }
+        });
+
+
+        top_3XL = (Button)binding.XL3;
+        top_3XL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(false);
+                top_M.setActivated(false);
+                top_L.setActivated(false);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(true);
+                top_3XLL.setActivated(false);
+                myEdit.putString("topSize","3XL").apply();
+            }
+        });
+
+        top_3XLL = (Button)binding.XLL3;
+        top_3XLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                top_XS.setActivated(false);
+                top_S.setActivated(false);
+                top_M.setActivated(false);
+                top_L.setActivated(false);
+                top_XL.setActivated(false);
+                top_2XL.setActivated(false);
+                top_3XL.setActivated(false);
+                top_3XLL.setActivated(true);
+                myEdit.putString("topSize","3XL+").apply();
+            }
+        });
+
+
+
+
+        bottom_XS = (Button)binding.bXS;
+        bottom_XS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(true);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","XS").apply();
+            }
+        });
+
+        bottom_S = (Button)binding.bS;
+        bottom_S.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(true);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","S").apply();
+            }
+        });
+
+        bottom_M = (Button)binding.bM;
+        bottom_M.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(true);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","M").apply();
+            }
+        });
+
+
+        bottom_L = (Button)binding.bL;
+        bottom_L.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(true);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","L").apply();
+            }
+        });
+
+        bottom_XL = (Button)binding.bXL;
+        bottom_XL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(true);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","XL").apply();
+            }
+        });
+
+        bottom_2XL = (Button)binding.bXL2;
+        bottom_2XL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(true);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","2XL").apply();
+            }
+        });
+
+
+        bottom_3XL = (Button)binding.bXL3;
+        bottom_3XL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(true);
+                bottom_3XLL.setActivated(false);
+                myEdit.putString("bottomSize","3XL").apply();
+            }
+        });
+
+        bottom_3XLL = (Button)binding.bXLL3;
+        bottom_3XLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottom_XS.setActivated(false);
+                bottom_S.setActivated(false);
+                bottom_M.setActivated(false);
+                bottom_L.setActivated(false);
+                bottom_XL.setActivated(false);
+                bottom_2XL.setActivated(false);
+                bottom_3XL.setActivated(false);
+                bottom_3XLL.setActivated(true);
+                myEdit.putString("bottomSize","3XL+").apply();
+            }
+        });
 
         next = (ImageButton) view.findViewById(R.id.next);//重置按钮
         next.setOnClickListener(this);
     }
+
+
 
     @Override
     public void onClick(View arg0) {
@@ -95,57 +332,8 @@ public class onb4Fragment extends Fragment implements View.OnClickListener{
             case R.id.vector3:
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb3Fragment()).commit();
                 break;
-            case R.id.XS:
-                myEdit.putString("topSize","XS").apply();
-                break;
-            case R.id.S:
-                myEdit.putString("topSize","S").apply();
-                break;
-            case R.id.M:
-                myEdit.putString("topSize","M").apply();
-                break;
-            case R.id.L:
-                myEdit.putString("topSize","L").apply();
-                break;
-            case R.id.XL:
-                myEdit.putString("topSize","XL").apply();
-                break;
-            case R.id.XL2:
-                myEdit.putString("topSize","2XL").apply();
-                break;
-            case R.id.XL3:
-                myEdit.putString("topSize","3XL").apply();
-                break;
-            case R.id.XLL3:
-                myEdit.putString("topSize","3XL+").apply();
-                break;
             case R.id.next:
-
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
-                break;
-            case R.id.b_XS:
-                myEdit.putString("bottomSize","XS").apply();
-                break;
-            case R.id.b_S:
-                myEdit.putString("bottomSize","S").apply();
-                break;
-            case R.id.b_M:
-                myEdit.putString("bottomSize","M").apply();
-                break;
-            case R.id.b_L:
-                myEdit.putString("bottomSize","L").apply();
-                break;
-            case R.id.b_XL:
-                myEdit.putString("bottomSize","XL").apply();
-                break;
-            case R.id.b_XL2:
-                myEdit.putString("bottomSize","2XL").apply();
-                break;
-            case R.id.b_XL3:
-                myEdit.putString("bottomSize","3XL").apply();
-                break;
-            case R.id.b_XLL3:
-                myEdit.putString("bottomSize","3XL+").apply();
                 break;
             default:
                 break;
