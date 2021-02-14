@@ -33,5 +33,18 @@ def handle_stylist_post_request():
 
     return jsonify(response)
 
+@app.route('/login', methods= ['GET', 'POST'])
+def handle_post_request():
+    content = request.jason
+    print(content)
+    response = "Successfully login"
+    return jsonify(response)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def handle_stylist_post_request():
+    content = request.json
+    print(content)
+    response = "Successfully Signup"
+    return jsonify(response)
 
 app.run(host="0.0.0.0", port=5000, debug=True)
