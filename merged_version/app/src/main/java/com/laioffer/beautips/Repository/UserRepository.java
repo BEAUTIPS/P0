@@ -26,28 +26,28 @@ public class UserRepository {
     }
 
 
-    public MutableLiveData<Boolean> getUserInfo(User user){
-        final MutableLiveData<Boolean> result = new MutableLiveData<>();
-        Log.i("test", user.toString());
-        Call<Boolean> callResult = userLoginApi.getUserLoginInfo(user);
-        callResult.enqueue(new Callback<Boolean>() {
+    public MutableLiveData<String> getUserInfo(User user){
+        Log.d("user",user.toString());
+        final MutableLiveData<String> result = new MutableLiveData<>();
+        Call<String> callResult = userLoginApi.getUserLoginInfo(user);
+        callResult.enqueue(new Callback<String>() {
             @SuppressLint("LongLogTag")
             @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     result.setValue(response.body());
-                    Log.i("Successful", response.body().toString());
+                    Log.i("Successful ", response.body().toString());
                 } else {
-                    Log.i("Failure status code:", String.valueOf(response.errorBody()));
+                    Log.i("Failure status code for user info:", String.valueOf(response.errorBody()));
                     result.setValue(null);
                 }
             }
             @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
                 Log.i("Login is wrong", t.toString());
             }
         });
-        result.setValue(true);
+
         return result;
     }
 

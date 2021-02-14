@@ -103,7 +103,6 @@ public class StylistPostFragment extends Fragment {
 
         StylistPostRepository repository = new StylistPostRepository(getContext());
 
-
         stylistViewModel = new ViewModelProvider(this, new BeautipsViewModelFactory(repository))
                 .get(StylistPostViewModel.class);
 

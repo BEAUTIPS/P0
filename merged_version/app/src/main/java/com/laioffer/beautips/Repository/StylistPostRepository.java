@@ -22,6 +22,7 @@ import retrofit2.Response;
 public class StylistPostRepository {
 
     private final StylistProfileApi StylistProfileApi;
+
     Stylist stylistInfo = null;
 
     public StylistPostRepository(Context context) {

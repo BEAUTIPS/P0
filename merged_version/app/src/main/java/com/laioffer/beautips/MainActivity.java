@@ -3,6 +3,7 @@ package com.laioffer.beautips;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.annotation.SuppressLint;
@@ -47,8 +48,15 @@ public class MainActivity extends AppCompatActivity {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
 
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration
+                .Builder(R.id.topview)
+                .build();
+
         //controller --> fragment, navigation view
         NavigationUI.setupWithNavController(navView, navController);
+//        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
+
+
 
     }
 
@@ -65,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0 ) {
-            Log.d("testing","backbutton pressed");
-            getFragmentManager().popBackStack("back_to_list",0);
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0 ) {
+            Log.d("testing",String.valueOf(getSupportFragmentManager().getBackStackEntryCount()));
+            getSupportFragmentManager().popBackStackImmediate();
         }
         else {
             Log.d("testing","back button not pressed");

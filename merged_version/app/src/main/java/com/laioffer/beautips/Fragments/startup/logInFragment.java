@@ -67,6 +67,8 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
                 break;
             case R.id.login_3:
+                // login
+                //View Model --》 StylistPostFragemnt
                 startActivity(intent);
                 //getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 break;

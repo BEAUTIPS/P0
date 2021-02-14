@@ -12,6 +12,7 @@ public class User {
     int numOfLikes = 0 ;
     String email = "";
     String size;
+    String password = "";
 
     public void setSize(String size) {
         this.size = size;
@@ -49,7 +50,7 @@ public class User {
         return numOfLikes;
     }
 
-    String password = "";
+
 
 
     public User() {}
@@ -110,7 +111,7 @@ public class User {
     public String toString() {
         return "User{" +
 
-                ", bodyShape='" + bodyShape + '\'' +
+                "bodyShape='" + bodyShape + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", topSize=" + topSize +

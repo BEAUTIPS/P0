@@ -1,10 +1,8 @@
 package com.laioffer.beautips.Fragments.StylistPage.StylistList;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
-import com.laioffer.beautips.Models.Post;
 import com.laioffer.beautips.Models.Stylist;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Utils.GlideApp;
@@ -117,8 +114,19 @@ public class StylistListAdapter extends RecyclerView.Adapter<StylistListAdapter.
                     // Storing data into SharedPreferences
                     Log.d("this is name:", stylistName.getText().toString());
 
+
+//                    Context context = v.getContext();
+//                    Intent intent = new Intent(context, MainActivity3.class);
+//                    intent.putExtra("name", name);
+//                    context.startActivity(intent);
+
                     Fragment myFragment = new StylistProfileFragment(name);
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.topview, myFragment).addToBackStack("back_to_list").commit();
+                    Fragment curFrag = activity.getSupportFragmentManager().findFragmentById(R.id.topview);
+                    activity.getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.topview, myFragment)
+                            .addToBackStack("frag_prev")
+                            .commit();
                 }
             });
         }

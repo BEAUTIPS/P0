@@ -10,17 +10,21 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.laioffer.beautips.Models.User;
+import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.Repository.UserRepository;
 
 
 public class setUpViewModel extends ViewModel {
 
-    private  UserRepository repo;
+    private UserRepository repo;
     public setUpViewModel(UserRepository repo){
         this.repo = repo;
     }
-    public MutableLiveData<Boolean> getUserInfo(User user){
-        MutableLiveData<Boolean> result = this.repo.getUserInfo(user);
+    public MutableLiveData<String> getUserInfo(User user){
+        Log.d("User model:",user.toString());
+        MutableLiveData<String> result = this.repo.getUserInfo(user);
         return result;
     }
+
+
 }

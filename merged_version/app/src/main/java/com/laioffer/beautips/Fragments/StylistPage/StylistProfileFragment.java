@@ -1,12 +1,10 @@
 package com.laioffer.beautips.Fragments.StylistPage;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -18,21 +16,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.laioffer.beautips.Fragments.StylistPage.StylistList.StylistListFragment;
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
+import com.laioffer.beautips.Fragments.startup.onb2Fragment;
+import com.laioffer.beautips.Fragments.startup.onb4Fragment;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.databinding.FragmentStylistProfileBinding;
-import com.squareup.picasso.Picasso;
 
 
-public class StylistProfileFragment extends Fragment {
+public class StylistProfileFragment extends Fragment{
 
 
     public static ViewPager viewPager;
@@ -40,6 +39,7 @@ public class StylistProfileFragment extends Fragment {
     public static TabLayout tabLayout;
     private PostReviewTabAdapter adapter;
     ImageButton btn;
+    ImageButton btn_back;
 
 
 
@@ -48,10 +48,14 @@ public class StylistProfileFragment extends Fragment {
     String stylistName;
 
 
-
     public StylistProfileFragment(String name) {
         // Required empty public constructor
         this.stylistName = name;
+    }
+
+    public StylistProfileFragment() {
+        // Required empty public constructor
+        this.stylistName = getActivity().getIntent().getStringExtra("name");;
     }
 
     /*
@@ -62,6 +66,20 @@ public class StylistProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = binding.inflate(inflater, container, false);
+        getActivity().setTitle("");
+
+
+        btn_back = (ImageButton) binding.vector4;
+        btn_back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.d("tagging","here it is!");
+                getFragmentManager().beginTransaction().replace(R.id.layoutProfile, new StylistListFragment()).commit();
+                ImageButton button = binding.scheduleButton;
+                button.setVisibility(View.INVISIBLE);
+            }
+        });
 
         btn = (ImageButton) binding.scheduleButton;
         btn.setOnClickListener(new View.OnClickListener() {
@@ -94,36 +112,6 @@ public class StylistProfileFragment extends Fragment {
                 .get(StylistPostViewModel.class);
 
         Log.d("name is", stylistName);
-
-//        stylistViewModel
-//                .getStylistInfo(stylistName)
-//                .observe(
-//                        getViewLifecycleOwner(),
-//                        response -> {
-//                            if (response != null) {
-//                                Log.d("TestResult", response.toString());
-//                                //Binding set text
-//                                binding.age.setText("#" + String.valueOf(response.getAge()) + " years");
-//                                binding.numCustomers.setText(String.valueOf(response.getNumOfCustomers()));
-//                                binding.bodyShape.setText("#" + response.getBodyShape() + " Shape");
-//                                binding.size.setText("#" + response.getTopSize());
-//                                binding.size.setText("#" + response.getBottomSize());
-//                                binding.numLikes.setText(String.valueOf(response.getNumOfLikes()));
-//                                binding.stylistName.setText(response.getName());
-//                                binding.stylistTitle.setText(response.getTitle());
-//                                binding.numsFollows.setText(String.valueOf(response.getNumOfFollowers()));
-//                                binding.textView17numReview.setText(String.valueOf(response.getNumOfReviews()) + " reviews");
-//
-//                                Picasso.get()
-//                                        .load(response.getProfileImageUrl())
-//                                        .noFade().into(binding.stylistImage);
-//
-//                                Picasso.get()
-//                                        .load(response.getProfileImageUrl())
-//                                        .noFade().into((ImageView) getView().findViewById(R.id.stylist_profile_image));
-//                            }
-//                        });
-//
 
 
         viewPager = binding.viewPager;
@@ -159,16 +147,9 @@ public class StylistProfileFragment extends Fragment {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                getActivity().onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+
+
+
 
 
 

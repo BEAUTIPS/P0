@@ -34,6 +34,7 @@ import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
+import com.laioffer.beautips.Repository.BeautipsViewModelFactory_User;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.FragmentOnb5Binding;
@@ -52,7 +53,7 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
     FragmentOnb5Binding binding;
     setUpViewModel viewModel;
     Context context;
-    User user;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container,savedInstanceState);
@@ -67,7 +68,8 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         UserRepository repository = new UserRepository(getContext());
-        viewModel = new setUpViewModel(repository);
+        viewModel = new ViewModelProvider(this, new BeautipsViewModelFactory_User(repository))
+                .get(setUpViewModel.class);
 
         shape = (TextView)binding.shape;
         age = (TextView)binding.age;
@@ -89,18 +91,27 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
         see_tips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user =  setDefaultUser();
-                MutableLiveData<Boolean> result = viewModel.getUserInfo(user);
+                User user = new User();
+                user.setEmail(preferences.getString("email", ""));
+                user.setName(preferences.getString("name",""));
+                user.setPassword(preferences.getString("password",""));
+                user.setBodyShape(preferences.getString("shape", ""));
+                user.setAge(preferences.getString("age", ""));
+                user.setTopSize(preferences.getString("topSize", ""));
+                user.setBottomSize(preferences.getString("bottomSize", ""));
+                Log.d("yser",user.toString());
+
+                MutableLiveData<String> result = viewModel.getUserInfo(user);
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 if(result != null){
-//                    if(result.getValue() != false){
+//                    if(result.getValue() != "true"){
 //                        //LinearLayout mainView = binding.onb5;
-//                        Toast.makeText(v.getContext(), "Error, please set Information again", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(v.getContext(), "Error, Login Failed", Toast.LENGTH_SHORT).show();
 //                        return;
 //                    }
 
                     startActivity(intent);
-                    getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
+                    //getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
                 }
 
             }
@@ -109,17 +120,18 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
     }
 
 
-    public User setDefaultUser (){
-        user = new User();
-        user.setEmail(preferences.getString("email", ""));
-        user.setName(preferences.getString("name",""));
-        user.setPassword(preferences.getString("password",""));
-        user.setBodyShape(preferences.getString("shape", ""));
-        user.setAge(preferences.getString("age", ""));
-        user.setTopSize(preferences.getString("topSize", ""));
-        user.setBottomSize(preferences.getString("bottomSize", ""));
-        return user;
-    }
+//    public User setDefaultUser (){
+//        user = new User();
+//        user.setEmail(preferences.getString("email", ""));
+//        user.setName(preferences.getString("name",""));
+//        user.setPassword(preferences.getString("password",""));
+//        user.setBodyShape(preferences.getString("shape", ""));
+//        user.setAge(preferences.getString("age", ""));
+//        user.setTopSize(preferences.getString("topSize", ""));
+//        user.setBottomSize(preferences.getString("bottomSize", ""));
+//
+//        return user;
+//    }
 
 
 
@@ -132,11 +144,7 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
             case R.id.signup_1:
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
                 break;
-            case R.id.see_style_tips:
-                Intent intent  = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-                //getActivity().overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
-                break;
+
             default:
                 break;
         }

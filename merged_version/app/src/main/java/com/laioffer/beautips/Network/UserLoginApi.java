@@ -9,10 +9,9 @@ import retrofit2.http.POST;
 
 public interface UserLoginApi {
 
-    @Headers("Content-Type: applicationint/json")
-
-    @POST("userlogininfos")
-    Call<Boolean> getUserLoginInfo(@Body User user);
+    @Headers("Content-Type: application/json")
+    @POST("login")
+    Call<String> getUserLoginInfo(@Body User user);
 
 
 }
