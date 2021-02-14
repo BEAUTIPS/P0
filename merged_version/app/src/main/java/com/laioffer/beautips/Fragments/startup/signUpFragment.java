@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 //import android.app.Fragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostAdapter;
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
 import com.laioffer.beautips.MainActivity;
+import com.laioffer.beautips.Models.User;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.StylistPostRepository;
@@ -53,11 +55,9 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        //View view = inflater.inflate(R.layout.fragment_sign_up, null);
         binding = binding.inflate(inflater, container, false);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
-        //initview(view);
         return binding.getRoot();
     }
 
@@ -65,15 +65,38 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         email = view.findViewById(R.id.email);
         passowrd = view.findViewById(R.id.pwd);
-        sign_up = view.findViewById(R.id.signup_2);
         login = view.findViewById(R.id.login_2);
-        sign_up.setOnClickListener(this);
         login.setOnClickListener(this);
         emailText = email.getText().toString();
         passwordText = passowrd.getText().toString();
 
+        sign_up = (ImageButton)binding.signup2;
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myEdit.putString("email", emailText);
+                myEdit.putString("name", emailText);
+                myEdit.putString("password", passwordText);
+
+                User user = new User();
+                user.setEmail(preferences.getString("email", ""));
+                user.setName(preferences.getString("name",""));
+                user.setPassword(preferences.getString("password",""));
+                user.setBodyShape(preferences.getString("shape", ""));
+                user.setAge(preferences.getString("age", ""));
+                user.setTopSize(preferences.getString("topSize", ""));
+                user.setBottomSize(preferences.getString("bottomSize", ""));
+
+                MutableLiveData<String> result = viewModel.getUserInfo(user);
+                Intent intent  = new Intent(getActivity(), MainActivity.class);
+                if(result != null){
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
 
@@ -82,15 +105,7 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
     public void onClick(View arg0) {
         switch (arg0.getId()) {
             case R.id.login_2:
-              //  myEdit.putString("location", "signUp").apply();
-
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new logInFragment()).commit();
-                break;
-            case R.id.signup_2:
-                myEdit.putString("email", emailText);
-                myEdit.putString("name", emailText);
-                myEdit.putString("password", passwordText);
-                //返回上一个fragment
                 break;
             default:
                 break;
