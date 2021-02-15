@@ -6,7 +6,7 @@
     android:layout_height="245dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="178dp"
+        android:layout_width="165dp"
         android:layout_height="match_parent"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp"
@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/postPic"
-            android:layout_width="178dp"
+            android:layout_width="165dp"
             android:layout_height="230dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cat"
@@ -44,6 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/postPic"
             app:layout_constraintVertical_bias="1.0"
+            android:visibility="gone"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -58,19 +59,39 @@
             app:layout_constraintStart_toStartOf="@+id/card_view_post"
             app:layout_constraintTop_toTopOf="@+id/card_view_post"
             app:layout_constraintVertical_bias="1.0"
-            android:background="@drawable/graybackground">
+            android:background="@drawable/whitebackground">
         </TextView>
         <TextView
-            android:id="@+id/stylist_name_post"
+        android:id="@+id/stylist_name_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="15dp"
+        android:elevation="15dp"
+        android:fontFamily="@montserrat"
+        android:text="Abby"
+        android:textColor="#666666"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/postPic"
+        app:layout_constraintEnd_toEndOf="@+id/postPic"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="@+id/postPic"
+        app:layout_constraintTop_toTopOf="@+id/postPic"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/bottomName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="206dp"
+            android:layout_marginTop="203dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="15dp"
             android:elevation="15dp"
             android:fontFamily="@montserrat"
             android:text="Abby"
-            android:textColor="#FFFFFF"
+            android:textColor="#666666"
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/postPic"
             app:layout_constraintEnd_toEndOf="@+id/postPic"
@@ -90,7 +111,7 @@
             android:layout_marginEnd="39dp"
             android:elevation="18px"
             android:src="@drawable/thumbs"
-
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/postPic"
             app:layout_constraintEnd_toEndOf="@+id/postPic"
             app:layout_constraintStart_toStartOf="@+id/postPic"
@@ -103,13 +124,13 @@
             android:id="@+id/num_thums"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="204dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="192dp"
             android:fontFamily="@montserrat"
             android:text="2k"
             android:elevation="15dp"
-            android:textColor="#FFFFFF"
-            android:textSize="10dp"
+            android:textColor="#000000"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="@+id/postPic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

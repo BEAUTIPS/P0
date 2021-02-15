@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -22,6 +23,8 @@ import android.widget.TextView;
 import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
 import com.laioffer.beautips.R;
+import com.laioffer.beautips.Repository.BeautipsViewModelFactory_User;
+import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.FragmentLogInBinding;
 import com.laioffer.beautips.databinding.FragmentOnb2Binding;
 
@@ -37,6 +40,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
     private String passwordText;
     FragmentLogInBinding binding;
     setUpViewModel viewModel;
+    User user;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container,savedInstanceState);
@@ -49,11 +53,14 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        UserRepository repository = new UserRepository(getContext());
+        viewModel = new ViewModelProvider(this, new BeautipsViewModelFactory_User(repository))
+                .get(setUpViewModel.class);
         delete = (ImageButton)binding.delete2;
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
             }
         });
         email=view.findViewById(R.id.email);
@@ -72,7 +79,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                 myEdit.putString("name", emailText);
                 myEdit.putString("password", passwordText);
 
-                User user = new User();
+                user = new User();
                 user.setEmail(preferences.getString("email", ""));
                 user.setName(preferences.getString("name",""));
                 user.setPassword(preferences.getString("password",""));
@@ -89,11 +96,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
 
     @Override
     public void onClick(View arg0) {
-        Intent intent=new Intent(getActivity(), MainActivity.class);
         switch (arg0.getId()) {
-            case R.id.delete2:
-                break;
-
             case R.id.signup_3:
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
                 break;
