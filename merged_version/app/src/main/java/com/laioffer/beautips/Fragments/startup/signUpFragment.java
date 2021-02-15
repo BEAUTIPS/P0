@@ -32,6 +32,7 @@ import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
+import com.laioffer.beautips.Repository.BeautipsViewModelFactory_User;
 import com.laioffer.beautips.Repository.StylistPostRepository;
 import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.FragmentOnb2Binding;
@@ -65,7 +66,9 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        UserRepository repository = new UserRepository(getContext());
+        viewModel = new ViewModelProvider(this, new BeautipsViewModelFactory_User(repository))
+                .get(setUpViewModel.class);
         email = view.findViewById(R.id.email);
         passowrd = view.findViewById(R.id.pwd);
         login = view.findViewById(R.id.login_2);
