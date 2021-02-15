@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3daf8520-1231-4c22-a4f2-0bf62b275d3e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/P0/python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/P0/python_backend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P0/python_backend/firebase_config_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/P0/python_backend/firebase_config_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merged_version/app/src/main/res/layout/fragment_stylist_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../merged_version/app/src/main/res/layout/fragment_stylist_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merged_version/app/src/main/res/layout/single_stylist_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../merged_version/app/src/main/res/layout/single_stylist_list.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/P0" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1oRUnR4JDYXtvbXKc3LUjHBX6ga" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -22,7 +24,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/TinNews" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../merged_version" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -49,9 +51,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="95" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1613249249686" />
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1613251916429">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="632" y="145" key="FileChooserDialogImpl" timestamp="1613344801127">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1613251916429" />
+    <state x="632" y="145" key="FileChooserDialogImpl/0.0.1920.1040/1920.-851.1080.1880@0.0.1920.1040" timestamp="1613344801127" />
   </component>
 </project>
