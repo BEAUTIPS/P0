@@ -41,7 +41,7 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
     @NonNull
     @Override
     public ClosetImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_image_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.closet_display, parent, false);
         return new ClosetImageViewHolder(view);
     }
 
@@ -49,14 +49,14 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
     public void onBindViewHolder(@NonNull ClosetImageViewHolder holder, int position) {
         Closet ClosetImage = ClosetList.get(position);
         //Load Post Image
-        GlideApp.with(holder.itemView)
+        /*GlideApp.with(holder.itemView)
                 .load(getImage(ClosetImage.getImageName()))
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                 .fitCenter()
-                .into(holder.post);
+                .into(holder.post);*/
         // modify all the text view
         holder.likeCount.setText(String.valueOf(ClosetImage.getScore()));
-        holder.stylistName.setText(ClosetImage.getTopName());
+        // holder.stylistName.setText(ClosetImage.getTopName());
         //holder.post.setImageURI(Uri.parse(ClosetImage.getImageUrl()));
         //holder.stylistPic.setImageURI(Uri.parse(ClosetImage.getImageUrl()));
         /*Picasso.get().load(ClosetImage.getImageUrl()).into(holder.stylistPic);
@@ -69,11 +69,11 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
         Picasso.get()
                 .load(ClosetImage.getImageUrl())
                 .into(holder.stylistPic);*/
+
         GlideApp.with(holder.itemView)
                 .load(Uri.parse(ClosetImage.getImageUrl()))
-                .into(holder.stylistPic);
-        GlideApp.with(holder.itemView)
-                .load(Uri.parse(ClosetImage.getImageUrl()))
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
+                .fitCenter()
                 .into(holder.post);
         holder.itemView.setOnClickListener((view) ->{
             Intent intent = new Intent(context, MainActivity2.class);
@@ -106,8 +106,7 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
         ImageView post;
         TextView stylistName;
         TextView likeCount;
-        ImageView thumbsUp;
-        ImageView stylistPic;
+
 
         public ClosetImageViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -115,8 +114,7 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
             post = binding.postPic;
             stylistName = binding.stylistNamePost;
             likeCount = binding.numThums;
-            thumbsUp = binding.thumb;
-            stylistPic = binding.stylistProfileImage;
+
         }
 
     }
