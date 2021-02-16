@@ -90,7 +90,6 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:visibility="gone"
-                android:background="@color/white"
                 android:layout_height="wrap_content">
                 <TableRow>
                     <TextView
@@ -216,7 +215,6 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:visibility="gone"
-                android:background="@color/white"
                 android:layout_height="wrap_content">
                 <TableRow>
                     <TextView
@@ -374,7 +372,6 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
                     android:visibility="gone"
-                    android:background="@color/white"
                     android:layout_height="wrap_content">
                     <TableLayout
                         android:layout_width="wrap_content"
@@ -520,7 +517,6 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
                     android:visibility="gone"
-                    android:background="@color/white"
                     android:layout_height="wrap_content">
                     <TableRow>
                         <TextView
