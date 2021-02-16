@@ -1,6 +1,7 @@
 package com.laioffer.beautips.Fragments.HomePage;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,8 +31,13 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private static final String TAG = "homeFragment";
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor myEdit;
     private DatabaseReference myRef;
     private FragmentHomeBinding binding;
+    String shape;
+    String size;
+    String age;
     Context context;
     RecyclerView recyclerView;
     com.laioffer.beautips.Fragments.HomePage.HomeImageAdapter HomeImageAdapter;
@@ -53,6 +59,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = binding.inflate(inflater, container, false);
+        preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
+        shape = preferences.getString("shape","shape not found");
+        size = preferences.getString("size","size not found");
+        age = preferences.getString("age","age not found");
+
         return binding.getRoot();
     }
 
