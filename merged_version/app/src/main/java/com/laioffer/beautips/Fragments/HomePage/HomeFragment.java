@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -79,7 +80,12 @@ public class HomeFragment extends Fragment {
         HomeImageAdapter = new HomeImageAdapter(context, postList);
         recyclerView.setAdapter(HomeImageAdapter);
         recyclerView.setHasFixedSize(true);
-
+        TextView firstTag = view.findViewById(R.id.firstTag);
+        firstTag.setText("#"+shape);
+        TextView secondTag = view.findViewById(R.id.secondTag);
+        secondTag.setText("#"+age);
+        TextView thirdTag = view.findViewById(R.id.thirdTag);
+        thirdTag.setText("#"+size);
         myRef = FirebaseDatabase.getInstance().getReference();
         postList = new ArrayList<>();
         ClearAll();
