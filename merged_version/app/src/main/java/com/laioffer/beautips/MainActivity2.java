@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,8 @@ import com.laioffer.beautips.Fragments.ClosetPage.ClosetImageAdapter;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity2 extends AppCompatActivity {
+
+    private static final String TAG = "new pop";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class MainActivity2 extends AppCompatActivity {
             String bottomName = getIntent().getStringExtra("bottomName");
             String bottomPrice = getIntent().getStringExtra("bottomPrice");
             String bottomSize = getIntent().getStringExtra("bottomSize");
+            Log.d(TAG, "getImage: " + bottomPrice);
             String bottomUrl = getIntent().getStringExtra("bottomUrl");
 
             setImage(imageUrl, topName, topPrice, topSize, topUrl, bottomName, bottomPrice,bottomSize,bottomUrl);
@@ -67,11 +71,11 @@ public class MainActivity2 extends AppCompatActivity {
         TextView topU = findViewById(R.id.item_top_url);
         topU.setText(topUrl);
         TextView topP = findViewById(R.id.item_top_price);
-        topP.setText(topPrice);
+        topP.setText("$ " + topPrice);
         TextView bottomN = findViewById(R.id.item_bottom_name);
         bottomN.setText(bottomName);
         TextView bottomP = findViewById(R.id.item_bottom_price);
-        bottomP.setText(bottomPrice);
+        bottomP.setText("$ "+bottomPrice);
         TextView bottomS = findViewById(R.id.item_bottom_size);
         bottomS.setText(bottomSize);
         TextView bottomU = findViewById(R.id.item_bottom_url);

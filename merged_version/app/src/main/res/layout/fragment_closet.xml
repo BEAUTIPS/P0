@@ -60,6 +60,7 @@
                     android:fontFamily="Montserrat"
                     android:text="Body shape"
                     android:textColor="@color/black"
+                    android:textFontWeight="500"
                     android:textSize="14dp" />
 
                 <TextView
@@ -73,6 +74,14 @@
                     android:textColor="@color/black"
                     android:textSize="14dp" />
             </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-1dp"
+            android:background="@color/light_gray" />
             <TableLayout
                 android:orientation="horizontal"
                 android:id="@+id/hideBodyShape"
@@ -176,6 +185,7 @@
                     android:textSize="14dp"
                     android:fontFamily="Montserrat"
                     android:text="Occasion"
+                    android:textFontWeight="500"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
@@ -190,6 +200,14 @@
                     android:gravity="right"
                     android:textSize="14dp" />
             </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-1dp"
+            android:background="@color/light_gray" />
             <TableLayout
                 android:orientation="horizontal"
                 android:id="@+id/hideOccasion"
@@ -325,6 +343,7 @@
                     android:textSize="14dp"
                     android:fontFamily="Montserrat"
                     android:text="Dress Code"
+                    android:textFontWeight="500"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
@@ -339,6 +358,14 @@
                     android:gravity="right"
                     android:textSize="14dp" />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="-1dp"
+                android:background="@color/light_gray" />
                 <LinearLayout
                     android:orientation="horizontal"
                     android:id="@+id/hideDressCode"
@@ -429,6 +456,7 @@
                     android:textSize="14dp"
                     android:fontFamily="Montserrat"
                     android:text="Size"
+                    android:textFontWeight="500"
                     android:textColor="@color/black"
 
                     android:layout_weight="1" />
@@ -476,6 +504,14 @@
                     android:gravity="right"
                     android:textSize="14dp" />
             </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-1dp"
+            android:background="@color/light_gray" />
                 <TableLayout
                     android:orientation="horizontal"
                     android:id="@+id/hideSize"
@@ -764,16 +800,15 @@
     </LinearLayout>
 
     </ScrollView>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <Button
         android:id="@+id/toTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/topbtn"
+        android:background="@drawable/large_icon"
         android:layout_gravity="end"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/transparent"
         app:borderWidth="0dp"
         android:layout_marginRight="16dp" />
 </RelativeLayout>

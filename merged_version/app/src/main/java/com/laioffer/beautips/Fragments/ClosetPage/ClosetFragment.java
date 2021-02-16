@@ -634,7 +634,7 @@ public class ClosetFragment extends Fragment {
         GetDataBaseFromFireBase();
 
 
-        FloatingActionButton backToTop = view.findViewById(R.id.toTop); // back to top
+        Button backToTop = view.findViewById(R.id.toTop); // back to top
         backToTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

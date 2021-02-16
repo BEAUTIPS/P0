@@ -85,11 +85,12 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("imageUrl", ClosetImage.getImageUrl());
             intent.putExtra("topName", ClosetImage.getTopName());
-            intent.putExtra("topPrice", ClosetImage.getTopPrice());
+            intent.putExtra("topPrice", ""+ClosetImage.getTopPrice());
             intent.putExtra("topSize", ClosetImage.getTopSize());
             intent.putExtra("topUrl", ClosetImage.getTopUrl());
             intent.putExtra("bottomName", ClosetImage.getBottomName());
-            intent.putExtra("bottomPrice", ClosetImage.getBottomPrice());
+            intent.putExtra("bottomPrice", ""+ClosetImage.getBottomPrice());
+            Log.d(TAG, "onBindViewHolder: " + ClosetImage.getBottomPrice());
             intent.putExtra("bottomSize", ClosetImage.getBottomSize());
             intent.putExtra("bottomUrl", ClosetImage.getBottomUrl());
             context.startActivities(new Intent[]{intent});
