@@ -100,11 +100,10 @@ public class onb5Fragment extends Fragment implements View.OnClickListener {
                 user.setTopSize(preferences.getString("topSize", ""));
                 user.setBottomSize(preferences.getString("bottomSize", ""));
 
-                MutableLiveData<String> result = viewModel.getUserInfo(user);
+
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
-                if(result != null){
-                    startActivity(intent);
-                }
+
+                startActivity(intent);
 
             }
         });

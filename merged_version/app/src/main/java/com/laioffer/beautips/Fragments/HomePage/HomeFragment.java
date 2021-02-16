@@ -1,5 +1,6 @@
 package com.laioffer.beautips.Fragments.HomePage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -54,6 +55,7 @@ public class HomeFragment extends Fragment {
 
 
 
+    @SuppressLint("LongLogTag")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,6 +66,10 @@ public class HomeFragment extends Fragment {
         shape = preferences.getString("shape","shape not found");
         size = preferences.getString("size","size not found");
         age = preferences.getString("age","age not found");
+        Log.d("shape testing for home frag", shape);
+        Log.d("shape testing for size",size);
+        Log.d("shape testing for age",age);
+
 
         return binding.getRoot();
     }

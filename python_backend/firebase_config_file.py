@@ -115,7 +115,7 @@ class Firebase_auth:
        '''
         if self.initialize_firestore_sucess:
             db = firestore.client()
-            result = db.collection('Users').document(uid).get().to.dict()
+            result = db.collection('Users').document(uid).get().to_dict()
             print(result)
             return result
 
@@ -145,9 +145,9 @@ class Firebase_auth:
             print("login sucess")
             self.sign_in_success = True
             self.uuid = login_result['localId']
-            print(login_result)
+
+            return self.retrieve_user_login_info(self.uuid)
             
-            return True
         
 
 

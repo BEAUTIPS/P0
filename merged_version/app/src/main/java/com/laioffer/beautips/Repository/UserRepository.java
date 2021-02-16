@@ -28,24 +28,24 @@ public class UserRepository {
     }
 
 
-    public MutableLiveData<String> getUserInfo(User user){
+    public MutableLiveData<User> getUserInfo(User user){
         Log.d("user",user.toString());
-        MutableLiveData<String> result = new MutableLiveData<>();
-        Call<String> callResult = userLoginApi.getUserLoginInfo(user);
-        callResult.enqueue(new Callback<String>() {
+        MutableLiveData<User> result = new MutableLiveData<>();
+        Call<User> callResult = userLoginApi.getUserLoginInfo(user);
+        callResult.enqueue(new Callback<User>() {
             @SuppressLint("LongLogTag")
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
-                    result.setValue(response.body().toString());
+                    result.setValue(response.body());
                     Log.i("Successful ", response.body().toString());
                 } else {
-                    Log.i("Failure status code for user info:", String.valueOf(response.errorBody()));
+                    Log.i("Failure status code for user profile:", String.valueOf(response.errorBody()));
                     result.setValue(null);
                 }
             }
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Log.i("Login is wrong", t.toString());
             }
         });

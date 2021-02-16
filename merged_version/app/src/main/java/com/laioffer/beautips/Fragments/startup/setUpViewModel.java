@@ -22,9 +22,9 @@ public class setUpViewModel extends ViewModel {
         this.repo = repo;
     }
     @SuppressLint("LongLogTag")
-    public MutableLiveData<String> getUserInfo(User user){
+    public MutableLiveData<User> getUserInfo(User user){
         Log.d("User model:",user.toString());
-        MutableLiveData<String> result = this.repo.getUserInfo(user);
+        MutableLiveData<User> result = this.repo.getUserInfo(user);
 //        Log.d("tagging test viewmodel for login", result.getValue());
         return result;
     }

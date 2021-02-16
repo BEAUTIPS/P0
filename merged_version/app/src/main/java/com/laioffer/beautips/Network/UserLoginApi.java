@@ -11,7 +11,7 @@ public interface UserLoginApi {
 
     @Headers("Content-Type: application/json")
     @POST("login")
-    Call<String> getUserLoginInfo(@Body User user);
+    Call<User> getUserLoginInfo(@Body User user);
 
     @Headers("Content-Type: application/json")
     @POST("userinfo")

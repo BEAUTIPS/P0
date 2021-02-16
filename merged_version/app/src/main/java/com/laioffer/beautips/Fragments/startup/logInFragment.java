@@ -123,30 +123,10 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
 
         login = (ImageButton)binding.login3;
         login.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onClick(View v) {
                 // check if uuid
-                String uuid = preferences.getString("uuid", "");
-                if (!uuid.equals("")){
-                    //viewModel get UserInfo
-                    viewModel
-                            .getUserProfile(uuid)
-                            .observe(
-                                    getViewLifecycleOwner(),
-                                    response -> {
-                                        if (response != null) {
-                                            myEdit.putString("shape", response.getBodyShape()).apply();
-                                            myEdit.putString("topSize", response.getTopSize()).apply();
-                                            myEdit.putString("bottomSize", response.getBottomSize()).apply();
-                                            myEdit.putString("age", response.getAge()).apply();
-                                            myEdit.putString("size", response.getSize()).apply();
-                                            //tiao zhuan
-                                            Intent intent  = new Intent(getActivity(), MainActivity.class);
-                                            startActivity(intent);
-                                        }
-                                    });
-                }else{
-
                     myEdit.putString("email", emailText).apply();
                     Toast.makeText(v.getContext(), emailText, Toast.LENGTH_SHORT).show();
                     myEdit.putString("name", emailText).apply();
@@ -163,20 +143,13 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                                     getViewLifecycleOwner(),
                                     response -> {
                                         if (response != null) {
-                                            if (response.toString() == "true"){
-
-                                                Log.d("tagging", response.toString());
-                                                startActivity(intent);
-                                            }
+                                            myEdit.putString("uuid", response.getId()).apply();
+                                            Log.d("tagging", response.toString());
+                                            startActivity(intent);
                                         }
                                     });
-
-                }
-
-
-
-            }
-        });
+            };
+    });
     }
 
 

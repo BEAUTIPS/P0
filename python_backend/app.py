@@ -54,6 +54,12 @@ def handle_stylist_post_request_sign_up():
     return jsonify(response)
 
 
+@app.route('/userinfo', methods=['GET', 'POST'])
+def handle_user_info():
+    content = request.json
+    response = Firebase_instance.retrieve_user_login_info(content)
+    return jsonify(response)
+
   
 # @app.route('/UserInfo', methods=['GET', 'POST'])
 # def handle_stylist_post_request_info():
