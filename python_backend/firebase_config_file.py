@@ -116,8 +116,9 @@ class Firebase_auth:
         if self.initialize_firestore_sucess:
             db = firestore.client()
             result = db.collection('Users').document(uid).get().to_dict()
-            print(result)
+            print("result is", result)
             return result
+
 
 
 

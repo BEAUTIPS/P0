@@ -38,11 +38,10 @@ def handle_stylist_post_request():
 @app.route('/login', methods= ['GET', 'POST'])
 def handle_post_request_login():
     content = request.json
-    print("thisis",content)
     email = content['email']
     password = content['password']
     if_signed_in = Firebase_instance.sign_in_with_email_and_password(email, password)
-    print(if_signed_in)
+   
     return str(if_signed_in)
   
 
@@ -58,6 +57,7 @@ def handle_stylist_post_request_sign_up():
 def handle_user_info():
     content = request.json
     response = Firebase_instance.retrieve_user_login_info(content)
+    print(response)
     return jsonify(response)
 
   
