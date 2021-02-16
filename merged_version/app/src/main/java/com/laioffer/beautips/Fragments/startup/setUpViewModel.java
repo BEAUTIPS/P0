@@ -1,5 +1,6 @@
 package com.laioffer.beautips.Fragments.startup;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -20,9 +21,11 @@ public class setUpViewModel extends ViewModel {
     public setUpViewModel(UserRepository repo){
         this.repo = repo;
     }
+    @SuppressLint("LongLogTag")
     public MutableLiveData<String> getUserInfo(User user){
         Log.d("User model:",user.toString());
         MutableLiveData<String> result = this.repo.getUserInfo(user);
+//        Log.d("tagging test viewmodel for login", result.getValue());
         return result;
     }
 

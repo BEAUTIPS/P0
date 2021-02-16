@@ -21,21 +21,23 @@ public class UserRepository {
 
     private final UserLoginApi userLoginApi;
 
+
     public UserRepository(Context context) {
         this.userLoginApi =  RetrofitClient.newInstance(context).create(UserLoginApi.class);
+
     }
 
 
     public MutableLiveData<String> getUserInfo(User user){
         Log.d("user",user.toString());
-        final MutableLiveData<String> result = new MutableLiveData<>();
+        MutableLiveData<String> result = new MutableLiveData<>();
         Call<String> callResult = userLoginApi.getUserLoginInfo(user);
         callResult.enqueue(new Callback<String>() {
             @SuppressLint("LongLogTag")
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-                    result.setValue(response.body());
+                    result.setValue(response.body().toString());
                     Log.i("Successful ", response.body().toString());
                 } else {
                     Log.i("Failure status code for user info:", String.valueOf(response.errorBody()));

@@ -1,5 +1,6 @@
 package com.laioffer.beautips.Fragments.startup;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
@@ -30,6 +31,8 @@ import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostAdapte
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
 import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
+import com.laioffer.beautips.Network.RetrofitClient;
+import com.laioffer.beautips.Network.UserLoginApi;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory_User;
@@ -38,6 +41,10 @@ import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.FragmentOnb2Binding;
 import com.laioffer.beautips.databinding.FragmentSignUpBinding;
 import com.laioffer.beautips.setUpActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class signUpFragment extends Fragment implements View.OnClickListener {
 
@@ -52,6 +59,7 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
     Context context;
     FragmentSignUpBinding binding;
     private setUpViewModel viewModel;
+    private StringBuilder result;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -94,6 +102,8 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
                 user.setBottomSize(preferences.getString("bottomSize", ""));
 
                 MutableLiveData<String> result = viewModel.getUserInfo(user);
+
+
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
                 if(result != null){
                     startActivity(intent);

@@ -1,5 +1,6 @@
 package com.laioffer.beautips.Fragments.startup;
 
+import android.annotation.SuppressLint;
 import android.app.Instrumentation;
 import android.content.Context;
 import android.content.Intent;
@@ -26,11 +27,17 @@ import android.widget.Toast;
 
 import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
+import com.laioffer.beautips.Network.RetrofitClient;
+import com.laioffer.beautips.Network.UserLoginApi;
 import com.laioffer.beautips.R;
 import com.laioffer.beautips.Repository.BeautipsViewModelFactory_User;
 import com.laioffer.beautips.Repository.UserRepository;
 import com.laioffer.beautips.databinding.FragmentLogInBinding;
 import com.laioffer.beautips.databinding.FragmentOnb2Binding;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class logInFragment extends Fragment implements  View.OnClickListener{
     private SharedPreferences preferences;
@@ -44,6 +51,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
     private String passwordText;
     FragmentLogInBinding binding;
     setUpViewModel viewModel;
+    StringBuilder result;
     User user;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,6 +87,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
             }
         });
+
         email = (EditText) view.findViewById(R.id.email);
         email.addTextChangedListener(new TextWatcher(){
             @Override
@@ -119,17 +128,25 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                 Toast.makeText(v.getContext(), emailText, Toast.LENGTH_SHORT).show();
                 myEdit.putString("name", emailText).apply();
                 myEdit.putString("password", passwordText).apply();
-
                 user = new User();
                 user.setEmail(preferences.getString("email", ""));
                 user.setName(preferences.getString("name",""));
                 user.setPassword(preferences.getString("password",""));
-
-                MutableLiveData<String> result = viewModel.getUserInfo(user);
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
-                if(result != null && result.getValue() == "true"){
-                    startActivity(intent);
-                }
+
+                viewModel
+                        .getUserInfo(user)
+                        .observe(
+                                getViewLifecycleOwner(),
+                                response -> {
+                                    if (response != null) {
+                                        if (response.toString() == "true"){
+                                            Log.d("tagging", response.toString());
+                                            startActivity(intent);
+                                        }
+                                    }
+                                });
+
 
             }
         });
