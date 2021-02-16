@@ -86,7 +86,6 @@ public class ClosetFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
         ClosetImageAdapter = new ClosetImageAdapter(context, ClosetList);
         recyclerView.setAdapter(ClosetImageAdapter);
-        recyclerView.setHasFixedSize(true);
         /*recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
@@ -128,12 +127,11 @@ public class ClosetFragment extends Fragment {
                         }
                     }
                     Log.d(TAG, "SEARCHLIST SIZE" + search.size());
-                    GetDataBaseFromFireBaseForSearch(TopSize);
-                    int numberOfColumns = 2;
-                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
 
                     ClosetImageAdapter = new ClosetImageAdapter(context, search);
                     recyclerView.setAdapter(ClosetImageAdapter);
+                    TextView total = view.findViewById(R.id.totalMatched);
+                    total.setText("" + search.size() + " suits match");
 
                     new CountDownTimer(1500,1500) {
                         @Override
@@ -147,7 +145,6 @@ public class ClosetFragment extends Fragment {
                             loading.setVisibility(View.GONE);
                         }
                     }.start();
-
                 } else {
                     new CountDownTimer(500,500) {
                         @Override
