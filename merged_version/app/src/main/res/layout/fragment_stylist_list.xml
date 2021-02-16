@@ -14,14 +14,9 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginTop="24dp"
         android:layout_marginEnd="198dp"
-=======
->>>>>>> f3e3102f4b4676177ebc236f1c3ff1f0fd73d770
         android:layout_marginStart="24dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="247dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/montserrat"
         android:text="Find your Stylist"

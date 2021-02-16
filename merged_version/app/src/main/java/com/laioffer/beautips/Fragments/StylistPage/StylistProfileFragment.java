@@ -89,9 +89,7 @@ public class StylistProfileFragment extends Fragment{
 
             @Override
             public void onClick(View arg0) {
-
                 ConstraintLayout mainView = binding.layoutProfile;
-
 
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
