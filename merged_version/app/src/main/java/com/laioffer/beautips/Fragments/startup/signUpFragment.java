@@ -52,6 +52,7 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
     private SharedPreferences.Editor myEdit;
     private EditText email;
     private EditText passowrd;
+    private ImageButton delete1;
     private TextView login;
     private ImageButton sign_up;
     private String emailText;
@@ -83,6 +84,15 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
         login.setOnClickListener(this);
         emailText = email.getText().toString();
         passwordText = passowrd.getText().toString();
+        delete1 = binding.delete1;
+
+        delete1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
+            }
+        });
+
 
         sign_up = (ImageButton)binding.signup2;
         sign_up.setOnClickListener(new View.OnClickListener() {
