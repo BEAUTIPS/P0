@@ -25,6 +25,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
 import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
 import com.laioffer.beautips.Network.RetrofitClient;
@@ -60,15 +61,28 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
         binding = binding.inflate(inflater, container, false);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
+        myEdit.putString("uuid", "").apply();
 
         UserRepository repository = new UserRepository(getContext());
         viewModel = new ViewModelProvider(this, new BeautipsViewModelFactory_User(repository))
                 .get(setUpViewModel.class);
         delete = (ImageButton)binding.delete2;
         delete.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
+                String if_stylist = preferences.getString("if_stylist","err");
+                String stylistName = preferences.getString("stylistName","err");
+                Log.d("tagging for stylist in login", stylistName);
+                if(!stylistName.equals("err")){
+                    Intent i = new Intent(getActivity(), MainActivity.class);
+                    i.putExtra("frgToLoad", "back_to_stylist");
+                    startActivity(i);
+
+                }else{
+                    getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
+
+                }
             }
         });
 
@@ -128,7 +142,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
             public void onClick(View v) {
                 // check if uuid
                     myEdit.putString("email", emailText).apply();
-                    Toast.makeText(v.getContext(), emailText, Toast.LENGTH_SHORT).show();
+
                     myEdit.putString("name", emailText).apply();
                     myEdit.putString("password", passwordText).apply();
                     user = new User();
@@ -142,7 +156,8 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                             .observe(
                                     getViewLifecycleOwner(),
                                     response -> {
-                                        if (response != null) {
+                                        Log.d("tagging", response.toString());
+                                        if (response instanceof User) {
                                             myEdit.putString("uuid", response.getId()).apply();
                                             Log.d("tagging", response.toString());
                                             startActivity(intent);

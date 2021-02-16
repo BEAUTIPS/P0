@@ -6,7 +6,9 @@
     android:background="@color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Fragments.startup.onb1Fragment">
+    android:id="@+id/login_layout"
+
+    tools:context=".Fragments.startup.logInFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"

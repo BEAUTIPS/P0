@@ -1,13 +1,16 @@
 package com.laioffer.beautips;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.annotation.SuppressLint;
-import android.app.FragmentManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,48 +23,61 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
+import com.laioffer.beautips.Fragments.startup.logInFragment;
+import com.laioffer.beautips.Fragments.startup.onb1Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private NavController navController;
+    FragmentManager fragmentManager;
+
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor myEdit;
+
 
     ListView listView;
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_placeholder);
 
-
-        androidx.appcompat.widget.Toolbar toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.vector);
+//        preferences = this.getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
+//        myEdit = preferences.edit();
+//        String stylistName = preferences.getString("stylistName","err");
+//        Toast.makeText(this, stylistName, Toast.LENGTH_LONG).show();
 
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-        navController = navHostFragment.getNavController();
+            androidx.appcompat.widget.Toolbar toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
+            // Sets the Toolbar to act as the ActionBar for this Activity window.
+            // Make sure the toolbar exists in the activity and is not null
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+            toolbar.setNavigationIcon(R.drawable.vector);
 
-        navView.setItemIconTintList(null);
+            BottomNavigationView navView = findViewById(R.id.nav_view);
+            NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            navController = navHostFragment.getNavController();
+            navView.setItemIconTintList(null);
 
+            AppBarConfiguration appBarConfiguration = new AppBarConfiguration
+                    .Builder(R.id.topview)
+                    .build();
 
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration
-                .Builder(R.id.topview)
-                .build();
-
-        //controller --> fragment, navigation view
-        NavigationUI.setupWithNavController(navView, navController);
+            //controller --> fragment, navigation view
+            NavigationUI.setupWithNavController(navView, navController);
 //        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
 
 
+        }
 
-    }
+
 
 
     @Override

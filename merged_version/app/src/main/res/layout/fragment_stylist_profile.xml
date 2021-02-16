@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/layoutProfile"
     android:background="@color/white"
+    android:fitsSystemWindows="false"
     tools:context="com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment">
 
 <!--    <androidx.appcompat.widget.Toolbar-->

@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -20,10 +21,12 @@ import retrofit2.Response;
 public class UserRepository {
 
     private final UserLoginApi userLoginApi;
+    Context context;
 
 
     public UserRepository(Context context) {
         this.userLoginApi =  RetrofitClient.newInstance(context).create(UserLoginApi.class);
+        this.context = context;
 
     }
 
@@ -47,6 +50,7 @@ public class UserRepository {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.i("Login is wrong", t.toString());
+                Toast.makeText(context, "Sign in failed", Toast.LENGTH_SHORT).show();
             }
         });
 

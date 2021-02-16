@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostAdapter;
 import com.laioffer.beautips.Fragments.StylistPage.StylistPost.StylistPostViewModel;
+import com.laioffer.beautips.Fragments.StylistPage.StylistProfileFragment;
 import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
 import com.laioffer.beautips.Network.RetrofitClient;
@@ -87,9 +88,19 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
         delete1 = binding.delete1;
 
         delete1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
+                String if_stylist = preferences.getString("if_stylist","err");
+                String stylistName = preferences.getString("stylistName","err");
+                Log.d("tagging for stylistName in sign up", stylistName);
+                if(!stylistName.equals("err")){
+                    Intent i = new Intent(getActivity(), MainActivity.class);
+                    startActivity(i);
+                }else{
+                    getFragmentManager().beginTransaction().replace(R.id.fl_main, new onb5Fragment()).commit();
+
+                }
             }
         });
 
@@ -113,9 +124,9 @@ public class signUpFragment extends Fragment implements View.OnClickListener {
 
 
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
-                if(result != null){
-                    startActivity(intent);
-                }
+
+                startActivity(intent);
+
             }
         });
 

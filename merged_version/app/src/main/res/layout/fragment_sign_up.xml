@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:id="@+id/sign_up_page"
+    tools:context=".Fragments.startup.signUpFragment"
     >
 
     <androidx.appcompat.widget.Toolbar

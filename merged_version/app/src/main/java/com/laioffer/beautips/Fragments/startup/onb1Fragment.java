@@ -29,6 +29,9 @@ public class onb1Fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
+        myEdit.putString("if_stylist", "false").apply();
+        myEdit.putString("if_stylist", "true").apply();
+        myEdit.putString("stylistName", "err").apply();
         View view = inflater.inflate(R.layout.fragment_onb1, null);
         initview(view);
         return view;
@@ -50,8 +53,7 @@ public class onb1Fragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.login_1:
                 String uuid = preferences.getString("uuid", "");
-                myEdit.putString("uuid", "").apply();
-
+                uuid ="";
                 if (!uuid.equals("")){
                     //viewModel get UserInfo
                     Log.d("here","this is with shared pref");

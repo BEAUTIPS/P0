@@ -74,7 +74,7 @@ public class StylistPostFragment extends Fragment {
 
         //recycler view image show
         recyclerView = view.findViewById(R.id.swipe_post_recycler_view);
-        Log.i("size of list",String.valueOf(postList.size()));
+
         //use grid layout
         int numberOfColumns = 2;
         StylistPostAdapter = new StylistPostAdapter(context, postList);
@@ -116,7 +116,6 @@ public class StylistPostFragment extends Fragment {
                         getViewLifecycleOwner(),
                         response -> {
                             if (response != null) {
-                                Log.d("TestResult for getting stylist first", response.toString());
                                 //Binding set text
                                 stylistInfo = response;
                                 StylistPostAdapter.setFirst(stylistInfo);
@@ -126,7 +125,6 @@ public class StylistPostFragment extends Fragment {
                                                 getViewLifecycleOwner(),
                                                 response2 -> {
                                                     if (response2 != null) {
-                                                        Log.d("TestResult for images for post frag", response.toString());
                                                         //Binding set text
                                                         Posts = response2;
                                                         StylistPostAdapter.setPosts(Posts);
