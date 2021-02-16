@@ -89,9 +89,7 @@ public class StylistProfileFragment extends Fragment{
 
             @Override
             public void onClick(View arg0) {
-
                 ConstraintLayout mainView = binding.layoutProfile;
-
 
                 PopUp popUpClass = new PopUp();
                 popUpClass.showPopupWindow(arg0);
@@ -99,7 +97,7 @@ public class StylistProfileFragment extends Fragment{
                 ImageButton button = binding.scheduleButton;
                 shade.setVisibility(View.VISIBLE);
                 button.setVisibility(View.INVISIBLE);
-                Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(arg0.getContext(), "Schedule works", Toast.LENGTH_SHORT).show();
                 BottomNavigationView navigation = (BottomNavigationView) getActivity().findViewById(R.id.nav_view);
 
 

@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.laioffer.beautips.MainActivity;
 import com.laioffer.beautips.Models.User;
@@ -33,7 +37,7 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
     private SharedPreferences.Editor myEdit;
     private ImageButton delete;
     private EditText email;
-    private EditText passowrd;
+    private EditText password;
     private TextView signup;
     private ImageButton login;
     private String emailText ;
@@ -47,6 +51,18 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
         binding = binding.inflate(inflater, container, false);
         preferences = getActivity().getSharedPreferences("loginSharedPreferences", Context.MODE_PRIVATE);
         myEdit = preferences.edit();
+
+        UserRepository repository = new UserRepository(getContext());
+        viewModel = new ViewModelProvider(this, new BeautipsViewModelFactory_User(repository))
+                .get(setUpViewModel.class);
+        delete = (ImageButton)binding.delete2;
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
+            }
+        });
+
         return binding.getRoot();
     }
 
@@ -63,21 +79,46 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
                 getFragmentManager().beginTransaction().replace(R.id.fl_main, new signUpFragment()).commit();
             }
         });
-        email=view.findViewById(R.id.email);
-        passowrd = view.findViewById(R.id.pwd);
+        email = (EditText) view.findViewById(R.id.email);
+        email.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                emailText= email.getText().toString();
+            }
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int a, int b, int c) {
+            }
+        });
+
+        password = (EditText) view.findViewById(R.id.pwd);
+        password.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                passwordText= password.getText().toString();
+            }
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int a, int b, int c) {
+            }
+        });
+
         signup = view.findViewById(R.id.signup_3);
         signup.setOnClickListener(this);
-        emailText = email.getText().toString();
-        passwordText = passowrd.getText().toString();
 
 
         login = (ImageButton)binding.login3;
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myEdit.putString("email", emailText);
-                myEdit.putString("name", emailText);
-                myEdit.putString("password", passwordText);
+                myEdit.putString("email", emailText).apply();
+                Toast.makeText(v.getContext(), emailText, Toast.LENGTH_SHORT).show();
+                myEdit.putString("name", emailText).apply();
+                myEdit.putString("password", passwordText).apply();
 
                 user = new User();
                 user.setEmail(preferences.getString("email", ""));
@@ -86,9 +127,10 @@ public class logInFragment extends Fragment implements  View.OnClickListener{
 
                 MutableLiveData<String> result = viewModel.getUserInfo(user);
                 Intent intent  = new Intent(getActivity(), MainActivity.class);
-                if(result != null){
+                if(result != null && result.getValue() == "true"){
                     startActivity(intent);
                 }
+
             }
         });
     }

@@ -42,7 +42,7 @@ def handle_post_request_login():
     email = content['email']
     password = content['password']
     if_signed_in = Firebase_instance.sign_in_with_email_and_password(email, password)
-    print("Test login is successful!")
+    print(if_signed_in)
     return str(if_signed_in)
   
 
