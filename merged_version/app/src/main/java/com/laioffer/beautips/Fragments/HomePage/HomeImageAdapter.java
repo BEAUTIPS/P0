@@ -52,7 +52,7 @@ public class HomeImageAdapter extends RecyclerView.Adapter<HomeImageAdapter.Home
         holder.likeCount.setText(String.valueOf(postImage.getNumOfLikes()));
         holder.stylistName.setText(postImage.getOwnerId());
 
-        Picasso.get().load(postImage.getImageUrl()).into(holder.stylistPic);
+        Picasso.get().load(postImage.getProfileImageUrl()).into(holder.stylistPic);
         Picasso.get().load(postImage.getImageUrl()).into(holder.post);
         /*GlideApp.with(holder.itemView)
                 .load(getImage(postImage.getProfileImageUrl()))

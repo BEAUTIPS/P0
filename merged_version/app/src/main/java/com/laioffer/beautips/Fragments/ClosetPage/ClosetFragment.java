@@ -40,6 +40,8 @@ import com.laioffer.beautips.R;
 import com.laioffer.beautips.databinding.FragmentClosetBinding;
 
 import java.util.ArrayList;
+import java.util.List;
+
 public class ClosetFragment extends Fragment {
 
     FragmentClosetBinding binding;
@@ -115,18 +117,37 @@ public class ClosetFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
                 if(params.width == 206) {
+                    ArrayList <Closet> search = new ArrayList<>();
+                    Log.d(TAG, "onClick: size of CloseList" + ClosetList.size());
+                    for (int i = 0; i < ClosetList.size(); i++) {
+
+                        if (ClosetList.get(i).getTopSize().compareTo(TopSize) == 0 ){
+                            search.add(ClosetList.get(i));
+                        }
+                    }
+                    Log.d(TAG, "SEARCHLIST SIZE" + search.size());
+                    GetDataBaseFromFireBaseForSearch(TopSize);
+                    int numberOfColumns = 2;
+                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+
+                    ClosetImageAdapter = new ClosetImageAdapter(context, search);
+                    recyclerView.setAdapter(ClosetImageAdapter);
+
                     new CountDownTimer(1500,1500) {
                         @Override
                         public void onTick(long millisUntilFinished) {
                             loading.setVisibility(View.VISIBLE);
                         }
 
+
                         @Override
                         public void onFinish() {
                             loading.setVisibility(View.GONE);
                         }
                     }.start();
+
                 } else {
                     new CountDownTimer(500,500) {
                         @Override
@@ -611,6 +632,8 @@ public class ClosetFragment extends Fragment {
         ClosetList = new ArrayList<>();
         ClearAll();
         GetDataBaseFromFireBase();
+
+
         FloatingActionButton backToTop = view.findViewById(R.id.toTop); // back to top
         backToTop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -699,6 +722,7 @@ public class ClosetFragment extends Fragment {
 
     private void GetDataBaseFromFireBase() {
         Query query = myRef.child("Closet");
+
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -745,6 +769,63 @@ public class ClosetFragment extends Fragment {
             }
         });
 
+    }
+
+    public void GetDataBaseFromFireBaseForSearch(String topSize){
+        Query query = myRef.child("Closet");
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()) {
+                    /*Post post = new Post();
+
+                    post.setImageName(snapshot.child("imageName").getValue().toString());
+                    post.setImageUrl(snapshot.child("imageUrl").getValue().toString());
+                    post.setNumOfLikes(Integer.parseInt(snapshot.child("numOfLikes").getValue().toString()));
+                    post.setOwnerId(snapshot.child("ownerId").getValue().toString());
+                    post.setProfileImageUrl(snapshot.child("profileImageUrl").getValue().toString());
+                    post.setPostId(snapshot.child("postId").getValue().toString());
+                    post.setTimeStamp(snapshot.child("timeStamp").getValue().toString());
+
+                    postList.add(post);*/
+
+                    Closet closet = new Closet();
+                    closet.setBodyShape(snapshot.child("bodyShape").getValue().toString());
+                    closet.setImageName(snapshot.child("imageName").getValue().toString());
+                    closet.setImageUrl(snapshot.child("imageUrl").getValue().toString());
+                    closet.setScore(Integer.parseInt(snapshot.child("score").getValue().toString()));
+                    closet.setBottomSize(snapshot.child("bottomSize").getValue().toString());
+                    closet.setDressCode(snapshot.child("dressCode").getValue().toString());
+                    closet.setOccasion(snapshot.child("occasion").getValue().toString());
+
+                    String postTop = snapshot.child("topSize").getValue().toString();
+                    closet.setTopSize(postTop);
+
+                    closet.setBottomPrice(Integer.parseInt(snapshot.child("bottomPrice").getValue().toString()));
+                    closet.setTopPrice(Integer.parseInt(snapshot.child("topPrice").getValue().toString()));
+                    closet.setTopUrl(snapshot.child("topUrl").getValue().toString());
+                    closet.setTopName(snapshot.child("topName").getValue().toString());
+                    closet.setBottomUrl(snapshot.child("bottomUrl").getValue().toString());
+                    closet.setBottomName(snapshot.child("bottomName").getValue().toString());
+                    if (postTop == topSize) {
+                        Log.d(TAG, "onDataChange: equal");
+                        ClosetList.add(closet);
+                    }
+
+                }
+
+                ClosetImageAdapter = new ClosetImageAdapter(context, ClosetList);
+                recyclerView.setAdapter(ClosetImageAdapter);
+                ClosetImageAdapter.notifyDataSetChanged();
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void ClearAll () {

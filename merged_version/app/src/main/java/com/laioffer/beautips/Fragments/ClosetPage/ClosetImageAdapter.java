@@ -57,7 +57,7 @@ public class ClosetImageAdapter extends RecyclerView.Adapter<ClosetImageAdapter.
         // modify all the text view
 
         holder.likeCount.setText(String.valueOf(ClosetImage.getScore()));
-        holder.stylistName.setText(ClosetImage.getTopName());
+        holder.stylistName.setText(ClosetImage.getBodyShape());
         int price = ClosetImage.getBottomPrice() + ClosetImage.getTopPrice();
         String priceTotal = "$" + price;
         holder.likeCount.setText(priceTotal);

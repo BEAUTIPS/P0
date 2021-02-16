@@ -65,14 +65,15 @@
         android:id="@+id/stylist_name_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="192dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="15dp"
         android:elevation="15dp"
         android:fontFamily="@montserrat"
         android:text="Abby"
         android:textColor="#666666"
-        android:textSize="10dp"
+        android:textSize="14dp"
+
         app:layout_constraintBottom_toBottomOf="@+id/postPic"
         app:layout_constraintEnd_toEndOf="@+id/postPic"
         app:layout_constraintHorizontal_bias="0.256"
@@ -83,6 +84,7 @@
 
         <TextView
             android:id="@+id/bottomName"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="203dp"
