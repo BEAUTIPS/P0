@@ -56,6 +56,34 @@ public class UserRepository {
 
 
 
+    public MutableLiveData<User> getUserData(String uuid){
+        MutableLiveData<User> result = new MutableLiveData<>();
+        Call<User> callResult = userLoginApi.getUserProfile(uuid);
+        callResult.enqueue(new Callback<User>() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    result.setValue(response.body());
+                    Log.i("Successful on user profile get ", response.body().toString());
+                } else {
+                    Log.i("Failure status code for user info:", String.valueOf(response.errorBody()));
+                    result.setValue(null);
+                }
+            }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.i("Login is wrong", t.toString());
+            }
+        });
+        return result;
+
+    }
+
+
+
+
+
 
 
 

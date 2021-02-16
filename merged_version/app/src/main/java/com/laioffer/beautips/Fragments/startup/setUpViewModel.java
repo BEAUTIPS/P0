@@ -29,5 +29,12 @@ public class setUpViewModel extends ViewModel {
         return result;
     }
 
+    public MutableLiveData<User> getUserProfile(String uuid){
+
+        MutableLiveData<User> result = this.repo.getUserData(uuid);
+//        Log.d("tagging test viewmodel for login", result.getValue());
+        return result;
+    }
+
 
 }

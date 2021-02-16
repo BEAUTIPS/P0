@@ -13,5 +13,9 @@ public interface UserLoginApi {
     @POST("login")
     Call<String> getUserLoginInfo(@Body User user);
 
+    @Headers("Content-Type: application/json")
+    @POST("userinfo")
+    Call<User> getUserProfile(@Body String uuid);
+
 
 }
