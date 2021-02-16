@@ -50,6 +50,8 @@ public class onb1Fragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.login_1:
                 String uuid = preferences.getString("uuid", "");
+                myEdit.putString("uuid", "").apply();
+
                 if (!uuid.equals("")){
                     //viewModel get UserInfo
                     Log.d("here","this is with shared pref");
