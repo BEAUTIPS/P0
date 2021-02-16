@@ -6,7 +6,7 @@
     android:layout_height="245dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="165dp"
+        android:layout_width="168dp"
         android:layout_height="match_parent"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp"
@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/postPic"
-            android:layout_width="165dp"
+            android:layout_width="168dp"
             android:layout_height="230dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cat"
