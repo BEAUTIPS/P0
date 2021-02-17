@@ -59,14 +59,14 @@ public class StylistListFragment extends Fragment {
         Log.d("a",binding.stylistListRecyclerView.toString());
         Stylist abby = new Stylist("Abby");
         abby.setNumOfCustomers(123);
-        abby.setNumOfReviews(123);
+        abby.setNumOfReviews(12);
         abby.setTitle("Specialist");
         abby.setProfileImageUrl("https://firebasestorage.googleapis.com/v0/b/beautips-54eb3.appspot.com/o/Abby%2FMask%20Group-6.png?alt=media&token=a9372e0f-6edb-4c77-bf39-4a0baf1ce979");
 
 
         Stylist emily = new Stylist("Emily");
         emily.setNumOfCustomers(312);
-        emily.setNumOfReviews(233);
+        emily.setNumOfReviews(123);
         emily.setTitle("Nordstrom Style Advisor");
         emily.setProfileImageUrl("https://firebasestorage.googleapis.com/v0/b/beautips-54eb3.appspot.com/o/Emily%2FRectangle%20135.png?alt=media&token=0406c870-fe0d-4264-bdf0-66b912274284");
 
