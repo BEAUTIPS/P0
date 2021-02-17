@@ -51,16 +51,11 @@ class Firebase_auth:
         now it returns nothing
         '''
         if self.initialize_firestore_sucess and self.sign_in_success:
+            
             db = firestore.client()
             users_ref = db.collection(u'Stylists').document(stylistName).get().to_dict()
-            print(users_ref)
             return users_ref
-            # get all the nodes in the Styist node
-            # docs = users_ref.stream()
-            # #get all stylists
-            # for doc in docs:
-            #     print(f'{doc.id} => {doc.to_dict()}')
-
+           
     def retrieve_image(self, stylistName):
         '''
         This method retreive data from firbase
@@ -73,7 +68,6 @@ class Firebase_auth:
             images  = []
             for doc in users_ref:
                 images.append(doc.to_dict())
-            print(images)
             return images
             # get all the nodes in the Styist node
             # docs = users_ref.stream()
@@ -116,7 +110,6 @@ class Firebase_auth:
         if self.initialize_firestore_sucess:
             db = firestore.client()
             result = db.collection('Users').document(uid).get().to_dict()
-            print("result is", result)
             return result
 
 
@@ -143,7 +136,7 @@ class Firebase_auth:
             return False
         except:
             #here can send request to front end  and used shared pref
-            print("login sucess")
+           
             self.sign_in_success = True
             self.uuid = login_result['localId']
 
@@ -152,14 +145,14 @@ class Firebase_auth:
         
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    # this email address is in the firebase already
-    email = "beautipstestuser@gmail.com"
-    password = "123456"
-    Firebase_instance = Firebase_auth()
-    Firebase_instance.sign_in_with_email_and_password(email, password)
-    # Firebase_instance.get_storage_bucket()
-    Firebase_instance.retrieve_image("Abby")
+#     # this email address is in the firebase already
+#     email = "beautipstestuser@gmail.com"
+#     password = "123456"
+#     Firebase_instance = Firebase_auth()
+#     Firebase_instance.sign_in_with_email_and_password(email, password)
+#     # Firebase_instance.get_storage_bucket()
+#     Firebase_instance.retrieve_image("Abby")
 
 

@@ -23,13 +23,16 @@ Firebase_instance.sign_in_with_email_and_password(email, password)
 def handle_post_request():
     content = request.json
     response = Firebase_instance.initialize_firestore_retrieve_data(request.json['name'])
+    print(response)
     response['Availability'] = []
     return jsonify(response)
 
 @app.route('/stylistsposts', methods=['GET', 'POST'])
 def handle_stylist_post_request():
     content = request.json
-    print("this is", content)
+    print("Getting selected stylist's name from app....")
+    print("Stylist selected is: {}".format(content))
+    print("Getting selected stylist's posts....")
     response = Firebase_instance.retrieve_image(content)
 
     return jsonify(response)
@@ -48,7 +51,6 @@ def handle_post_request_login():
 @app.route('/signup', methods=['GET', 'POST'])
 def handle_stylist_post_request_sign_up():
     content = request.json
-    print(content)
     response = "Successfully Signup"
     return jsonify(response)
 
@@ -57,7 +59,6 @@ def handle_stylist_post_request_sign_up():
 def handle_user_info():
     content = request.json
     response = Firebase_instance.retrieve_user_login_info(content)
-    print(response)
     return jsonify(response)
 
   
