@@ -27,15 +27,13 @@ Current Version, P0.
 ## Authors
 
 Contributors:
-May Zhao
-lin zhu
-Weibo Teng
-haoming geng
-Yuan Meng
+May Zhao,
+Lin Zhu,
+Weibo Teng,
+Haoming Geng,
+Yuan Meng,
 Tianhao Shen
 
-
- 
 
 ## License
 
